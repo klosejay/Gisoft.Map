@@ -60,5 +60,29 @@ namespace Gisoft.SharpMap.Data.Providers
         /// <param name="rowId">The id of the row.</param>
         /// <returns>datarow</returns>
         FeatureDataRow GetFeature(TOid rowId);
+
+        /// <summary>
+        /// 添加要素
+        /// </summary>
+        /// <param name="feature"></param>
+        void AddFeature(FeatureDataRow feature);
+
+        /// <summary>
+        /// 修改要素
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="feature"></param>
+        void ModifyFeature(TOid id, FeatureDataRow feature);
+
+        /// <summary>
+        /// 删除要素
+        /// </summary>
+        /// <param name="id"></param>
+        void RemoveFeature(TOid id);
+
+        /// <summary>
+        /// 保存修改
+        /// </summary>
+        void Save();
     }
 }

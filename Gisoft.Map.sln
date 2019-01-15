@@ -35,6 +35,9 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NetTopologySuite", "NetTopologySuite", "{8F5FCBE5-CF74-448E-BEAD-8AFC100B555A}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SharpMap", "SharpMap", "{145AACA9-A2BC-4F90-A962-4EB7BB564619}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\..\Samples\SharpMap\SharpMap.Extensions\GdalConfiguration.cs = ..\..\..\Samples\SharpMap\SharpMap.Extensions\GdalConfiguration.cs
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gisoft.SharpMap", "OpenSourceProjects\Gisoft.SharpMap\Gisoft.SharpMap.csproj", "{FC3B344F-BAD7-466F-B46B-3A583CBD61AF}"
 EndProject
@@ -47,6 +50,8 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Example", "Example", "{30688E1A-93B0-4B18-B6FB-56ED3EBA82A5}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPFExample", "Example\WPFExample\WPFExample.csproj", "{E796755C-58F6-43BE-8B97-E9C0A1E094C9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gisoft.SharpMap.Plugins", "OpenSourceProjects\Gisoft.SharpMap.Plugins\Gisoft.SharpMap.Plugins.csproj", "{E043E3EC-240A-4E05-86D9-ACF58D297795}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -120,6 +125,14 @@ Global
 		{E796755C-58F6-43BE-8B97-E9C0A1E094C9}.Release|Any CPU.Build.0 = Release|Any CPU
 		{E796755C-58F6-43BE-8B97-E9C0A1E094C9}.Release|x86.ActiveCfg = Release|Any CPU
 		{E796755C-58F6-43BE-8B97-E9C0A1E094C9}.Release|x86.Build.0 = Release|Any CPU
+		{E043E3EC-240A-4E05-86D9-ACF58D297795}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E043E3EC-240A-4E05-86D9-ACF58D297795}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E043E3EC-240A-4E05-86D9-ACF58D297795}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{E043E3EC-240A-4E05-86D9-ACF58D297795}.Debug|x86.Build.0 = Debug|Any CPU
+		{E043E3EC-240A-4E05-86D9-ACF58D297795}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E043E3EC-240A-4E05-86D9-ACF58D297795}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E043E3EC-240A-4E05-86D9-ACF58D297795}.Release|x86.ActiveCfg = Release|Any CPU
+		{E043E3EC-240A-4E05-86D9-ACF58D297795}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -137,6 +150,7 @@ Global
 		{C0B4B214-4AC4-4A7D-842E-F2F2670B269E} = {9D619D77-9435-4C44-AB47-3ADC09789C44}
 		{CFF5FFF0-D654-4D25-B295-74493A3EF916} = {9D619D77-9435-4C44-AB47-3ADC09789C44}
 		{E796755C-58F6-43BE-8B97-E9C0A1E094C9} = {30688E1A-93B0-4B18-B6FB-56ED3EBA82A5}
+		{E043E3EC-240A-4E05-86D9-ACF58D297795} = {145AACA9-A2BC-4F90-A962-4EB7BB564619}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {839835F1-0783-4AAD-8BED-2F885DC3632B}

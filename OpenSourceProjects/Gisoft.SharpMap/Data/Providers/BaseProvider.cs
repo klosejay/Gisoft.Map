@@ -21,6 +21,24 @@ namespace Gisoft.SharpMap.Data.Providers
         private int _srid;
         private bool _isOpen;
 
+        private FeatureDataTable _featureEditCache;
+        //protected FeatureDataTable FeatureEditCache
+        //{
+        //    get
+        //    {
+                
+        //            if (_featureEditCache == null)
+        //            {
+        //            lock (this)
+        //            {
+        //                if (_featureEditCache == null)
+        //                {
+        //                    _featureEditCache=CloneTableStructure()
+        //                }
+        //        }
+        //    }
+        //}
+
         /// <summary>
         /// Event raised when <see cref="SRID"/> has changed
         /// </summary>
@@ -236,6 +254,26 @@ namespace Gisoft.SharpMap.Data.Providers
             }
             */
             return res;
+        }
+
+        public virtual void AddFeature(FeatureDataRow feature)
+        {
+            throw new NotImplementedException();
+        }
+
+        public virtual void ModifyFeature(uint id, FeatureDataRow feature)
+        {
+            throw new NotImplementedException();
+        }
+
+        public virtual void RemoveFeature(uint id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public virtual void Save()
+        {
+            throw new NotImplementedException();
         }
     }
 
@@ -469,6 +507,26 @@ namespace Gisoft.SharpMap.Data.Providers
             }
             */
             return res;
+        }
+
+        public virtual void AddFeature(FeatureDataRow feature)
+        {
+            throw new NotImplementedException();
+        }
+
+        public virtual void ModifyFeature(TOid id, FeatureDataRow feature)
+        {
+            throw new NotImplementedException();
+        }
+
+        public virtual void RemoveFeature(TOid id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public virtual void Save()
+        {
+            throw new NotImplementedException();
         }
     }
 }

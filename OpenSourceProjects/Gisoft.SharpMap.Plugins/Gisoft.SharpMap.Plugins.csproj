@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E043E3EC-240A-4E05-86D9-ACF58D297795}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Gisoft.SharpMap</RootNamespace>
+    <AssemblyName>Gisoft.SharpMap.Plugins</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Data\FwToolsHelper.cs" />
+    <Compile Include="Data\Providers\OgrProvider.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Example\WPFExample\WPFExample.csproj">
+      <Project>{e796755c-58f6-43be-8b97-e9c0a1e094c9}</Project>
+      <Name>WPFExample</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Gisoft.GeoAPI.CoordinateSystems\Gisoft.GeoAPI.CoordinateSystems.csproj">
+      <Project>{76902585-d8c3-48d2-a6bc-2573b1cac534}</Project>
+      <Name>Gisoft.GeoAPI.CoordinateSystems</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Gisoft.GeoAPI\Gisoft.GeoAPI.csproj">
+      <Project>{06d429b3-170f-4843-913a-3ebcc669e900}</Project>
+      <Name>Gisoft.GeoAPI</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Gisoft.NetTopologySuite\Gisoft.NetTopologySuite.csproj">
+      <Project>{85b0aca2-edc3-49e3-b0b2-cd8fa24926bb}</Project>
+      <Name>Gisoft.NetTopologySuite</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Gisoft.ProjNet\Gisoft.ProjNET.csproj">
+      <Project>{afb5dbab-516a-4fa6-889c-ea681f43e769}</Project>
+      <Name>Gisoft.ProjNET</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Gisoft.SharpMap.UI\Gisoft.SharpMap.UI.WinForm\Gisoft.SharpMap.UI.WinForm.csproj">
+      <Project>{c0b4b214-4ac4-4a7d-842e-f2f2670b269e}</Project>
+      <Name>Gisoft.SharpMap.UI.WinForm</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Gisoft.SharpMap.UI\Gisoft.SharpMap.UI.WPFHost\Gisoft.SharpMap.UI.WPFHost.csproj">
+      <Project>{cff5fff0-d654-4d25-b295-74493a3ef916}</Project>
+      <Name>Gisoft.SharpMap.UI.WPFHost</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Gisoft.SharpMap\Gisoft.SharpMap.csproj">
+      <Project>{fc3b344f-bad7-466f-b46b-3a583cbd61af}</Project>
+      <Name>Gisoft.SharpMap</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
