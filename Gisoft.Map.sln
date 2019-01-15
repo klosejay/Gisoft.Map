@@ -21,6 +21,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PropsAndKey", "PropsAndKey"
 		PropsAndKey\ProjNet.Common.props = PropsAndKey\ProjNet.Common.props
 		PropsAndKey\ProjNETSharedAssemblyVersion.cs = PropsAndKey\ProjNETSharedAssemblyVersion.cs
 		PropsAndKey\scskey.snk = PropsAndKey\scskey.snk
+		PropsAndKey\SharpMap.Common.props = PropsAndKey\SharpMap.Common.props
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gisoft.GeoAPI.CoordinateSystems", "OpenSourceProjects\Gisoft.GeoAPI.CoordinateSystems\Gisoft.GeoAPI.CoordinateSystems.csproj", "{76902585-D8C3-48D2-A6BC-2573B1CAC534}"
