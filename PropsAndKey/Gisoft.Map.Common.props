@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project>
+  <PropertyGroup>
+    <OutputPath>$(SolutionDir)$(Configuration)\$(Platform)</OutputPath>
+    <DocumentationFile>$(OutputPath)\$(TargetFramework)\$(AssemblyName).xml</DocumentationFile>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Authors>Gisoft-GIS Team</Authors>
+    <Company>Gisoft-GIS</Company>
+    <Version>1.0.0.0</Version>
+    <FileVersion>1.0.0.0</FileVersion>
+    <Copyright>Copyright © Gisoft  2018</Copyright>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(TargetFramework)' == 'net45' Or '$(TargetFramework)' == 'net46' Or '$(TargetFramework)' == 'net461' Or '$(TargetFramework)' == 'net47'">
+    <RequiresFrameworkAssemblyReferences>true</RequiresFrameworkAssemblyReferences>
+    <DebugType>full</DebugType>
+
+    <DefineConstants>$(DefineConstants);COMPAT_BOOTSTRAP_USING_REFLECTION</DefineConstants>
+
+    <DefineConstants>$(DefineConstants);FEATURE_DEFAULT_PARAMETERS</DefineConstants>
+    <DefineConstants>$(DefineConstants);FEATURE_INTERFACE_VARIANCE</DefineConstants>
+
+    <DefineConstants>$(DefineConstants);HAS_SYSTEM_APPDOMAIN_GETASSEMBLIES</DefineConstants>
+    <DefineConstants>$(DefineConstants);HAS_SYSTEM_APPLICATIONEXCEPTION</DefineConstants>
+    <DefineConstants>$(DefineConstants);HAS_SYSTEM_DOUBLE_TRYPARSE</DefineConstants>
+    <DefineConstants>$(DefineConstants);HAS_SYSTEM_ICLONEABLE</DefineConstants>
+    <DefineConstants>$(DefineConstants);HAS_SYSTEM_REFLECTION_ASSEMBLY_GETEXPORTEDTYPES</DefineConstants>
+    <DefineConstants>$(DefineConstants);HAS_SYSTEM_RUNTIME_INTEROPSERVICES_COMVISIBLEATTRIBUTE</DefineConstants>
+    <DefineConstants>$(DefineConstants);HAS_SYSTEM_RUNTIME_INTEROPSERVICES_GUIDATTRIBUTE</DefineConstants>
+    <DefineConstants>$(DefineConstants);HAS_SYSTEM_SERIALIZABLEATTRIBUTE</DefineConstants>
+    <DefineConstants>$(DefineConstants);HAS_SYSTEM_STRING_TOUPPERINVARIANT</DefineConstants>
+    <DefineConstants>$(DefineConstants);HAS_SYSTEM_STRING_TOUPPER_CULTUREINFO</DefineConstants>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(TargetFramework)' == 'net45' Or '$(TargetFramework)' == 'net46' Or '$(TargetFramework)' == 'net461' Or '$(TargetFramework)' == 'net47'">
+    <DefineConstants>$(DefineConstants);HAS_SYSTEM_LAZY_T</DefineConstants>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(TargetFramework)' == 'netstandard2.0' ">
+    <DefineConstants>$(DefineConstants);FEATURE_DEFAULT_PARAMETERS</DefineConstants>
+    <DefineConstants>$(DefineConstants);HAS_SYSTEM_APPDOMAIN_GETASSEMBLIES</DefineConstants>
+    <DefineConstants>$(DefineConstants);HAS_SYSTEM_APPLICATIONEXCEPTION</DefineConstants>
+    <DefineConstants>$(DefineConstants);HAS_SYSTEM_ICLONEABLE</DefineConstants>
+    <DefineConstants>$(DefineConstants);HAS_SYSTEM_SERIALIZABLEATTRIBUTE</DefineConstants>
+    <DefineConstants>$(DefineConstants);HAS_SYSTEM_STRING_TOUPPER_CULTUREINFO</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(TargetFramework)' == 'netcoreapp2.0' ">
+    <DefineConstants>$(DefineConstants);FEATURE_DEFAULT_PARAMETERS</DefineConstants>
+    <DefineConstants>$(DefineConstants);HAS_SYSTEM_APPDOMAIN_GETASSEMBLIES</DefineConstants>
+    <DefineConstants>$(DefineConstants);HAS_SYSTEM_APPLICATIONEXCEPTION</DefineConstants>
+    <DefineConstants>$(DefineConstants);HAS_SYSTEM_SERIALIZABLEATTRIBUTE</DefineConstants>
+    <DefineConstants>$(DefineConstants);HAS_SYSTEM_STRING_TOUPPER_CULTUREINFO</DefineConstants>
+  </PropertyGroup>
+  
+</Project>

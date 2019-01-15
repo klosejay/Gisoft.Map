@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <SolutionDir Condition=" '$(SolutionDir)' == '' ">$(ProjectDir)..\</SolutionDir>
+    <RootNamespace>Gisoft.ProjNet</RootNamespace>
+    <TargetFrameworks>net45;net46;net47;net461;netstandard2.0;netcoreapp2.0</TargetFrameworks>
+    <Platforms>AnyCPU;x86</Platforms>
+  </PropertyGroup>
+
+  <Import Project="$(SolutionDir)PropsAndKey\ProjNet.Common.props" />
+
+
+  <PropertyGroup Condition=" '$(TargetFramework)' == 'net45' Or '$(TargetFramework)' == 'net46' Or '$(TargetFramework)' == 'net461' Or '$(TargetFramework)' == 'net47'">
+    <RequiresFrameworkAssemblyReferences>true</RequiresFrameworkAssemblyReferences>
+    <DebugType>full</DebugType>
+
+    <DefineConstants>$(DefineConstants);FEATURE_DESERIALIZATION_CONSTRUCTOR</DefineConstants>
+    <DefineConstants>$(DefineConstants);HAS_SYSTEM_RUNTIME_INTEROPSERVICES_COMVISIBLEATTRIBUTE</DefineConstants>
+    <DefineConstants>$(DefineConstants);HAS_SYSTEM_RUNTIME_INTEROPSERVICES_GUIDATTRIBUTE</DefineConstants>
+    <DefineConstants>$(DefineConstants);HAS_SYSTEM_SERIALIZABLEATTRIBUTE</DefineConstants>
+    <DefineConstants>$(DefineConstants);HAS_SYSTEM_THREADING_THREADPOOL</DefineConstants>
+    <DefineConstants>$(DefineConstants);HAS_SYSTEM_TYPE_GETCONSTRUCTORS</DefineConstants>
+    <DefineConstants>$(DefineConstants);HAS_SYSTEM_TYPE_ISASSIGNABLEFROM</DefineConstants>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(TargetFramework)' == 'net45' ">
+    <DefineConstants>$(DefineConstants);HAS_SYSTEM_REFLECTION_TYPEINFO</DefineConstants>
+    <DefineConstants>$(DefineConstants);HAS_SYSTEM_THREADING_TASKS_TASK_RUN</DefineConstants>
+  </PropertyGroup>
+
+
+  <PropertyGroup Condition=" '$(TargetFramework)' == 'netcoreapp2.0' Or '$(TargetFramework)' == 'netstandard2.0' ">
+    <DefineConstants>$(DefineConstants);HAS_SYSTEM_REFLECTION_TYPEINFO</DefineConstants>
+    <DefineConstants>$(DefineConstants);HAS_SYSTEM_THREADING_TASKS_TASK_RUN</DefineConstants>
+    <DefineConstants>$(DefineConstants);FEATURE_DESERIALIZATION_CONSTRUCTOR</DefineConstants>
+    <DefineConstants>$(DefineConstants);HAS_SYSTEM_SERIALIZABLEATTRIBUTE</DefineConstants>
+    <DefineConstants>$(DefineConstants);HAS_SYSTEM_THREADING_THREADPOOL</DefineConstants>
+    <DefineConstants>$(DefineConstants);HAS_SYSTEM_TYPE_GETCONSTRUCTORS</DefineConstants>
+    <DefineConstants>$(DefineConstants);HAS_SYSTEM_TYPE_ISASSIGNABLEFROM</DefineConstants>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(TargetFramework)' == 'netstandard2.0' ">
+    
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="$(SolutionDir)PropsAndKey\ProjNETSharedAssemblyVersion.cs" Link="Properties\SharedAssemblyVersion.cs" />
+  </ItemGroup>
+  
+
+  <ItemGroup>
+    <ProjectReference Include="..\Gisoft.GeoAPI.CoordinateSystems\Gisoft.GeoAPI.CoordinateSystems.csproj" />
+    <ProjectReference Include="..\Gisoft.GeoAPI\Gisoft.GeoAPI.csproj" />
+  </ItemGroup>
+</Project>

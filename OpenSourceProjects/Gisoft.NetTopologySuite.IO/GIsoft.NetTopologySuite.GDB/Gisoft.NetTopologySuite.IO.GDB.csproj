@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <SolutionDir Condition=" '$(SolutionDir)' == '' ">$(ProjectDir)..\..\</SolutionDir>
+    <TargetFrameworks>
+      net45;net46;net47;net461;netstandard2.0;netcoreapp2.0
+    </TargetFrameworks>
+    <RootNamespace>Gisoft.NetTopologySuite.IO</RootNamespace>
+    <AssemblyName>Gisoft.NetTopologySuite.IO.GDB</AssemblyName>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>$(SolutionDir)PropsAndKey\nts.snk</AssemblyOriginatorKeyFile>
+    <Platforms>AnyCPU;x86</Platforms>
+  </PropertyGroup>
+
+  <Import Project="$(SolutionDir)PropsAndKey\NetTopologySuite.Common.props" />
+
+  <ItemGroup>
+    <Compile Include="$(SolutionDir)PropsAndKey\NetTopologySuiteSharedAssemblyVersion.cs" Link="Properties\SharedAssemblyVersion.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\GeoAPI.CoordinateSystems\Gisoft.GeoAPI.CoordinateSystems.csproj" />
+    <ProjectReference Include="..\..\GeoAPI\Gisoft.GeoAPI.csproj" />
+    <ProjectReference Include="..\..\NetTopologySuite\Gisoft.NetTopologySuite.csproj" />
+    <ProjectReference Include="..\NetTopologySuite.IO.ShapeFile\Gisoft.NetTopologySuite.IO.ShapeFile.csproj" />
+  </ItemGroup>
+</Project>

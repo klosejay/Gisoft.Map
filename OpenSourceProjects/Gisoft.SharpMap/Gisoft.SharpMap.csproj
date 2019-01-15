@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Gisoft.GeoAPI.CoordinateSystems\Gisoft.GeoAPI.CoordinateSystems.csproj" />
+    <ProjectReference Include="..\Gisoft.GeoAPI\Gisoft.GeoAPI.csproj" />
+    <ProjectReference Include="..\Gisoft.NetTopologySuite\Gisoft.NetTopologySuite.csproj" />
+    <ProjectReference Include="..\Gisoft.ProjNet\Gisoft.ProjNET.csproj" />
+  </ItemGroup>
+
+</Project>

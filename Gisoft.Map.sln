@@ -1,0 +1,105 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.136
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "OpenSourceProjects", "OpenSourceProjects", "{51F03ABA-D10E-41A6-A7D4-EC9E222DF114}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gisoft.GeoAPI", "OpenSourceProjects\Gisoft.GeoAPI\Gisoft.GeoAPI.csproj", "{06D429B3-170F-4843-913A-3EBCC669E900}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PropsAndKey", "PropsAndKey", "{1AB1902D-804A-4C09-BED3-6F93EC27060F}"
+	ProjectSection(SolutionItems) = preProject
+		PropsAndKey\DotSpatial.Common.props = PropsAndKey\DotSpatial.Common.props
+		PropsAndKey\GeoAPI.Common.props = PropsAndKey\GeoAPI.Common.props
+		PropsAndKey\geoapi.snk = PropsAndKey\geoapi.snk
+		PropsAndKey\GeoAPISharedAssemblyVersion.cs = PropsAndKey\GeoAPISharedAssemblyVersion.cs
+		PropsAndKey\Gisoft.Map.Common.props = PropsAndKey\Gisoft.Map.Common.props
+		PropsAndKey\Gisoft.Map.DotSpatial.Common.props = PropsAndKey\Gisoft.Map.DotSpatial.Common.props
+		PropsAndKey\NetTopologySuite.Common.props = PropsAndKey\NetTopologySuite.Common.props
+		PropsAndKey\NetTopologySuiteSharedAssemblyVersion.cs = PropsAndKey\NetTopologySuiteSharedAssemblyVersion.cs
+		PropsAndKey\nts.snk = PropsAndKey\nts.snk
+		PropsAndKey\ProjNet.Common.props = PropsAndKey\ProjNet.Common.props
+		PropsAndKey\ProjNETSharedAssemblyVersion.cs = PropsAndKey\ProjNETSharedAssemblyVersion.cs
+		PropsAndKey\scskey.snk = PropsAndKey\scskey.snk
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gisoft.GeoAPI.CoordinateSystems", "OpenSourceProjects\Gisoft.GeoAPI.CoordinateSystems\Gisoft.GeoAPI.CoordinateSystems.csproj", "{76902585-D8C3-48D2-A6BC-2573B1CAC534}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gisoft.NetTopologySuite", "OpenSourceProjects\Gisoft.NetTopologySuite\Gisoft.NetTopologySuite.csproj", "{85B0ACA2-EDC3-49E3-B0B2-CD8FA24926BB}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gisoft.ProjNET", "OpenSourceProjects\Gisoft.ProjNet\Gisoft.ProjNET.csproj", "{AFB5DBAB-516A-4FA6-889C-EA681F43E769}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GeoAPI", "GeoAPI", "{9304337F-5A67-4E4C-AA8C-AF9EAF7D4002}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NetTopologySuite", "NetTopologySuite", "{8F5FCBE5-CF74-448E-BEAD-8AFC100B555A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SharpMap", "SharpMap", "{145AACA9-A2BC-4F90-A962-4EB7BB564619}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gisoft.SharpMap", "OpenSourceProjects\Gisoft.SharpMap\Gisoft.SharpMap.csproj", "{FC3B344F-BAD7-466F-B46B-3A583CBD61AF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{06D429B3-170F-4843-913A-3EBCC669E900}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{06D429B3-170F-4843-913A-3EBCC669E900}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{06D429B3-170F-4843-913A-3EBCC669E900}.Debug|x86.ActiveCfg = Debug|x86
+		{06D429B3-170F-4843-913A-3EBCC669E900}.Debug|x86.Build.0 = Debug|x86
+		{06D429B3-170F-4843-913A-3EBCC669E900}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{06D429B3-170F-4843-913A-3EBCC669E900}.Release|Any CPU.Build.0 = Release|Any CPU
+		{06D429B3-170F-4843-913A-3EBCC669E900}.Release|x86.ActiveCfg = Release|x86
+		{06D429B3-170F-4843-913A-3EBCC669E900}.Release|x86.Build.0 = Release|x86
+		{76902585-D8C3-48D2-A6BC-2573B1CAC534}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{76902585-D8C3-48D2-A6BC-2573B1CAC534}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{76902585-D8C3-48D2-A6BC-2573B1CAC534}.Debug|x86.ActiveCfg = Debug|x86
+		{76902585-D8C3-48D2-A6BC-2573B1CAC534}.Debug|x86.Build.0 = Debug|x86
+		{76902585-D8C3-48D2-A6BC-2573B1CAC534}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{76902585-D8C3-48D2-A6BC-2573B1CAC534}.Release|Any CPU.Build.0 = Release|Any CPU
+		{76902585-D8C3-48D2-A6BC-2573B1CAC534}.Release|x86.ActiveCfg = Release|x86
+		{76902585-D8C3-48D2-A6BC-2573B1CAC534}.Release|x86.Build.0 = Release|x86
+		{85B0ACA2-EDC3-49E3-B0B2-CD8FA24926BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{85B0ACA2-EDC3-49E3-B0B2-CD8FA24926BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{85B0ACA2-EDC3-49E3-B0B2-CD8FA24926BB}.Debug|x86.ActiveCfg = Debug|x86
+		{85B0ACA2-EDC3-49E3-B0B2-CD8FA24926BB}.Debug|x86.Build.0 = Debug|x86
+		{85B0ACA2-EDC3-49E3-B0B2-CD8FA24926BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{85B0ACA2-EDC3-49E3-B0B2-CD8FA24926BB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{85B0ACA2-EDC3-49E3-B0B2-CD8FA24926BB}.Release|x86.ActiveCfg = Release|x86
+		{85B0ACA2-EDC3-49E3-B0B2-CD8FA24926BB}.Release|x86.Build.0 = Release|x86
+		{AFB5DBAB-516A-4FA6-889C-EA681F43E769}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AFB5DBAB-516A-4FA6-889C-EA681F43E769}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AFB5DBAB-516A-4FA6-889C-EA681F43E769}.Debug|x86.ActiveCfg = Debug|x86
+		{AFB5DBAB-516A-4FA6-889C-EA681F43E769}.Debug|x86.Build.0 = Debug|x86
+		{AFB5DBAB-516A-4FA6-889C-EA681F43E769}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AFB5DBAB-516A-4FA6-889C-EA681F43E769}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AFB5DBAB-516A-4FA6-889C-EA681F43E769}.Release|x86.ActiveCfg = Release|x86
+		{AFB5DBAB-516A-4FA6-889C-EA681F43E769}.Release|x86.Build.0 = Release|x86
+		{FC3B344F-BAD7-466F-B46B-3A583CBD61AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC3B344F-BAD7-466F-B46B-3A583CBD61AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC3B344F-BAD7-466F-B46B-3A583CBD61AF}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{FC3B344F-BAD7-466F-B46B-3A583CBD61AF}.Debug|x86.Build.0 = Debug|Any CPU
+		{FC3B344F-BAD7-466F-B46B-3A583CBD61AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC3B344F-BAD7-466F-B46B-3A583CBD61AF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC3B344F-BAD7-466F-B46B-3A583CBD61AF}.Release|x86.ActiveCfg = Release|Any CPU
+		{FC3B344F-BAD7-466F-B46B-3A583CBD61AF}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{06D429B3-170F-4843-913A-3EBCC669E900} = {9304337F-5A67-4E4C-AA8C-AF9EAF7D4002}
+		{76902585-D8C3-48D2-A6BC-2573B1CAC534} = {9304337F-5A67-4E4C-AA8C-AF9EAF7D4002}
+		{85B0ACA2-EDC3-49E3-B0B2-CD8FA24926BB} = {8F5FCBE5-CF74-448E-BEAD-8AFC100B555A}
+		{AFB5DBAB-516A-4FA6-889C-EA681F43E769} = {8F5FCBE5-CF74-448E-BEAD-8AFC100B555A}
+		{9304337F-5A67-4E4C-AA8C-AF9EAF7D4002} = {51F03ABA-D10E-41A6-A7D4-EC9E222DF114}
+		{8F5FCBE5-CF74-448E-BEAD-8AFC100B555A} = {51F03ABA-D10E-41A6-A7D4-EC9E222DF114}
+		{145AACA9-A2BC-4F90-A962-4EB7BB564619} = {51F03ABA-D10E-41A6-A7D4-EC9E222DF114}
+		{FC3B344F-BAD7-466F-B46B-3A583CBD61AF} = {145AACA9-A2BC-4F90-A962-4EB7BB564619}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {839835F1-0783-4AAD-8BED-2F885DC3632B}
+	EndGlobalSection
+EndGlobal

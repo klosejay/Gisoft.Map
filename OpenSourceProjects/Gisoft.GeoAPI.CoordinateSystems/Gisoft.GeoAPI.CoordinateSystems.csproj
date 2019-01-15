@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <SolutionDir Condition=" '$(SolutionDir)' == '' ">$(ProjectDir)..\..\</SolutionDir>
+    <TargetFrameworks>net45;net46;net47;net461;netstandard2.0;netcoreapp2.0</TargetFrameworks>
+    <NoWarn>1591</NoWarn>
+    <RootNamespace>Gisoft.GeoAPI</RootNamespace>
+    <Platforms>AnyCPU;x86</Platforms>
+
+  </PropertyGroup>
+
+  <Import Project="$(SolutionDir)PropsAndKey\GeoAPI.Common.props" />
+
+  <ItemGroup Condition=" '$(RequiresFrameworkAssemblyReferences)' == 'true' ">
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
+    <PackageReference Include="System.Collections" Version="4.3.0" />
+    <PackageReference Include="System.Diagnostics.Tools" Version="4.3.0" />
+    <PackageReference Include="System.Globalization" Version="4.3.0" />
+    <PackageReference Include="System.IO" Version="4.3.0" />
+    <PackageReference Include="System.Reflection" Version="4.3.0" />
+    <PackageReference Include="System.Runtime" Version="4.3.0" />
+    <PackageReference Include="System.Runtime.Extensions" Version="4.3.0" />
+    <PackageReference Include="System.Threading" Version="4.3.0" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'netcoreapp2.0'">
+
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <Compile Include="$(SolutionDir)PropsAndKey\GeoAPISharedAssemblyVersion.cs" Link="Properties\SharedAssemblyVersion.cs" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <ProjectReference Include="..\Gisoft.GeoAPI\Gisoft.GeoAPI.csproj" />
+  </ItemGroup>
+
+</Project>
