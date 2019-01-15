@@ -3,7 +3,7 @@ using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Runtime.Serialization;
 
-namespace SharpMap.Utilities
+namespace Gisoft.SharpMap.Utilities
 {
     public partial class Surrogates
     {

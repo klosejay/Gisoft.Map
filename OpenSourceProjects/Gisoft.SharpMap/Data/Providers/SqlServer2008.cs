@@ -20,11 +20,11 @@
 // Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA    
 
 // Note - Supports both Geometry AND Geography types for SQL Server 2008 onwards. 
-// The '2008' suffix in the class name is to distinguish from SharpMap.Data.Providers.MsSqlSpatial provider (Sql Server 2005).
+// The '2008' suffix in the class name is to distinguish from Gisoft.SharpMap.Data.Providers.MsSqlSpatial provider (Sql Server 2005).
 // SqlServer2008 requests WKB from the database (hence will work with Sql Server 2008, 2012, 2016 etc), 
 // and WKB is then parsed to an IGeometry instance using Gisoft.NetTopologySuite.IO.WkbReader
 //
-// Alternatively, to work with native Sql Spatial types, see SharpMap.SqlServerSpatialObjects which requests
+// Alternatively, to work with native Sql Spatial types, see Gisoft.SharpMap.SqlServerSpatialObjects which requests
 // raw spatial bytes from the database and uses Microsoft.SqlServer.Types to convert Sql bytes on the client.
 //
 // By default, the provider ignores invalid spatial objects. This behaviour can be changed by setting 
@@ -40,7 +40,7 @@ using Gisoft.GeoAPI.Geometries;
 using Common.Logging;
 using Gisoft.GeoAPI;
 
-namespace SharpMap.Data.Providers
+namespace Gisoft.SharpMap.Data.Providers
 {
     /// <summary>
     /// Possible spatial object types on SqlServer
@@ -816,7 +816,7 @@ namespace SharpMap.Data.Providers
                             // GEOMETRY EnvelopeAggregate returns RECTILINEAR polygon.
                             sql = $"SELECT {_spatialTypeString}::EnvelopeAggregate({GeometryColumn}{GetMakeValidString()}).STAsBinary() FROM {QualifiedTable}";
                         else
-                            // GEOGRAPHY EnvelopeAggregate returns CURVED polygon (not supported by SharpMap), 
+                            // GEOGRAPHY EnvelopeAggregate returns CURVED polygon (not supported by Gisoft.SharpMap), 
                             // so use ConvextHullAggregate to return POLYGON and FORCE .MakeValid
                             sql = $"SELECT {_spatialTypeString}::ConvexHullAggregate({GeometryColumn}{GetMakeValidString()}).STAsBinary() FROM {QualifiedTable}";
 

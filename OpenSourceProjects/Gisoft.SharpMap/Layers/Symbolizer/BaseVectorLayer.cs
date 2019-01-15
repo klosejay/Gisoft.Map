@@ -4,13 +4,13 @@ using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Runtime.CompilerServices;
 using Gisoft.GeoAPI.Geometries;
-using SharpMap.Data;
-using SharpMap.Data.Providers;
-using SharpMap.Rendering.Symbolizer;
+using Gisoft.SharpMap.Data;
+using Gisoft.SharpMap.Data.Providers;
+using Gisoft.SharpMap.Rendering.Symbolizer;
 using IGeometry = Gisoft.GeoAPI.Geometries.IGeometry;
 using Common.Logging;
 
-namespace SharpMap.Layers.Symbolizer
+namespace Gisoft.SharpMap.Layers.Symbolizer
 {
     /// <summary>
     /// Base class for all vector layers using <see cref="ISymbolizer{TGeometry}"/> approach.
@@ -240,7 +240,7 @@ namespace SharpMap.Layers.Symbolizer
         }
 
         /// <summary>
-        /// Whether the layer is queryable when used in a SharpMap.Web.Wms.WmsServer, ExecuteIntersectionQuery() will be possible in all other situations when set to FALSE
+        /// Whether the layer is queryable when used in a Gisoft.SharpMap.Web.Wms.WmsServer, ExecuteIntersectionQuery() will be possible in all other situations when set to FALSE
         /// </summary>
         public bool IsQueryEnabled { get; set; }
 

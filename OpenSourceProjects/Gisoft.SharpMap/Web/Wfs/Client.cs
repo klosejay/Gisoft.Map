@@ -4,7 +4,7 @@ using System.Net;
 using System.Text;
 using System.Xml;
 
-namespace SharpMap.Web.Wfs
+namespace Gisoft.SharpMap.Web.Wfs
 {
     /// <summary>
     /// Class for requesting and parsing a WFS servers capabilities

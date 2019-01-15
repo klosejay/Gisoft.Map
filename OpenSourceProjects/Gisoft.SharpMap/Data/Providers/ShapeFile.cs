@@ -1,18 +1,18 @@
 // Copyright 2005, 2006 - Morten Nielsen (www.iter.dk)
 //
-// This file is part of SharpMap.
-// SharpMap is free software; you can redistribute it and/or modify
+// This file is part of Gisoft.SharpMap.
+// Gisoft.SharpMap is free software; you can redistribute it and/or modify
 // it under the terms of the GNU Lesser General Public License as published by
 // the Free Software Foundation; either version 2 of the License, or
 // (at your option) any later version.
 // 
-// SharpMap is distributed in the hope that it will be useful,
+// Gisoft.SharpMap is distributed in the hope that it will be useful,
 // but WITHOUT ANY WARRANTY; without even the implied warranty of
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 // GNU Lesser General Public License for more details.
 
 // You should have received a copy of the GNU Lesser General Public License
-// along with SharpMap; if not, write to the Free Software
+// along with Gisoft.SharpMap; if not, write to the Free Software
 // Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA 
 
 using System;
@@ -23,14 +23,14 @@ using System.IO;
 using System.Text;
 using Gisoft.GeoAPI;
 using Gisoft.GeoAPI.Geometries;
-using SharpMap.Utilities.Indexing;
-using SharpMap.Utilities.SpatialIndexing;
+using Gisoft.SharpMap.Utilities.Indexing;
+using Gisoft.SharpMap.Utilities.SpatialIndexing;
 using Common.Logging;
 using Gisoft.GeoAPI.CoordinateSystems;
-using SharpMap.CoordinateSystems;
+using Gisoft.SharpMap.CoordinateSystems;
 using Exception = System.Exception;
 
-namespace SharpMap.Data.Providers
+namespace Gisoft.SharpMap.Data.Providers
 {
     /// <summary>
 	/// Shapefile dataprovider
@@ -38,20 +38,20 @@ namespace SharpMap.Data.Providers
 	/// <remarks>
 	/// <para>The ShapeFile provider is used for accessing ESRI ShapeFiles. The ShapeFile should at least contain the
 	/// [filename].shp, [filename].idx, and if feature-data is to be used, also [filename].dbf file.</para>
-	/// <para>The first time the ShapeFile is accessed, SharpMap will automatically create a spatial index
+	/// <para>The first time the ShapeFile is accessed, Gisoft.SharpMap will automatically create a spatial index
 	/// of the shp-file, and save it as [filename].shp.sidx. If you change or update the contents of the .shp file,
-	/// delete the .sidx file to force SharpMap to rebuilt it. In web applications, the index will automatically
+	/// delete the .sidx file to force Gisoft.SharpMap to rebuilt it. In web applications, the index will automatically
 	/// be cached to memory for faster access, so to reload the index, you will need to restart the web application
 	/// as well.</para>
 	/// <para>
-	/// M values in a shapefile are ignored by SharpMap.
+	/// M values in a shapefile are ignored by Gisoft.SharpMap.
 	/// </para>
 	/// </remarks>
 	/// <example>
 	/// Adding a datasource to a layer:
 	/// <code lang="C#">
-	/// SharpMap.Layers.VectorLayer myLayer = new SharpMap.Layers.VectorLayer("My layer");
-	/// myLayer.DataSource = new SharpMap.Data.Providers.ShapeFile(@"C:\data\MyShapeData.shp");
+	/// Gisoft.SharpMap.Layers.VectorLayer myLayer = new Gisoft.SharpMap.Layers.VectorLayer("My layer");
+	/// myLayer.DataSource = new Gisoft.SharpMap.Data.Providers.ShapeFile(@"C:\data\MyShapeData.shp");
 	/// </code>
 	/// </example>
 	public class ShapeFile : FilterProvider, IProvider
@@ -69,7 +69,7 @@ namespace SharpMap.Data.Providers
         ///// <para>See the <see cref="FilterDelegate"/> property for more info</para>
         ///// </remarks>
         ///// <seealso cref="FilterDelegate"/>
-        ///// <param name="dr"><see cref="SharpMap.Data.FeatureDataRow"/> to test on</param>
+        ///// <param name="dr"><see cref="Gisoft.SharpMap.Data.FeatureDataRow"/> to test on</param>
         ///// <returns>true if this feature should be included, false if it should be filtered</returns>
         //public delegate bool FilterMethod(FeatureDataRow dr);
 
@@ -286,7 +286,7 @@ namespace SharpMap.Data.Providers
 
 
 		/// <summary>
-		/// Gets the <see cref="SharpMap.Data.Providers.ShapeType">shape geometry type</see> in this shapefile.
+		/// Gets the <see cref="Gisoft.SharpMap.Data.Providers.ShapeType">shape geometry type</see> in this shapefile.
 		/// </summary>
 		/// <remarks>
 		/// The property isn't set until the first time the datasource has been opened,
@@ -766,7 +766,7 @@ namespace SharpMap.Data.Providers
         }
 
         /// <summary>
-        /// Gets or sets a value indicating that for <see cref="ExecuteIntersectionQuery(Gisoft.GeoAPI.Geometries.Envelope,SharpMap.Data.FeatureDataSet)"/> the intersection of the geometries and the envelope should be tested.
+        /// Gets or sets a value indicating that for <see cref="ExecuteIntersectionQuery(Gisoft.GeoAPI.Geometries.Envelope,Gisoft.SharpMap.Data.FeatureDataSet)"/> the intersection of the geometries and the envelope should be tested.
         /// </summary>
         public bool DoTrueIntersectionQuery { get; set; }
 

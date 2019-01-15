@@ -1,6 +1,6 @@
 ﻿using Gisoft.GeoAPI.Geometries;
 
-namespace SharpMap.Web.Wms
+namespace Gisoft.SharpMap.Web.Wms
 {
     /// <summary>
     /// Spatial referenced boundingbox

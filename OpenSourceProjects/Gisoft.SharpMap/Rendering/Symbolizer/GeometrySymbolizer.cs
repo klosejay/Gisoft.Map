@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Drawing;
 using Gisoft.GeoAPI.Geometries;
-using SharpMap.Data;
-using SharpMap.Rendering.Thematics;
+using Gisoft.SharpMap.Data;
+using Gisoft.SharpMap.Rendering.Thematics;
 
-namespace SharpMap.Rendering.Symbolizer
+namespace Gisoft.SharpMap.Rendering.Symbolizer
 {
     /// <summary>
     /// Multi geometry symbolizer class

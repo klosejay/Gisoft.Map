@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 
-namespace SharpMap.Data.Providers
+namespace Gisoft.SharpMap.Data.Providers
 {
     internal class ShapeFileIndex
     {

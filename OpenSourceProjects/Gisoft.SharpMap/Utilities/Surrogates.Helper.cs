@@ -4,7 +4,7 @@ using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
 using System.Runtime.Serialization;
 
-namespace SharpMap.Utilities
+namespace Gisoft.SharpMap.Utilities
 {
     public partial class Surrogates
     {

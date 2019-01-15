@@ -2,10 +2,10 @@ using System;
 using System.Collections.Generic;
 using Gisoft.GeoAPI.Geometries;
 
-namespace SharpMap.Rendering.Symbolizer
+namespace Gisoft.SharpMap.Rendering.Symbolizer
 {
     /// <summary>
-    /// SharpMap's Cohen-Sutherland line clipping algorithm
+    /// Gisoft.SharpMap's Cohen-Sutherland line clipping algorithm
     /// </summary>
     /// <remarks>Inspired by <see href="http://en.wikipedia.org/wiki/Line_clipping"/></remarks>
     public class CohenSutherlandLineClipping

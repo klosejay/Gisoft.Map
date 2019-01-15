@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Xml.XPath;
 
-namespace SharpMap.Utilities.Wfs
+namespace Gisoft.SharpMap.Utilities.Wfs
 {
     /// <summary>
     /// XPathQueryManager interface

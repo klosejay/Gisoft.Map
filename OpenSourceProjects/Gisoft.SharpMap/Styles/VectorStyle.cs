@@ -1,18 +1,18 @@
 // Copyright 2005, 2006 - Morten Nielsen (www.iter.dk)
 //
-// This file is part of SharpMap.
-// SharpMap is free software; you can redistribute it and/or modify
+// This file is part of Gisoft.SharpMap.
+// Gisoft.SharpMap is free software; you can redistribute it and/or modify
 // it under the terms of the GNU Lesser General Public License as published by
 // the Free Software Foundation; either version 2 of the License, or
 // (at your option) any later version.
 // 
-// SharpMap is distributed in the hope that it will be useful,
+// Gisoft.SharpMap is distributed in the hope that it will be useful,
 // but WITHOUT ANY WARRANTY; without even the implied warranty of
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 // GNU Lesser General Public License for more details.
 
 // You should have received a copy of the GNU Lesser General Public License
-// along with SharpMap; if not, write to the Free Software
+// along with Gisoft.SharpMap; if not, write to the Free Software
 // Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA 
 
 using System;
@@ -20,16 +20,16 @@ using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Reflection;
 using Gisoft.GeoAPI.Geometries;
-using SharpMap.Rendering.Symbolizer;
+using Gisoft.SharpMap.Rendering.Symbolizer;
 using Common.Logging;
 #if NETSTANDARD2_0||NETCOREAPP2_0
-using SmColor = SharpMap.Drawing.Color;
+using SmColor = Gisoft.SharpMap.Drawing.Color;
 using Color = System.Drawing.Color;
-using KnownColor = SharpMap.Drawing.KnownColor;
+using KnownColor = Gisoft.SharpMap.Drawing.KnownColor;
 #else
 using SmColor = System.Drawing.Color;
 #endif
-namespace SharpMap.Styles
+namespace Gisoft.SharpMap.Styles
 {
     /// <summary>
     /// Defines a style used for rendering vector data
@@ -50,7 +50,7 @@ namespace SharpMap.Styles
         /// </summary>
         static VectorStyle()
         {
-            var rs = Assembly.GetExecutingAssembly().GetManifestResourceStream("SharpMap.Styles.DefaultSymbol.png");
+            var rs = Assembly.GetExecutingAssembly().GetManifestResourceStream("Gisoft.SharpMap.Styles.DefaultSymbol.png");
             if (rs != null)
                 DefaultSymbol = Image.FromStream(rs);
         }

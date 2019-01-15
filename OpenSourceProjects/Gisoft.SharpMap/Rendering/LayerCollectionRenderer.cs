@@ -6,10 +6,10 @@ using System.Drawing.Imaging;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using Common.Logging;
-using SharpMap.Layers;
-using SharpMap.Styles;
+using Gisoft.SharpMap.Layers;
+using Gisoft.SharpMap.Styles;
 
-namespace SharpMap.Rendering
+namespace Gisoft.SharpMap.Rendering
 {
     /// <summary>
     /// A layer collection renderer

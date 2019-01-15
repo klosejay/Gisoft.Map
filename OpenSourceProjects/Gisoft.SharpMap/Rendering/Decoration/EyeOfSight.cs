@@ -2,7 +2,7 @@
 using System.Drawing;
 using System.Drawing.Drawing2D;
 
-namespace SharpMap.Rendering.Decoration
+namespace Gisoft.SharpMap.Rendering.Decoration
 {
     /// <summary>
     /// Eye of sight class

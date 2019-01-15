@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace SharpMap.Base
+namespace Gisoft.SharpMap.Base
 {
     
     /// <summary>

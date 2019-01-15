@@ -7,7 +7,7 @@ using System.Text;
 using System.Xml;
 using Gisoft.GeoAPI.Geometries;
 
-namespace SharpMap.Utilities.Wfs
+namespace Gisoft.SharpMap.Utilities.Wfs
 {
     //ReSharper disable InconsistentNaming
     /// <summary>

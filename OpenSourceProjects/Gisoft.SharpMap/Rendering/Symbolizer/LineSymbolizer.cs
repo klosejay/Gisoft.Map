@@ -2,7 +2,7 @@ using System.Drawing;
 using System.Drawing.Drawing2D;
 using Gisoft.GeoAPI.Geometries;
 
-namespace SharpMap.Rendering.Symbolizer
+namespace Gisoft.SharpMap.Rendering.Symbolizer
 {
     /// <summary>
     /// Abstract base class for all line symbolizer classes

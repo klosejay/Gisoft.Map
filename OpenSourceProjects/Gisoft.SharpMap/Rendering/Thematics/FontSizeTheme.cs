@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Drawing;
-using SharpMap.Base;
-using SharpMap.Data;
-using SharpMap.Layers;
-using SharpMap.Styles;
+using Gisoft.SharpMap.Base;
+using Gisoft.SharpMap.Data;
+using Gisoft.SharpMap.Layers;
+using Gisoft.SharpMap.Styles;
 
-namespace SharpMap.Rendering.Thematics
+namespace Gisoft.SharpMap.Rendering.Thematics
 {
     /// <summary>
     /// A theme that calculates the font size dependant on the map's zoom
@@ -13,13 +13,13 @@ namespace SharpMap.Rendering.Thematics
     /// <example>
     /// <code language="C#">
     /// // Create a map
-    /// var map = new SharpMap.Map();
+    /// var map = new Gisoft.SharpMap.Map();
     /// // Create the label layer   
-    /// var layer = new SharpMap.Layers.LabelLayer("Label");
+    /// var layer = new Gisoft.SharpMap.Layers.LabelLayer("Label");
     /// // Assign data source
     /// layer.DataSource = myDataSource;
     /// // Assign theme
-    /// layer.Theme = new SharpMap.Rendering.Thematics.FontSizeTheme(layer, map)
+    /// layer.Theme = new Gisoft.SharpMap.Rendering.Thematics.FontSizeTheme(layer, map)
     /// {
     ///    // these values are both optional
     ///    MinFontSize = 6f,

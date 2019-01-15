@@ -1,28 +1,28 @@
 // Copyright 2006 - Morten Nielsen (www.iter.dk)
 //
-// This file is part of SharpMap.
-// SharpMap is free software; you can redistribute it and/or modify
+// This file is part of Gisoft.SharpMap.
+// Gisoft.SharpMap is free software; you can redistribute it and/or modify
 // it under the terms of the GNU Lesser General Public License as published by
 // the Free Software Foundation; either version 2 of the License, or
 // (at your option) any later version.
 // 
-// SharpMap is distributed in the hope that it will be useful,
+// Gisoft.SharpMap is distributed in the hope that it will be useful,
 // but WITHOUT ANY WARRANTY; without even the implied warranty of
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 // GNU Lesser General Public License for more details.
 
 // You should have received a copy of the GNU Lesser General Public License
-// along with SharpMap; if not, write to the Free Software
+// along with Gisoft.SharpMap; if not, write to the Free Software
 // Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA 
 
 using System;
 using System.Collections.ObjectModel;
 using System.Data;
 using System.Data.SqlClient;
-using SharpMap.Converters.WellKnownBinary;
+using Gisoft.SharpMap.Converters.WellKnownBinary;
 using Gisoft.GeoAPI.Geometries;
 
-namespace SharpMap.Data.Providers
+namespace Gisoft.SharpMap.Data.Providers
 {
     /// <summary>
     /// Microsoft SQL data provider
@@ -33,14 +33,14 @@ namespace SharpMap.Data.Providers
     /// and four real values holding the boundingbox of the geometry. These must be named: Envelope_MinX, Envelope_MinY, Envelope_MaxX and Envelope_MaxY.
     /// Any extra columns will be returns as feature data.
     /// </para>
-    /// <para>For creating a valid MS SQL datatable for SharpMap, see <see cref="CreateDataTable"/> 
+    /// <para>For creating a valid MS SQL datatable for Gisoft.SharpMap, see <see cref="CreateDataTable"/> 
     /// for creating and uploading a datasource to MS SQL Server.</para>
     /// <example>
     /// Adding a datasource to a layer:
     /// <code lang="C#">
-    /// SharpMap.Layers.VectorLayer myLayer = new SharpMap.Layers.VectorLayer("My layer");
+    /// Gisoft.SharpMap.Layers.VectorLayer myLayer = new Gisoft.SharpMap.Layers.VectorLayer("My layer");
     /// string ConnStr = @"Data Source=.\SQLEXPRESS;AttachDbFilename=|DataDirectory|GeoDatabase.mdf;Integrated Security=True;User Instance=True";
-    /// myLayer.DataSource = new SharpMap.Data.Providers.MsSql(ConnStr, "myTable");
+    /// myLayer.DataSource = new Gisoft.SharpMap.Data.Providers.MsSql(ConnStr, "myTable");
     /// </code>
     /// </example>
     /// </remarks>
@@ -513,7 +513,7 @@ namespace SharpMap.Data.Providers
         ///			shapeFile.LastIndexOf('.') - shapeFile.LastIndexOf('\\') - 1);
         ///		//Create connectionstring
         ///		string connstr = @"Data Source=.\SQLEXPRESS;AttachDbFilename=|DataDirectory|GeoDatabase.mdf;Integrated Security=True;User Instance=True";
-        ///		int count = SharpMap.Data.Providers.MsSql.CreateDataTable(shp, tablename, connstr);
+        ///		int count = Gisoft.SharpMap.Data.Providers.MsSql.CreateDataTable(shp, tablename, connstr);
         ///		MessageBox.Show("Uploaded " + count.ToString() + " features to datatable '" + tablename + "'");
         ///	}
         /// </code>

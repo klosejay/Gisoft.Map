@@ -1,4 +1,4 @@
-﻿namespace SharpMap.Styles
+﻿namespace Gisoft.SharpMap.Styles
 {
     /// <summary>
     /// Enumerator of available VisibilityUnits

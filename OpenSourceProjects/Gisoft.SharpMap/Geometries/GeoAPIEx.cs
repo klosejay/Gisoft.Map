@@ -1,16 +1,16 @@
-﻿using SharpMap;
+﻿using Gisoft.SharpMap;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Reflection;
 using Gisoft.NetTopologySuite.Geometries;
-using SharpMap.Rendering;
+using Gisoft.SharpMap.Rendering;
 
 namespace Gisoft.GeoAPI.Geometries
 {
     /// <summary>
-    /// Set of extension methods for use of Gisoft.GeoAPI within SharpMap
+    /// Set of extension methods for use of Gisoft.GeoAPI within Gisoft.SharpMap
     /// </summary>
     public static class GeoAPIEx
     {

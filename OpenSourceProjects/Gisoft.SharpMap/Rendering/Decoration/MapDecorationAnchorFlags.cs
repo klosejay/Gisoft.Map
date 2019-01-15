@@ -1,6 +1,6 @@
 using System;
 
-namespace SharpMap.Rendering.Decoration
+namespace Gisoft.SharpMap.Rendering.Decoration
 {
     /// <summary>
     /// Anchor flag values

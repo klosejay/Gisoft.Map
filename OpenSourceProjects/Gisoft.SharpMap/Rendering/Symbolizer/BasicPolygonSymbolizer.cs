@@ -2,7 +2,7 @@ using System;
 using System.Drawing;
 using Gisoft.GeoAPI.Geometries;
 
-namespace SharpMap.Rendering.Symbolizer
+namespace Gisoft.SharpMap.Rendering.Symbolizer
 {
     /// <summary>
     /// Basic polygon symbolizer

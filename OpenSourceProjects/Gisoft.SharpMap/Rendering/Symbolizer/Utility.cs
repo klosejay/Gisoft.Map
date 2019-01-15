@@ -2,13 +2,13 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 #if NETSTANDARD2_0||NETCOREAPP2_0
-using KnownColor = SharpMap.Drawing.KnownColor;
-using SmColor = SharpMap.Drawing.Color;
+using KnownColor = Gisoft.SharpMap.Drawing.KnownColor;
+using SmColor = Gisoft.SharpMap.Drawing.Color;
 #else
 using KnownColor = System.Drawing.KnownColor;
 using SmColor = System.Drawing.Color;
 #endif
-namespace SharpMap.Rendering.Symbolizer
+namespace Gisoft.SharpMap.Rendering.Symbolizer
 {
     /// <summary>
     /// Utility class to Symbolizers, mainly used for pleasant setup;

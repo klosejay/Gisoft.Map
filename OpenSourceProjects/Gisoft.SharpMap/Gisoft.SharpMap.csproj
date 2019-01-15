@@ -7,6 +7,12 @@
   </PropertyGroup>
   <Import Project="$(SolutionDir)PropsAndKey\SharpMap.Common.props" />
   <ItemGroup>
+    <None Remove="Styles\DefaultSymbol.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Styles\DefaultSymbol.png" />
+  </ItemGroup>
+  <ItemGroup>
     <PackageReference Include="Common.Logging" Version="3.4.1" />
   </ItemGroup>
   <ItemGroup Condition=" '$(TargetFramework)' == 'netstandard2.0' ">

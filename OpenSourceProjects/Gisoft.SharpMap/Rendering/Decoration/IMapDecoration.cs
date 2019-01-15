@@ -1,6 +1,6 @@
 using System.Drawing;
 
-namespace SharpMap.Rendering.Decoration
+namespace Gisoft.SharpMap.Rendering.Decoration
 {
     /// <summary>
     /// Interface for all map decorations

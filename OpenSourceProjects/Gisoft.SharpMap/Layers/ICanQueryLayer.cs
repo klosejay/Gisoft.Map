@@ -1,7 +1,7 @@
 using Gisoft.GeoAPI.Geometries;
-using SharpMap.Data;
+using Gisoft.SharpMap.Data;
 
-namespace SharpMap.Layers
+namespace Gisoft.SharpMap.Layers
 {
     /// <summary>
     /// Interface for Layers, that can be queried
@@ -27,7 +27,7 @@ namespace SharpMap.Layers
         void ExecuteIntersectionQuery(IGeometry geometry, FeatureDataSet ds);
 
         /// <summary>
-        /// Whether the layer is queryable when used in a SharpMap.Web.Wms.WmsServer, 
+        /// Whether the layer is queryable when used in a Gisoft.SharpMap.Web.Wms.WmsServer, 
         /// ExecuteIntersectionQuery() will be possible in all other situations when set to FALSE.
         /// This property currently only applies to WMS and should perhaps be moved to a WMS
         /// specific class.

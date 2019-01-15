@@ -5,10 +5,10 @@ using System;
 using System.IO;
 using System.Text;
 using System.Xml;
-using SharpMap.Data.Providers;
+using Gisoft.SharpMap.Data.Providers;
 using Gisoft.GeoAPI.Geometries;
 
-namespace SharpMap.Utilities.Wfs
+namespace Gisoft.SharpMap.Utilities.Wfs
 {
     //ReSharper disable InconsistentNaming
     /// <summary>

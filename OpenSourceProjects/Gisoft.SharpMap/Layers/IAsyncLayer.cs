@@ -2,10 +2,10 @@
 using System.Drawing.Imaging;
 using Gisoft.GeoAPI.Geometries;
 
-namespace SharpMap.Layers
+namespace Gisoft.SharpMap.Layers
 {
     /// <summary>
-    /// Delegate function definition for handling <see cref="T:SharpMap.Layers.ITileAsyncLayer"/>s <see cref="E:SharpMap.Layers.ITileAsyncLayer.MapNewTileAvaliable"/> event
+    /// Delegate function definition for handling <see cref="T:Gisoft.SharpMap.Layers.ITileAsyncLayer"/>s <see cref="E:Gisoft.SharpMap.Layers.ITileAsyncLayer.MapNewTileAvaliable"/> event
     /// </summary>
     /// <param name="sender">The sender</param>
     /// <param name="bbox">The bounding box of the tile</param>

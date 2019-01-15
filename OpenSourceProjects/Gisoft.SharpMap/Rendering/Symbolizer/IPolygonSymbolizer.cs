@@ -1,6 +1,6 @@
 ﻿using Gisoft.GeoAPI.Geometries;
 
-namespace SharpMap.Rendering.Symbolizer
+namespace Gisoft.SharpMap.Rendering.Symbolizer
 {
     /// <summary>
     /// Interface for classes that can symbolize polygons

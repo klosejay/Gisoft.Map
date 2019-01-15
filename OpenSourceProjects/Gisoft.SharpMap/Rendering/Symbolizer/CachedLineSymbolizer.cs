@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using Gisoft.GeoAPI.Geometries;
-using SharpMap.Base;
+using Gisoft.SharpMap.Base;
 
-namespace SharpMap.Rendering.Symbolizer
+namespace Gisoft.SharpMap.Rendering.Symbolizer
 {
 
     /// <summary>

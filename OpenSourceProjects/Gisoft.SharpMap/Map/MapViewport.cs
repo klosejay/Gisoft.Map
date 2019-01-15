@@ -4,12 +4,12 @@ using System.Drawing.Drawing2D;
 using System.Runtime.CompilerServices;
 using System.Threading;
 using Gisoft.GeoAPI.Geometries;
-using SharpMap.Utilities;
+using Gisoft.SharpMap.Utilities;
 
-namespace SharpMap
+namespace Gisoft.SharpMap
 {
     /// <summary>
-    /// A <see cref="SharpMap.Map"/> utility class, that encapsulates all data required for rendering.
+    /// A <see cref="Gisoft.SharpMap.Map"/> utility class, that encapsulates all data required for rendering.
     /// </summary>
     /// <remarks>This is a value class</remarks>
     public class MapViewport

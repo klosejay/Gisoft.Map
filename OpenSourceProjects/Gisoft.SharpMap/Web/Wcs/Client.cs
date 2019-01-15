@@ -4,7 +4,7 @@ using System.Net;
 using System.Text;
 using System.Xml;
 
-namespace SharpMap.Web.Wcs
+namespace Gisoft.SharpMap.Web.Wcs
 {
     /// <summary>
     /// Web Coverage Service Client class

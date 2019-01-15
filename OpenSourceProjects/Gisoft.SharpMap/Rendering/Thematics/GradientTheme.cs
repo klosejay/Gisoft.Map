@@ -1,27 +1,27 @@
 // Copyright 2005, 2006 - Morten Nielsen (www.iter.dk)
 //
-// This file is part of SharpMap.
-// SharpMap is free software; you can redistribute it and/or modify
+// This file is part of Gisoft.SharpMap.
+// Gisoft.SharpMap is free software; you can redistribute it and/or modify
 // it under the terms of the GNU Lesser General Public License as published by
 // the Free Software Foundation; either version 2 of the License, or
 // (at your option) any later version.
 // 
-// SharpMap is distributed in the hope that it will be useful,
+// Gisoft.SharpMap is distributed in the hope that it will be useful,
 // but WITHOUT ANY WARRANTY; without even the implied warranty of
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 // GNU Lesser General Public License for more details.
 
 // You should have received a copy of the GNU Lesser General Public License
-// along with SharpMap; if not, write to the Free Software
+// along with Gisoft.SharpMap; if not, write to the Free Software
 // Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA 
 
 using System;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using SharpMap.Data;
-using SharpMap.Styles;
+using Gisoft.SharpMap.Data;
+using Gisoft.SharpMap.Styles;
 
-namespace SharpMap.Rendering.Thematics
+namespace Gisoft.SharpMap.Rendering.Thematics
 {
     /// <summary>
     /// Gradient theme base class
@@ -71,7 +71,7 @@ namespace SharpMap.Rendering.Thematics
         }
 
         /// <summary>
-        /// Gets or sets the <see cref="SharpMap.Styles.IStyle">style</see> for the minimum value
+        /// Gets or sets the <see cref="Gisoft.SharpMap.Styles.IStyle">style</see> for the minimum value
         /// </summary>
         public IStyle MinStyle
         {
@@ -80,7 +80,7 @@ namespace SharpMap.Rendering.Thematics
         }
 
         /// <summary>
-        /// Gets or sets the <see cref="SharpMap.Styles.IStyle">style</see> for the maximum value
+        /// Gets or sets the <see cref="Gisoft.SharpMap.Styles.IStyle">style</see> for the maximum value
         /// </summary>
         public IStyle MaxStyle
         {
@@ -89,7 +89,7 @@ namespace SharpMap.Rendering.Thematics
         }
 
         /// <summary>
-        /// Gets or sets the <see cref="SharpMap.Rendering.Thematics.ColorBlend"/> used on labels
+        /// Gets or sets the <see cref="Gisoft.SharpMap.Rendering.Thematics.ColorBlend"/> used on labels
         /// </summary>
         public ColorBlend TextColorBlend
         {
@@ -98,7 +98,7 @@ namespace SharpMap.Rendering.Thematics
         }
 
         /// <summary>
-        /// Gets or sets the <see cref="SharpMap.Rendering.Thematics.ColorBlend"/> used on lines
+        /// Gets or sets the <see cref="Gisoft.SharpMap.Rendering.Thematics.ColorBlend"/> used on lines
         /// </summary>
         public ColorBlend LineColorBlend
         {
@@ -107,7 +107,7 @@ namespace SharpMap.Rendering.Thematics
         }
 
         /// <summary>
-        /// Gets or sets the <see cref="SharpMap.Rendering.Thematics.ColorBlend"/> used as Fill
+        /// Gets or sets the <see cref="Gisoft.SharpMap.Rendering.Thematics.ColorBlend"/> used as Fill
         /// </summary>
         public ColorBlend FillColorBlend
         {
@@ -319,7 +319,7 @@ namespace SharpMap.Rendering.Thematics
         /// properties are linearly interpolated between max and min values.
         /// </summary>
         /// <param name="row">Feature</param>
-        /// <returns><see cref="SharpMap.Styles.IStyle">Style</see> calculated by a linear interpolation between the min/max styles</returns>
+        /// <returns><see cref="Gisoft.SharpMap.Styles.IStyle">Style</see> calculated by a linear interpolation between the min/max styles</returns>
         public virtual IStyle GetStyle(FeatureDataRow row)
         {
             double attr;
@@ -336,13 +336,13 @@ namespace SharpMap.Rendering.Thematics
                 throw new ArgumentException("MinStyle and MaxStyle must be of the same type");
             switch (MinStyle.GetType().FullName)
             {
-                case "SharpMap.Styles.VectorStyle":
+                case "Gisoft.SharpMap.Styles.VectorStyle":
                     return CalculateVectorStyle(MinStyle as VectorStyle, MaxStyle as VectorStyle, attr);
-                case "SharpMap.Styles.LabelStyle":
+                case "Gisoft.SharpMap.Styles.LabelStyle":
                     return CalculateLabelStyle(MinStyle as LabelStyle, MaxStyle as LabelStyle, attr);
                 default:
                     throw new ArgumentException(
-                        "Only SharpMap.Styles.VectorStyle and SharpMap.Styles.LabelStyle are supported for the gradient theme");
+                        "Only Gisoft.SharpMap.Styles.VectorStyle and Gisoft.SharpMap.Styles.LabelStyle are supported for the gradient theme");
             }
         }
 
@@ -379,8 +379,8 @@ namespace SharpMap.Rendering.Thematics
         ///		<item><term><see cref="System.Drawing.Color"/></term><description>Red, Green, Blue and Alpha values are linearly interpolated.</description></item>
         ///		<item><term><see cref="System.Drawing.Pen"/></term><description>The color, width, color of pens are interpolated. MiterLimit,StartCap,EndCap,LineJoin,DashStyle,DashPattern,DashOffset,DashCap,CompoundArray, and Alignment are switched in the middle of the min/max values.</description></item>
         ///		<item><term><see cref="System.Drawing.SolidBrush"/></term><description>SolidBrush color are interpolated. Other brushes are not supported.</description></item>
-        ///		<item><term><see cref="SharpMap.Styles.VectorStyle"/></term><description>MaxVisible, MinVisible, Line, Outline, Fill and SymbolScale are scaled linearly. Symbol, EnableOutline and Enabled switch in the middle of the min/max values.</description></item>
-        ///		<item><term><see cref="SharpMap.Styles.LabelStyle"/></term><description>FontSize, BackColor, ForeColor, MaxVisible, MinVisible, Offset are scaled linearly. All other properties use min-style.</description></item>
+        ///		<item><term><see cref="Gisoft.SharpMap.Styles.VectorStyle"/></term><description>MaxVisible, MinVisible, Line, Outline, Fill and SymbolScale are scaled linearly. Symbol, EnableOutline and Enabled switch in the middle of the min/max values.</description></item>
+        ///		<item><term><see cref="Gisoft.SharpMap.Styles.LabelStyle"/></term><description>FontSize, BackColor, ForeColor, MaxVisible, MinVisible, Offset are scaled linearly. All other properties use min-style.</description></item>
         /// </list>
         /// </para>
         /// <example>
@@ -388,14 +388,14 @@ namespace SharpMap.Rendering.Thematics
         /// the population density of a country.
         /// <code lang="C#">
         /// //Create two vector styles to interpolate between
-        /// SharpMap.Styles.VectorStyle min = new SharpMap.Styles.VectorStyle();
-        /// SharpMap.Styles.VectorStyle max = new SharpMap.Styles.VectorStyle();
+        /// Gisoft.SharpMap.Styles.VectorStyle min = new Gisoft.SharpMap.Styles.VectorStyle();
+        /// Gisoft.SharpMap.Styles.VectorStyle max = new Gisoft.SharpMap.Styles.VectorStyle();
         /// min.Outline.Width = 1f; //Outline width of the minimum value
         /// max.Outline.Width = 3f; //Outline width of the maximum value
         /// //Create a theme interpolating population density between 0 and 400
-        /// SharpMap.Rendering.Thematics.GradientTheme popdens = new SharpMap.Rendering.Thematics.GradientTheme("PopDens", 0, 400, min, max);
+        /// Gisoft.SharpMap.Rendering.Thematics.GradientTheme popdens = new Gisoft.SharpMap.Rendering.Thematics.GradientTheme("PopDens", 0, 400, min, max);
         /// //Set the fill-style colors to be a rainbow blend from red to blue.
-        /// popdens.FillColorBlend = SharpMap.Rendering.Thematics.ColorBlend.Rainbow5;
+        /// popdens.FillColorBlend = Gisoft.SharpMap.Rendering.Thematics.ColorBlend.Rainbow5;
         /// myVectorLayer.Theme = popdens;
         /// </code>
         /// </example>

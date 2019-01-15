@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 
-namespace SharpMap.Data.Providers
+namespace Gisoft.SharpMap.Data.Providers
 {
     /// <summary>
     /// Feature column class
@@ -18,6 +18,7 @@ namespace SharpMap.Data.Providers
         /// </summary>
         public SharpMapFeatureColumn()
         {
+
             Display = true;
         }
 

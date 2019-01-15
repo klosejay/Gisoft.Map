@@ -1,9 +1,9 @@
 ﻿using Gisoft.GeoAPI;
 
-namespace SharpMap
+namespace Gisoft.SharpMap
 {
     /// <summary>
-    /// A SharpMap session
+    /// A Gisoft.SharpMap session
     /// </summary>
     public interface ISession
     {

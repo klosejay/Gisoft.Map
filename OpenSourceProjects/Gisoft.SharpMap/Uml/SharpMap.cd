@@ -1,28 +1,28 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
-  <Class Name="SharpMap.Map">
+  <Class Name="Gisoft.SharpMap.Map">
     <Position X="16.5" Y="2" Width="4.5" />
     <Compartments>
       <Compartment Name="Fields" Collapsed="true" />
       <Compartment Name="Nested Types" Collapsed="false" />
     </Compartments>
     <NestedTypes>
-      <Delegate Name="SharpMap.Map.LayersChangedEventHandler" Collapsed="true">
+      <Delegate Name="Gisoft.SharpMap.Map.LayersChangedEventHandler" Collapsed="true">
         <TypeIdentifier>
           <NewMemberFileName>Map\Map.cs</NewMemberFileName>
         </TypeIdentifier>
       </Delegate>
-      <Delegate Name="SharpMap.Map.MapRenderedEventHandler">
+      <Delegate Name="Gisoft.SharpMap.Map.MapRenderedEventHandler">
         <TypeIdentifier>
           <NewMemberFileName>Map\Map.cs</NewMemberFileName>
         </TypeIdentifier>
       </Delegate>
-      <Delegate Name="SharpMap.Map.MapRenderingEventHandler">
+      <Delegate Name="Gisoft.SharpMap.Map.MapRenderingEventHandler">
         <TypeIdentifier>
           <NewMemberFileName>Map\Map.cs</NewMemberFileName>
         </TypeIdentifier>
       </Delegate>
-      <Delegate Name="SharpMap.Map.MapViewChangedHandler" Collapsed="true">
+      <Delegate Name="Gisoft.SharpMap.Map.MapViewChangedHandler" Collapsed="true">
         <TypeIdentifier>
           <NewMemberFileName>Map\Map.cs</NewMemberFileName>
         </TypeIdentifier>
@@ -39,7 +39,7 @@
     </ShowAsCollectionAssociation>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="SharpMap.Rendering.Decoration.MapDecoration">
+  <Class Name="Gisoft.SharpMap.Rendering.Decoration.MapDecoration">
     <Position X="5.25" Y="9.75" Width="3.25" />
     <TypeIdentifier>
       <HashCode>AAAEEAECEAAAgLAAAAIQgAICCIBAAAAAABIAsAAAAAA=</HashCode>
@@ -47,9 +47,9 @@
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="SharpMap.Rendering.Decoration.Disclaimer">
+  <Class Name="Gisoft.SharpMap.Rendering.Decoration.Disclaimer">
     <Position X="1.75" Y="19.5" Width="2" />
-    <InheritanceLine Type="SharpMap.Rendering.Decoration.MapDecoration" ManuallyRouted="true" FixedFromPoint="true">
+    <InheritanceLine Type="Gisoft.SharpMap.Rendering.Decoration.MapDecoration" ManuallyRouted="true" FixedFromPoint="true">
       <Path>
         <Point X="6.312" Y="16.422" />
         <Point X="6.312" Y="16.921" />
@@ -62,16 +62,16 @@
       <FileName>Rendering\Decoration\Disclaimer.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="SharpMap.Rendering.Decoration.GoogleMapsDisclaimer">
+  <Class Name="Gisoft.SharpMap.Rendering.Decoration.GoogleMapsDisclaimer">
     <Position X="10.5" Y="19.5" Width="3" />
     <NestedTypes>
-      <Enum Name="SharpMap.Rendering.Decoration.GoogleMapsDisclaimer.MapType" Collapsed="true">
+      <Enum Name="Gisoft.SharpMap.Rendering.Decoration.GoogleMapsDisclaimer.MapType" Collapsed="true">
         <TypeIdentifier>
           <NewMemberFileName>Rendering\Decoration\GoogleMapsDisclamer.cs</NewMemberFileName>
         </TypeIdentifier>
       </Enum>
     </NestedTypes>
-    <InheritanceLine Type="SharpMap.Rendering.Decoration.MapDecoration" ManuallyRouted="true" FixedFromPoint="true">
+    <InheritanceLine Type="Gisoft.SharpMap.Rendering.Decoration.MapDecoration" ManuallyRouted="true" FixedFromPoint="true">
       <Path>
         <Point X="7.438" Y="16.422" />
         <Point X="7.438" Y="16.672" />
@@ -84,9 +84,9 @@
       <FileName>Rendering\Decoration\GoogleMapsDisclamer.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="SharpMap.Rendering.Decoration.NorthArrow">
+  <Class Name="Gisoft.SharpMap.Rendering.Decoration.NorthArrow">
     <Position X="4" Y="19.5" Width="2.75" />
-    <InheritanceLine Type="SharpMap.Rendering.Decoration.MapDecoration" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+    <InheritanceLine Type="Gisoft.SharpMap.Rendering.Decoration.MapDecoration" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
       <Path>
         <Point X="6.625" Y="16.422" />
         <Point X="6.625" Y="17.22" />
@@ -99,16 +99,16 @@
       <FileName>Rendering\Decoration\NorthArrow.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="SharpMap.Rendering.Decoration.ScaleBar.ScaleBar">
+  <Class Name="Gisoft.SharpMap.Rendering.Decoration.ScaleBar.ScaleBar">
     <Position X="7" Y="19.5" Width="3.25" />
     <NestedTypes>
-      <Class Name="SharpMap.Rendering.Decoration.ScaleBar.ScaleBar.UnitInfo" Collapsed="true">
+      <Class Name="Gisoft.SharpMap.Rendering.Decoration.ScaleBar.ScaleBar.UnitInfo" Collapsed="true">
         <TypeIdentifier>
           <NewMemberFileName>Rendering\Decoration\ScaleBar\ScaleBar.cs</NewMemberFileName>
         </TypeIdentifier>
       </Class>
     </NestedTypes>
-    <InheritanceLine Type="SharpMap.Rendering.Decoration.MapDecoration" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+    <InheritanceLine Type="Gisoft.SharpMap.Rendering.Decoration.MapDecoration" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
       <Path>
         <Point X="7.062" Y="16.422" />
         <Point X="7.062" Y="17.166" />
@@ -121,10 +121,10 @@
       <FileName>Rendering\Decoration\ScaleBar\ScaleBar.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="SharpMap.Layers.Layer">
+  <Class Name="Gisoft.SharpMap.Layers.Layer">
     <Position X="32.5" Y="3" Width="4.5" />
     <NestedTypes>
-      <Delegate Name="SharpMap.Layers.Layer.LayerRenderedEventHandler" Collapsed="true">
+      <Delegate Name="Gisoft.SharpMap.Layers.Layer.LayerRenderedEventHandler" Collapsed="true">
         <TypeIdentifier>
           <NewMemberFileName>Layers\Layer.cs</NewMemberFileName>
         </TypeIdentifier>
@@ -136,31 +136,31 @@
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="SharpMap.Layers.LabelLayer">
+  <Class Name="Gisoft.SharpMap.Layers.LabelLayer">
     <Position X="27" Y="18.75" Width="4.75" />
     <NestedTypes>
-      <Delegate Name="SharpMap.Layers.LabelLayer.GetLabelMethod" Collapsed="true">
+      <Delegate Name="Gisoft.SharpMap.Layers.LabelLayer.GetLabelMethod" Collapsed="true">
         <TypeIdentifier>
           <NewMemberFileName>Layers\LabelLayer.cs</NewMemberFileName>
         </TypeIdentifier>
       </Delegate>
-      <Delegate Name="SharpMap.Layers.LabelLayer.GetPriorityMethod" Collapsed="true">
+      <Delegate Name="Gisoft.SharpMap.Layers.LabelLayer.GetPriorityMethod" Collapsed="true">
         <TypeIdentifier>
           <NewMemberFileName>Layers\LabelLayer.cs</NewMemberFileName>
         </TypeIdentifier>
       </Delegate>
-      <Delegate Name="SharpMap.Layers.LabelLayer.GetLocationMethod" Collapsed="true">
+      <Delegate Name="Gisoft.SharpMap.Layers.LabelLayer.GetLocationMethod" Collapsed="true">
         <TypeIdentifier>
           <NewMemberFileName>Layers\LabelLayer.cs</NewMemberFileName>
         </TypeIdentifier>
       </Delegate>
-      <Enum Name="SharpMap.Layers.LabelLayer.MultipartGeometryBehaviourEnum" Collapsed="true">
+      <Enum Name="Gisoft.SharpMap.Layers.LabelLayer.MultipartGeometryBehaviourEnum" Collapsed="true">
         <TypeIdentifier>
           <NewMemberFileName>Layers\LabelLayer.cs</NewMemberFileName>
         </TypeIdentifier>
       </Enum>
     </NestedTypes>
-    <InheritanceLine Type="SharpMap.Layers.Layer" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+    <InheritanceLine Type="Gisoft.SharpMap.Layers.Layer" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
       <Path>
         <Point X="33.812" Y="10.989" />
         <Point X="33.812" Y="11.56" />
@@ -168,7 +168,7 @@
         <Point X="28.812" Y="18.75" />
       </Path>
     </InheritanceLine>
-    <AssociationLine Name="DataSource" Type="SharpMap.Data.Providers.IProvider" FixedFromPoint="true" FixedToPoint="true">
+    <AssociationLine Name="DataSource" Type="Gisoft.SharpMap.Data.Providers.IProvider" FixedFromPoint="true" FixedToPoint="true">
       <Path>
         <Point X="28.438" Y="18.75" />
         <Point X="28.438" Y="2.469" />
@@ -185,9 +185,9 @@
     </ShowAsAssociation>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="SharpMap.Layers.LayerGroup">
+  <Class Name="Gisoft.SharpMap.Layers.LayerGroup">
     <Position X="29.5" Y="14.25" Width="3.5" />
-    <InheritanceLine Type="SharpMap.Layers.Layer" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+    <InheritanceLine Type="Gisoft.SharpMap.Layers.Layer" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
       <Path>
         <Point X="34.125" Y="10.989" />
         <Point X="34.125" Y="11.992" />
@@ -195,7 +195,7 @@
         <Point X="31.625" Y="14.25" />
       </Path>
     </InheritanceLine>
-    <AssociationLine Name="Layers" Type="SharpMap.Layers.Layer" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+    <AssociationLine Name="Layers" Type="Gisoft.SharpMap.Layers.Layer" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
       <Path>
         <Point X="32.312" Y="14.25" />
         <Point X="32.312" Y="12.66" />
@@ -215,9 +215,9 @@
     </ShowAsCollectionAssociation>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="SharpMap.Layers.Symbolizer.BaseVectorLayer&lt;TGeometry&gt;">
+  <Class Name="Gisoft.SharpMap.Layers.Symbolizer.BaseVectorLayer&lt;TGeometry&gt;">
     <Position X="33.75" Y="14.5" Width="3.5" />
-    <InheritanceLine Type="SharpMap.Layers.Layer" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+    <InheritanceLine Type="Gisoft.SharpMap.Layers.Layer" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
       <Path>
         <Point X="35.688" Y="10.989" />
         <Point X="35.688" Y="12.256" />
@@ -225,7 +225,7 @@
         <Point X="35.938" Y="14.5" />
       </Path>
     </InheritanceLine>
-    <AssociationLine Name="DataSource" Type="SharpMap.Data.Providers.IProvider" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+    <AssociationLine Name="DataSource" Type="Gisoft.SharpMap.Data.Providers.IProvider" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
       <Path>
         <Point X="36.688" Y="14.5" />
         <Point X="36.688" Y="13.253" />
@@ -234,7 +234,7 @@
         <Point X="57.5" Y="3.312" />
       </Path>
     </AssociationLine>
-    <AssociationLine Name="LabelLayer" Type="SharpMap.Layers.LabelLayer" FixedFromPoint="true" FixedToPoint="true">
+    <AssociationLine Name="LabelLayer" Type="Gisoft.SharpMap.Layers.LabelLayer" FixedFromPoint="true" FixedToPoint="true">
       <Path>
         <Point X="33.75" Y="18.688" />
         <Point X="33.375" Y="18.688" />
@@ -252,9 +252,9 @@
     </ShowAsAssociation>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="SharpMap.Layers.TiledWmsLayer">
+  <Class Name="Gisoft.SharpMap.Layers.TiledWmsLayer">
     <Position X="49.75" Y="14.5" Width="3.5" />
-    <InheritanceLine Type="SharpMap.Layers.Layer" ManuallyRouted="true" FixedFromPoint="true">
+    <InheritanceLine Type="Gisoft.SharpMap.Layers.Layer" ManuallyRouted="true" FixedFromPoint="true">
       <Path>
         <Point X="36.875" Y="10.989" />
         <Point X="36.875" Y="11.554" />
@@ -272,9 +272,9 @@
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="SharpMap.Layers.TileLayer">
+  <Class Name="Gisoft.SharpMap.Layers.TileLayer">
     <Position X="41.75" Y="14.5" Width="3.25" />
-    <InheritanceLine Type="SharpMap.Layers.Layer" ManuallyRouted="true" FixedFromPoint="true">
+    <InheritanceLine Type="Gisoft.SharpMap.Layers.Layer" ManuallyRouted="true" FixedFromPoint="true">
       <Path>
         <Point X="36.125" Y="10.989" />
         <Point X="36.125" Y="11.939" />
@@ -291,12 +291,12 @@
       <FileName>Layers\TileLayer.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="SharpMap.Layers.VectorLayer">
+  <Class Name="Gisoft.SharpMap.Layers.VectorLayer">
     <Position X="37.75" Y="14.5" Width="3.5" />
     <Members>
       <Field Name="_dataSource" Hidden="true" />
     </Members>
-    <InheritanceLine Type="SharpMap.Layers.Layer" ManuallyRouted="true" FixedFromPoint="true">
+    <InheritanceLine Type="Gisoft.SharpMap.Layers.Layer" ManuallyRouted="true" FixedFromPoint="true">
       <Path>
         <Point X="35.875" Y="10.989" />
         <Point X="35.875" Y="12.133" />
@@ -306,7 +306,7 @@
         <Point X="39.5" Y="14.5" />
       </Path>
     </InheritanceLine>
-    <AssociationLine Name="DataSource" Type="SharpMap.Data.Providers.IProvider" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+    <AssociationLine Name="DataSource" Type="Gisoft.SharpMap.Data.Providers.IProvider" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
       <Path>
         <Point X="40.25" Y="14.5" />
         <Point X="40.25" Y="3.938" />
@@ -316,7 +316,7 @@
         <Position X="0.177" Y="-0.472" />
       </MemberNameLabel>
     </AssociationLine>
-    <AssociationLine Name="Theme" Type="SharpMap.Rendering.Thematics.ITheme" FixedFromPoint="true" FixedToPoint="true">
+    <AssociationLine Name="Theme" Type="Gisoft.SharpMap.Rendering.Thematics.ITheme" FixedFromPoint="true" FixedToPoint="true">
       <Path>
         <Point X="40.875" Y="19.868" />
         <Point X="40.875" Y="31.812" />
@@ -337,9 +337,9 @@
     </ShowAsCollectionAssociation>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="SharpMap.Layers.WmsLayer">
+  <Class Name="Gisoft.SharpMap.Layers.WmsLayer">
     <Position X="45.25" Y="14.5" Width="4.25" />
-    <InheritanceLine Type="SharpMap.Layers.Layer" ManuallyRouted="true" FixedFromPoint="true">
+    <InheritanceLine Type="Gisoft.SharpMap.Layers.Layer" ManuallyRouted="true" FixedFromPoint="true">
       <Path>
         <Point X="36.375" Y="10.989" />
         <Point X="36.375" Y="11.8" />
@@ -356,9 +356,9 @@
       <FileName>Layers\WmsLayer.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="SharpMap.Layers.Symbolizer.AnyGeometryVectorLayer">
+  <Class Name="Gisoft.SharpMap.Layers.Symbolizer.AnyGeometryVectorLayer">
     <Position X="36.25" Y="20.75" Width="3.25" />
-    <InheritanceLine Type="SharpMap.Layers.Symbolizer.BaseVectorLayer&lt;TGeometry&gt;" FixedFromPoint="true">
+    <InheritanceLine Type="Gisoft.SharpMap.Layers.Symbolizer.BaseVectorLayer&lt;TGeometry&gt;" FixedFromPoint="true">
       <Path>
         <Point X="36.5" Y="19.249" />
         <Point X="36.5" Y="20.375" />
@@ -371,9 +371,9 @@
       <FileName>Layers\Symbolizer\AnyGeometryVectorLayer.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="SharpMap.Layers.Symbolizer.LinealVectorLayer">
+  <Class Name="Gisoft.SharpMap.Layers.Symbolizer.LinealVectorLayer">
     <Position X="36.75" Y="22.5" Width="2.75" />
-    <InheritanceLine Type="SharpMap.Layers.Symbolizer.BaseVectorLayer&lt;TGeometry&gt;" FixedFromPoint="true">
+    <InheritanceLine Type="Gisoft.SharpMap.Layers.Symbolizer.BaseVectorLayer&lt;TGeometry&gt;" FixedFromPoint="true">
       <Path>
         <Point X="36" Y="19.249" />
         <Point X="36" Y="22.26" />
@@ -386,9 +386,9 @@
       <FileName>Layers\Symbolizer\LinealVectorLayer.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="SharpMap.Layers.Symbolizer.PolygonalVectorLayer">
+  <Class Name="Gisoft.SharpMap.Layers.Symbolizer.PolygonalVectorLayer">
     <Position X="32.25" Y="20.75" Width="3" />
-    <InheritanceLine Type="SharpMap.Layers.Symbolizer.BaseVectorLayer&lt;TGeometry&gt;" FixedFromPoint="true">
+    <InheritanceLine Type="Gisoft.SharpMap.Layers.Symbolizer.BaseVectorLayer&lt;TGeometry&gt;" FixedFromPoint="true">
       <Path>
         <Point X="34.562" Y="19.249" />
         <Point X="34.562" Y="20.375" />
@@ -401,9 +401,9 @@
       <FileName>Layers\Symbolizer\PolygonalVectorLayer.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="SharpMap.Layers.Symbolizer.PuntalVectorLayer">
+  <Class Name="Gisoft.SharpMap.Layers.Symbolizer.PuntalVectorLayer">
     <Position X="32.5" Y="22.75" Width="2.75" />
-    <InheritanceLine Type="SharpMap.Layers.Symbolizer.BaseVectorLayer&lt;TGeometry&gt;" FixedFromPoint="true">
+    <InheritanceLine Type="Gisoft.SharpMap.Layers.Symbolizer.BaseVectorLayer&lt;TGeometry&gt;" FixedFromPoint="true">
       <Path>
         <Point X="35.625" Y="19.249" />
         <Point X="35.625" Y="22.375" />
@@ -416,15 +416,15 @@
       <FileName>Layers\Symbolizer\PuntalVectorLayer.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="SharpMap.Data.Providers.WFS" BaseTypeListCollapsed="true">
+  <Class Name="Gisoft.SharpMap.Data.Providers.WFS" BaseTypeListCollapsed="true">
     <Position X="65.75" Y="11.25" Width="4" />
     <NestedTypes>
-      <Enum Name="SharpMap.Data.Providers.WFS.WFSVersionEnum" Collapsed="true">
+      <Enum Name="Gisoft.SharpMap.Data.Providers.WFS.WFSVersionEnum" Collapsed="true">
         <TypeIdentifier>
           <NewMemberFileName>Data\Providers\WFSClient.cs</NewMemberFileName>
         </TypeIdentifier>
       </Enum>
-      <Class Name="SharpMap.Data.Providers.WFS.WFSClientHTTPConfigurator" Collapsed="true">
+      <Class Name="Gisoft.SharpMap.Data.Providers.WFS.WFSClientHTTPConfigurator" Collapsed="true">
         <TypeIdentifier>
           <NewMemberFileName>Data\Providers\WFSClient.cs</NewMemberFileName>
         </TypeIdentifier>
@@ -436,9 +436,9 @@
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="SharpMap.Data.Providers.SqlServer2008">
+  <Class Name="Gisoft.SharpMap.Data.Providers.SqlServer2008">
     <Position X="70.25" Y="11.25" Width="3.5" />
-    <InheritanceLine Type="SharpMap.Data.Providers.BaseProvider" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+    <InheritanceLine Type="Gisoft.SharpMap.Data.Providers.BaseProvider" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
       <Path>
         <Point X="72.125" Y="9.178" />
         <Point X="72.125" Y="10.674" />
@@ -451,16 +451,16 @@
       <FileName>Data\Providers\SqlServer2008.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="SharpMap.Data.Providers.ShapeFile">
+  <Class Name="Gisoft.SharpMap.Data.Providers.ShapeFile">
     <Position X="61" Y="11.25" Width="4.5" />
     <NestedTypes>
-      <Enum Name="SharpMap.Data.Providers.ShapeFile.SpatialIndexCreation" Collapsed="true">
+      <Enum Name="Gisoft.SharpMap.Data.Providers.ShapeFile.SpatialIndexCreation" Collapsed="true">
         <TypeIdentifier>
           <NewMemberFileName>Data\Providers\ShapeFile.cs</NewMemberFileName>
         </TypeIdentifier>
       </Enum>
     </NestedTypes>
-    <InheritanceLine Type="SharpMap.Data.Providers.FilterProvider" ManuallyRouted="true" FixedFromPoint="true">
+    <InheritanceLine Type="Gisoft.SharpMap.Data.Providers.FilterProvider" ManuallyRouted="true" FixedFromPoint="true">
       <Path>
         <Point X="68.125" Y="7.512" />
         <Point X="68.125" Y="8.705" />
@@ -474,9 +474,9 @@
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="SharpMap.Data.Providers.PreparedGeometryProvider">
+  <Class Name="Gisoft.SharpMap.Data.Providers.PreparedGeometryProvider">
     <Position X="78.25" Y="11.25" Width="3.25" />
-    <InheritanceLine Type="SharpMap.Data.Providers.BaseProvider" ManuallyRouted="true" FixedFromPoint="true">
+    <InheritanceLine Type="Gisoft.SharpMap.Data.Providers.BaseProvider" ManuallyRouted="true" FixedFromPoint="true">
       <Path>
         <Point X="72.688" Y="9.178" />
         <Point X="72.688" Y="10.612" />
@@ -489,7 +489,7 @@
       <FileName>Data\Providers\PreparedGeometryProvider.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="SharpMap.Data.Providers.MsSql" BaseTypeListCollapsed="true">
+  <Class Name="Gisoft.SharpMap.Data.Providers.MsSql" BaseTypeListCollapsed="true">
     <Position X="74.25" Y="11.25" Width="3.5" />
     <TypeIdentifier>
       <HashCode>IAIkDAAAACBAaAAgIAAAQIKAIAgkCggAACBAAAigAAA=</HashCode>
@@ -497,9 +497,9 @@
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="SharpMap.Data.Providers.GeometryProvider">
+  <Class Name="Gisoft.SharpMap.Data.Providers.GeometryProvider">
     <Position X="78.25" Y="14.75" Width="3.5" />
-    <InheritanceLine Type="SharpMap.Data.Providers.PreparedGeometryProvider" FixedToPoint="true">
+    <InheritanceLine Type="Gisoft.SharpMap.Data.Providers.PreparedGeometryProvider" FixedToPoint="true">
       <Path>
         <Point X="79.875" Y="13.863" />
         <Point X="79.875" Y="14.75" />
@@ -510,9 +510,9 @@
       <FileName>Data\Providers\GeometryProvider.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="SharpMap.Data.Providers.GeometryFeatureProvider">
+  <Class Name="Gisoft.SharpMap.Data.Providers.GeometryFeatureProvider">
     <Position X="57.25" Y="11.25" Width="3.5" />
-    <InheritanceLine Type="SharpMap.Data.Providers.FilterProvider" ManuallyRouted="true" FixedFromPoint="true">
+    <InheritanceLine Type="Gisoft.SharpMap.Data.Providers.FilterProvider" ManuallyRouted="true" FixedFromPoint="true">
       <Path>
         <Point X="67.812" Y="7.512" />
         <Point X="67.812" Y="8.41" />
@@ -526,13 +526,13 @@
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="SharpMap.Data.Providers.FilterProvider">
+  <Class Name="Gisoft.SharpMap.Data.Providers.FilterProvider">
     <Position X="67.25" Y="5" Width="2.5" />
     <Compartments>
       <Compartment Name="Nested Types" Collapsed="false" />
     </Compartments>
     <NestedTypes>
-      <Delegate Name="SharpMap.Data.Providers.FilterProvider.FilterMethod">
+      <Delegate Name="Gisoft.SharpMap.Data.Providers.FilterProvider.FilterMethod">
         <TypeIdentifier>
           <NewMemberFileName>Data\Providers\FilterProvider.cs</NewMemberFileName>
         </TypeIdentifier>
@@ -543,7 +543,7 @@
       <FileName>Data\Providers\FilterProvider.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="SharpMap.Data.Providers.BaseProvider">
+  <Class Name="Gisoft.SharpMap.Data.Providers.BaseProvider">
     <Position X="70.5" Y="2.5" Width="3.5" />
     <TypeIdentifier>
       <HashCode>IgAACAAQAAAAIAAgIAABAIKAMAgACABAAWAAAgCgAAA=</HashCode>
@@ -551,10 +551,10 @@
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="SharpMap.Rendering.Thematics.CustomTheme" BaseTypeListCollapsed="true">
+  <Class Name="Gisoft.SharpMap.Rendering.Thematics.CustomTheme" BaseTypeListCollapsed="true">
     <Position X="35.5" Y="33.25" Width="2.75" />
     <NestedTypes>
-      <Delegate Name="SharpMap.Rendering.Thematics.CustomTheme.GetStyleMethod" Collapsed="true">
+      <Delegate Name="Gisoft.SharpMap.Rendering.Thematics.CustomTheme.GetStyleMethod" Collapsed="true">
         <TypeIdentifier>
           <NewMemberFileName>Rendering\Thematics\CustomTheme.cs</NewMemberFileName>
         </TypeIdentifier>
@@ -566,7 +566,7 @@
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="SharpMap.Rendering.Thematics.GradientThemeBase">
+  <Class Name="Gisoft.SharpMap.Rendering.Thematics.GradientThemeBase">
     <Position X="32.25" Y="33.25" Width="2.75" />
     <TypeIdentifier>
       <HashCode>AUIAAAAACBEBgAAAEJACAABAAAAAAQEIMgBAAwAgAAM=</HashCode>
@@ -574,9 +574,9 @@
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="SharpMap.Rendering.Thematics.GradientTheme">
+  <Class Name="Gisoft.SharpMap.Rendering.Thematics.GradientTheme">
     <Position X="32.5" Y="41" Width="2.5" />
-    <InheritanceLine Type="SharpMap.Rendering.Thematics.GradientThemeBase" FixedToPoint="true">
+    <InheritanceLine Type="Gisoft.SharpMap.Rendering.Thematics.GradientThemeBase" FixedToPoint="true">
       <Path>
         <Point X="33.625" Y="40.128" />
         <Point X="33.625" Y="41" />
@@ -587,7 +587,7 @@
       <FileName>Rendering\Thematics\GradientTheme.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="SharpMap.Rendering.Thematics.UniqueValuesTheme&lt;T&gt;" BaseTypeListCollapsed="true">
+  <Class Name="Gisoft.SharpMap.Rendering.Thematics.UniqueValuesTheme&lt;T&gt;" BaseTypeListCollapsed="true">
     <Position X="38.75" Y="33.25" Width="3" />
     <TypeIdentifier>
       <HashCode>AFAAAAAIAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAA=</HashCode>
@@ -595,35 +595,35 @@
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Interface Name="SharpMap.Layers.ILayer">
+  <Interface Name="Gisoft.SharpMap.Layers.ILayer">
     <Position X="24.75" Y="2.5" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAgAAAAAABAICACAAAAAAIAAgAABAAABAAAAAAAAA=</HashCode>
       <FileName>Layers\iLayer.cs</FileName>
     </TypeIdentifier>
   </Interface>
-  <Interface Name="SharpMap.Rendering.Decoration.IMapDecoration">
+  <Interface Name="Gisoft.SharpMap.Rendering.Decoration.IMapDecoration">
     <Position X="10.25" Y="8.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAA=</HashCode>
       <FileName>Rendering\Decoration\IMapDecoration.cs</FileName>
     </TypeIdentifier>
   </Interface>
-  <Interface Name="SharpMap.Layers.ICanQueryLayer">
+  <Interface Name="Gisoft.SharpMap.Layers.ICanQueryLayer">
     <Position X="24" Y="6.5" Width="3.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAEAAAAAAAAAAAIAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Layers\ICanQueryLayer.cs</FileName>
     </TypeIdentifier>
   </Interface>
-  <Interface Name="SharpMap.Data.Providers.IProvider">
+  <Interface Name="Gisoft.SharpMap.Data.Providers.IProvider">
     <Position X="57.5" Y="2" Width="3.5" />
     <TypeIdentifier>
       <HashCode>IAAACAAAAAAAIAAgAAAAAIKAIAgACAAAAAAAAACgAAA=</HashCode>
       <FileName>Data\Providers\iProvider.cs</FileName>
     </TypeIdentifier>
   </Interface>
-  <Interface Name="SharpMap.Rendering.Thematics.ITheme">
+  <Interface Name="Gisoft.SharpMap.Rendering.Thematics.ITheme">
     <Position X="35.5" Y="31" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>

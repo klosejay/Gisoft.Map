@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace SharpMap.Web
+namespace Gisoft.SharpMap.Web
 {
     /// <summary>
     /// The ServiceExceptionReport element contains one

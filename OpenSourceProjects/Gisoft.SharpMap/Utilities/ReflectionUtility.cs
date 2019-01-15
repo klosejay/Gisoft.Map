@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Reflection;
 using System.Runtime.Serialization;
 
-namespace SharpMap.Utilities
+namespace Gisoft.SharpMap.Utilities
 {
     internal static class ReflectionUtility
     {

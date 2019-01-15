@@ -1,18 +1,18 @@
 // Copyright 2005, 2006 - Morten Nielsen (www.iter.dk)
 //
-// This file is part of SharpMap.
-// SharpMap is free software; you can redistribute it and/or modify
+// This file is part of Gisoft.SharpMap.
+// Gisoft.SharpMap is free software; you can redistribute it and/or modify
 // it under the terms of the GNU Lesser General Public License as published by
 // the Free Software Foundation; either version 2 of the License, or
 // (at your option) any later version.
 // 
-// SharpMap is distributed in the hope that it will be useful,
+// Gisoft.SharpMap is distributed in the hope that it will be useful,
 // but WITHOUT ANY WARRANTY; without even the implied warranty of
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 // GNU Lesser General Public License for more details.
 
 // You should have received a copy of the GNU Lesser General Public License
-// along with SharpMap; if not, write to the Free Software
+// along with Gisoft.SharpMap; if not, write to the Free Software
 // Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA 
 
 using System;
@@ -25,12 +25,12 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using Gisoft.GeoAPI.Geometries;
-using SharpMap.CoordinateSystems;
-using SharpMap.Rendering.Exceptions;
-using SharpMap.Web.Wms;
+using Gisoft.SharpMap.CoordinateSystems;
+using Gisoft.SharpMap.Rendering.Exceptions;
+using Gisoft.SharpMap.Web.Wms;
 using Common.Logging;
 
-namespace SharpMap.Layers
+namespace Gisoft.SharpMap.Layers
 {
     /// <summary>
     /// Web Map Service layer
@@ -44,9 +44,9 @@ namespace SharpMap.Layers
     /// <example>
     /// The following example creates a map with a WMS layer the Demis WMS Server
     /// <code lang="C#">
-    /// myMap = new SharpMap.Map(new System.Drawing.Size(500,250);
+    /// myMap = new Gisoft.SharpMap.Map(new System.Drawing.Size(500,250);
     /// string wmsUrl = "http://www2.demis.nl/mapserver/request.asp";
-    /// SharpMap.Layers.WmsLayer myLayer = new SharpMap.Layers.WmsLayer("Demis WMS", myLayer);
+    /// Gisoft.SharpMap.Layers.WmsLayer myLayer = new Gisoft.SharpMap.Layers.WmsLayer("Demis WMS", myLayer);
     /// myLayer.AddLayer("Bathymetry");
     /// myLayer.AddLayer("Countries");
     /// myLayer.AddLayer("Topography");
@@ -560,7 +560,7 @@ namespace SharpMap.Layers
         {
             if (!OutputFormats.Contains(mimeType))
                 throw new ArgumentException("WMS service doesn't not offer mimetype '" + mimeType + "'");
-            //Check whether SharpMap supports the specified mimetype
+            //Check whether Gisoft.SharpMap supports the specified mimetype
             bool formatSupported = false;
             foreach (ImageCodecInfo encoder in ImageCodecInfo.GetImageEncoders())
                 if (encoder.MimeType.ToLower() == mimeType.ToLower())
@@ -597,7 +597,7 @@ namespace SharpMap.Layers
             {
                 (myWebRequest as HttpWebRequest).Accept = _mimeType;
                 (myWebRequest as HttpWebRequest).KeepAlive = false;
-                (myWebRequest as HttpWebRequest).UserAgent = "SharpMap-WMSLayer";
+                (myWebRequest as HttpWebRequest).UserAgent = "Gisoft.SharpMap-WMSLayer";
             }
 
             if (Credentials != null)

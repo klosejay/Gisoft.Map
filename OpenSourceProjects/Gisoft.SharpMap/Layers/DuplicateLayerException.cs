@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Runtime.Serialization;
 
-namespace SharpMap.Layers
+namespace Gisoft.SharpMap.Layers
 {
     /// <summary>
     /// Exception thrown when a layer with a name which is the same

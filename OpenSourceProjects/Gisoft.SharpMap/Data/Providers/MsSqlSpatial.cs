@@ -4,19 +4,19 @@
 // MsSqlSpatial provider by Ricardo Stuven.
 // Based on PostGIS provider by Morten Nielsen.
 //
-// This file is part of SharpMap.
-// SharpMap is free software; you can redistribute it and/or modify
+// This file is part of Gisoft.SharpMap.
+// Gisoft.SharpMap is free software; you can redistribute it and/or modify
 // it under the terms of the GNU Lesser General Public License as published by
 // the Free Software Foundation; either version 2 of the License, or
 // (at your option) any later version.
 // 
-// SharpMap is distributed in the hope that it will be useful,
+// Gisoft.SharpMap is distributed in the hope that it will be useful,
 // but WITHOUT ANY WARRANTY; without even the implied warranty of
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 // GNU Lesser General Public License for more details.
 
 // You should have received a copy of the GNU Lesser General Public License
-// along with SharpMap; if not, write to the Free Software
+// along with Gisoft.SharpMap; if not, write to the Free Software
 // Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA 
 
 using System;
@@ -24,10 +24,10 @@ using System.Collections.ObjectModel;
 using System.Data;
 using System.Data.Common;
 using System.Data.SqlClient;
-using SharpMap.Converters.WellKnownBinary;
+using Gisoft.SharpMap.Converters.WellKnownBinary;
 using Gisoft.GeoAPI.Geometries;
 
-namespace SharpMap.Data.Providers
+namespace Gisoft.SharpMap.Data.Providers
 {
     /// <summary>
     /// Microsoft SQL Server 2005 / MsSqlSpatial dataprovider
@@ -35,9 +35,9 @@ namespace SharpMap.Data.Providers
     /// <example>
     /// Adding a datasource to a layer:
     /// <code lang="C#">
-    /// SharpMap.Layers.VectorLayer myLayer = new SharpMap.Layers.VectorLayer("My layer");
+    /// Gisoft.SharpMap.Layers.VectorLayer myLayer = new Gisoft.SharpMap.Layers.VectorLayer("My layer");
     /// string ConnStr = @"Data Source=localhost\sqlexpress;Initial Catalog=myGisDb;Integrated Security=SSPI;";
-    /// myLayer.DataSource = new SharpMap.Data.Providers.MsSqlSpatial(ConnStr, "myTable", "myId");
+    /// myLayer.DataSource = new Gisoft.SharpMap.Data.Providers.MsSqlSpatial(ConnStr, "myTable", "myId");
     /// </code>
     /// </example>
     [Serializable]

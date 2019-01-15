@@ -2,7 +2,7 @@ using System;
 using System.Collections.ObjectModel;
 using Gisoft.GeoAPI.Geometries;
 
-namespace SharpMap.Data.Providers
+namespace Gisoft.SharpMap.Data.Providers
 {
     public interface IBaseProvider : IDisposable
     {

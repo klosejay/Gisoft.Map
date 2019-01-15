@@ -2,7 +2,7 @@ using System;
 using Gisoft.GeoAPI.Geometries;
 using Gisoft.GeoAPI.Geometries.Prepared;
 
-namespace SharpMap.Data.Providers
+namespace Gisoft.SharpMap.Data.Providers
 {
     /// <summary>
     /// Abstract base provider that provides <see cref="IPreparedGeometry"/> for faster accurate topology evaluation

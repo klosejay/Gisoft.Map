@@ -1,9 +1,9 @@
 using System;
 using Gisoft.GeoAPI.Geometries;
-using SharpMap.Data.Providers;
-using SharpMap.Rendering.Symbolizer;
+using Gisoft.SharpMap.Data.Providers;
+using Gisoft.SharpMap.Rendering.Symbolizer;
 
-namespace SharpMap.Layers.Symbolizer
+namespace Gisoft.SharpMap.Layers.Symbolizer
 {
     /// <summary>
     /// Vector layer class than can symbolize any type of geometry

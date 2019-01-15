@@ -9,12 +9,12 @@ using System.Linq;
 using System.Net;
 using System.Xml.XPath;
 using Gisoft.GeoAPI.Geometries;
-using SharpMap.CoordinateSystems;
-using SharpMap.Utilities.Indexing;
-using SharpMap.Utilities.SpatialIndexing;
-using SharpMap.Utilities.Wfs;
+using Gisoft.SharpMap.CoordinateSystems;
+using Gisoft.SharpMap.Utilities.Indexing;
+using Gisoft.SharpMap.Utilities.SpatialIndexing;
+using Gisoft.SharpMap.Utilities.Wfs;
 
-namespace SharpMap.Data.Providers
+namespace Gisoft.SharpMap.Data.Providers
 {
     /// <summary>
     /// WFS dataprovider
@@ -35,21 +35,21 @@ namespace SharpMap.Data.Providers
     /// </summary>
     /// <example>
     /// <code lang="C#">
-    ///SharpMap.Map demoMap;
+    ///Gisoft.SharpMap.Map demoMap;
     ///
     ///const string getCapabilitiesURI = "http://localhost:8080/geoserver/wfs";
     ///const string serviceURI = "http://localhost:8080/geoserver/wfs";
     ///
-    ///demoMap = new SharpMap.Map(new Size(600, 600));
+    ///demoMap = new Gisoft.SharpMap.Map(new Size(600, 600));
     ///demoMap.MinimumZoom = 0.005;
     ///demoMap.BackColor = Color.White;
     ///
-    ///SharpMap.Layers.VectorLayer layer1 = new SharpMap.Layers.VectorLayer("States");
-    ///SharpMap.Layers.VectorLayer layer2 = new SharpMap.Layers.VectorLayer("SelectedStatesAndHousholds");
-    ///SharpMap.Layers.VectorLayer layer3 = new SharpMap.Layers.VectorLayer("New Jersey");
-    ///SharpMap.Layers.VectorLayer layer4 = new SharpMap.Layers.VectorLayer("Roads");
-    ///SharpMap.Layers.VectorLayer layer5 = new SharpMap.Layers.VectorLayer("Landmarks");
-    ///SharpMap.Layers.VectorLayer layer6 = new SharpMap.Layers.VectorLayer("Poi");
+    ///Gisoft.SharpMap.Layers.VectorLayer layer1 = new Gisoft.SharpMap.Layers.VectorLayer("States");
+    ///Gisoft.SharpMap.Layers.VectorLayer layer2 = new Gisoft.SharpMap.Layers.VectorLayer("SelectedStatesAndHousholds");
+    ///Gisoft.SharpMap.Layers.VectorLayer layer3 = new Gisoft.SharpMap.Layers.VectorLayer("New Jersey");
+    ///Gisoft.SharpMap.Layers.VectorLayer layer4 = new Gisoft.SharpMap.Layers.VectorLayer("Roads");
+    ///Gisoft.SharpMap.Layers.VectorLayer layer5 = new Gisoft.SharpMap.Layers.VectorLayer("Landmarks");
+    ///Gisoft.SharpMap.Layers.VectorLayer layer6 = new Gisoft.SharpMap.Layers.VectorLayer("Poi");
     ///    
     /// // Demo data from Geoserver 1.5.3 and Geoserver 1.6.0 
     ///    
@@ -58,7 +58,7 @@ namespace SharpMap.Data.Providers
     /// // Bypass 'GetCapabilities' and 'DescribeFeatureType', if you know all necessary metadata.
     ///WfsFeatureTypeInfo featureTypeInfo = new WfsFeatureTypeInfo(serviceURI, "topp", null, "states", "the_geom");
     /// // 'WFS.WFSVersionEnum.WFS1_1_0' supported by Geoserver 1.6.x
-    ///WFS prov2 = new SharpMap.Data.Providers.WFS(featureTypeInfo, WFS.WFSVersionEnum.WFS1_1_0);
+    ///WFS prov2 = new Gisoft.SharpMap.Data.Providers.WFS(featureTypeInfo, WFS.WFSVersionEnum.WFS1_1_0);
     /// // Bypass 'GetCapabilities' and 'DescribeFeatureType' again...
     /// // It's possible to specify the geometry type, if 'DescribeFeatureType' does not...(.e.g 'GeometryAssociationType')
     /// // This helps to accelerate the initialization process in case of unprecise geometry information.
@@ -106,17 +106,17 @@ namespace SharpMap.Data.Providers
     /// // Otherwise (when calling twice for retrieving labels) there may be an inconsistent read...
     /// // If a label property is set, the quick geometry option is automatically set to 'false'.
     ///prov3.Label = "STATE_NAME";
-    ///SharpMap.Layers.LabelLayer layLabel = new SharpMap.Layers.LabelLayer("labels");
+    ///Gisoft.SharpMap.Layers.LabelLayer layLabel = new Gisoft.SharpMap.Layers.LabelLayer("labels");
     ///layLabel.DataSource = prov3;
     ///layLabel.Enabled = true;
     ///layLabel.LabelColumn = prov3.Label;
-    ///layLabel.Style = new SharpMap.Styles.LabelStyle();
+    ///layLabel.Style = new Gisoft.SharpMap.Styles.LabelStyle();
     ///layLabel.Style.CollisionDetection = false;
     ///layLabel.Style.CollisionBuffer = new SizeF(5, 5);
     ///layLabel.Style.ForeColor = Color.Black;
     ///layLabel.Style.Font = new Font(FontFamily.GenericSerif, 10);
     ///layLabel.MaxVisible = 90;
-    ///layLabel.Style.HorizontalAlignment = SharpMap.Styles.LabelStyle.HorizontalAlignmentEnum.Center;
+    ///layLabel.Style.HorizontalAlignment = Gisoft.SharpMap.Styles.LabelStyle.HorizontalAlignmentEnum.Center;
     /// // Options 
     /// // Defaults: MultiGeometries: true, QuickGeometries: false, GetFeatureGETRequest: false
     /// // Render with validation...
@@ -703,7 +703,7 @@ namespace SharpMap.Data.Providers
         }
 
         /// <summary>
-        /// Returns a <see cref="SharpMap.Data.FeatureDataRow"/> based on a RowID
+        /// Returns a <see cref="Gisoft.SharpMap.Data.FeatureDataRow"/> based on a RowID
         /// </summary>
         /// <param name="rowId">The id of the row.</param>
         /// <returns>datarow</returns>
@@ -1322,7 +1322,7 @@ namespace SharpMap.Data.Providers
         #region WFSClientHTTPConfigurator
 
         /// <summary>
-        /// This class configures a <see cref="SharpMap.Utilities.Wfs.HttpClientUtil"/> class 
+        /// This class configures a <see cref="Gisoft.SharpMap.Utilities.Wfs.HttpClientUtil"/> class 
         /// for requests to a Web Feature Service.
         /// </summary>
         private class WFSClientHTTPConfigurator
@@ -1337,10 +1337,10 @@ namespace SharpMap.Data.Providers
 
             /// <summary>
             /// Initializes a new instance of the <see cref="WFS.WFSClientHTTPConfigurator"/> class.
-            /// An instance of this class can be used to configure a <see cref="SharpMap.Utilities.Wfs.HttpClientUtil"/> object.
+            /// An instance of this class can be used to configure a <see cref="Gisoft.SharpMap.Utilities.Wfs.HttpClientUtil"/> object.
             /// </summary>
             /// <param name="wfsTextResources">
-            /// An instance implementing <see cref="SharpMap.Utilities.Wfs.IWFS_TextResources" /> 
+            /// An instance implementing <see cref="Gisoft.SharpMap.Utilities.Wfs.IWFS_TextResources" /> 
             /// for getting version-specific text resources for WFS request configuration.
             ///</param>
             internal WFSClientHTTPConfigurator(IWFS_TextResources wfsTextResources)
@@ -1353,8 +1353,8 @@ namespace SharpMap.Data.Providers
             #region Internal Member
 
             /// <summary>
-            /// Configures for WFS 'GetCapabilities' request using an instance implementing <see cref="SharpMap.Utilities.Wfs.IWFS_TextResources"/>.
-            /// The <see cref="SharpMap.Utilities.Wfs.HttpClientUtil"/> instance is returned for immediate usage. 
+            /// Configures for WFS 'GetCapabilities' request using an instance implementing <see cref="Gisoft.SharpMap.Utilities.Wfs.IWFS_TextResources"/>.
+            /// The <see cref="Gisoft.SharpMap.Utilities.Wfs.HttpClientUtil"/> instance is returned for immediate usage. 
             /// </summary>
             internal HttpClientUtil configureForWfsGetCapabilitiesRequest(HttpClientUtil httpClientUtil,
                                                                           string targetUrl)
@@ -1365,8 +1365,8 @@ namespace SharpMap.Data.Providers
             }
 
             /// <summary>
-            /// Configures for WFS 'DescribeFeatureType' request using an instance implementing <see cref="SharpMap.Utilities.Wfs.IWFS_TextResources"/>.
-            /// The <see cref="SharpMap.Utilities.Wfs.HttpClientUtil"/> instance is returned for immediate usage. 
+            /// Configures for WFS 'DescribeFeatureType' request using an instance implementing <see cref="Gisoft.SharpMap.Utilities.Wfs.IWFS_TextResources"/>.
+            /// The <see cref="Gisoft.SharpMap.Utilities.Wfs.HttpClientUtil"/> instance is returned for immediate usage. 
             /// </summary>
             internal HttpClientUtil configureForWfsDescribeFeatureTypeRequest(HttpClientUtil httpClientUtil,
                                                                               string targetUrl,
@@ -1378,8 +1378,8 @@ namespace SharpMap.Data.Providers
             }
 
             /// <summary>
-            /// Configures for WFS 'GetFeature' request using an instance implementing <see cref="SharpMap.Utilities.Wfs.IWFS_TextResources"/>.
-            /// The <see cref="SharpMap.Utilities.Wfs.HttpClientUtil"/> instance is returned for immediate usage. 
+            /// Configures for WFS 'GetFeature' request using an instance implementing <see cref="Gisoft.SharpMap.Utilities.Wfs.IWFS_TextResources"/>.
+            /// The <see cref="Gisoft.SharpMap.Utilities.Wfs.HttpClientUtil"/> instance is returned for immediate usage. 
             /// </summary>
             internal HttpClientUtil configureForWfsGetFeatureRequest(HttpClientUtil httpClientUtil,
                                                                      WfsFeatureTypeInfo featureTypeInfo,

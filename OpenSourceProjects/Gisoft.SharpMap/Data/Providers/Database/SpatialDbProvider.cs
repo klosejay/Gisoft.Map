@@ -4,9 +4,9 @@ using System.Data;
 using System.Data.Common;
 using System.Text;
 using Gisoft.GeoAPI.Geometries;
-using SharpMap.Converters.WellKnownBinary;
+using Gisoft.SharpMap.Converters.WellKnownBinary;
 
-namespace SharpMap.Data.Providers
+namespace Gisoft.SharpMap.Data.Providers
 {
     /// <summary>
     /// Abstract provider for spatially enabled databases
@@ -72,7 +72,7 @@ namespace SharpMap.Data.Providers
 
         /// <summary>
         /// Method called when the <see cref="Schema"/> has been changed. This invokes the
-        /// <see cref="E:SharpMap.Data.Providers.SpatialDbProvider.SchemaChanged"/> event.
+        /// <see cref="E:Gisoft.SharpMap.Data.Providers.SpatialDbProvider.SchemaChanged"/> event.
         /// </summary>
         /// <param name="e">The arguments associated with the event</param>
         protected virtual void OnSchemaChanged(EventArgs e)
@@ -91,7 +91,7 @@ namespace SharpMap.Data.Providers
 
         /// <summary>
         /// Method called when the <see cref="Table"/> has been changed. This invokes the
-        /// <see cref="E:SharpMap.Data.Providers.SpatialDbProvider.TableChanged"/> event.
+        /// <see cref="E:Gisoft.SharpMap.Data.Providers.SpatialDbProvider.TableChanged"/> event.
         /// </summary>
         /// <param name="e">The arguments associated with the event</param>
         protected virtual void OnTableChanged(EventArgs e)
@@ -110,7 +110,7 @@ namespace SharpMap.Data.Providers
 
         /// <summary>
         /// Method called when the <see cref="ObjectIdColumn"/> has been changed. This invokes the
-        /// <see cref="E:SharpMap.Data.Providers.SpatialDbProvider.OidColumnChanged"/> event.
+        /// <see cref="E:Gisoft.SharpMap.Data.Providers.SpatialDbProvider.OidColumnChanged"/> event.
         /// </summary>
         /// <param name="e">The arguments associated with the event</param>
         protected virtual void OnOidColumnChanged(EventArgs e)
@@ -129,7 +129,7 @@ namespace SharpMap.Data.Providers
 
         /// <summary>
         /// Method called when the <see cref="GeometryColumn"/> has been changed. This invokes the
-        /// <see cref="E:SharpMap.Data.Providers.SpatialDbProvider.GeometryColumnChanged"/> event.
+        /// <see cref="E:Gisoft.SharpMap.Data.Providers.SpatialDbProvider.GeometryColumnChanged"/> event.
         /// </summary>
         /// <param name="e">The arguments associated with the event</param>
         protected virtual void OnGeometryColumnChanged(EventArgs e)
@@ -148,7 +148,7 @@ namespace SharpMap.Data.Providers
 
         /// <summary>
         /// Method called when the <see cref="DefinitionQuery"/> has been changed. This invokes the
-        /// <see cref="E:SharpMap.Data.Providers.SpatialDbProvider.DefinitionQueryChanged"/> event.
+        /// <see cref="E:Gisoft.SharpMap.Data.Providers.SpatialDbProvider.DefinitionQueryChanged"/> event.
         /// </summary>
         /// <param name="e">The arguments associated with the event</param>
         [Obsolete]
@@ -168,7 +168,7 @@ namespace SharpMap.Data.Providers
 
         /// <summary>
         /// Method that handles when the <see cref="SharpMapFeatureColumns.FeatureColumnsChanged"/> event. This invokes the
-        /// <see cref="E:SharpMap.Data.Providers.SpatialDbProvider.FeatureColumnsChanged"/> event.
+        /// <see cref="E:Gisoft.SharpMap.Data.Providers.SpatialDbProvider.FeatureColumnsChanged"/> event.
         /// </summary>
         /// <param name="sender">The sender</param>
         /// <param name="e">The arguments associated with the event</param>
@@ -188,7 +188,7 @@ namespace SharpMap.Data.Providers
 
         /// <summary>
         /// Method called when the <see cref="TargetSRID"/> has been changed. This invokes the
-        /// <see cref="E:SharpMap.Data.Providers.SpatialDbProvider.TargetSridChanged"/> event.
+        /// <see cref="E:Gisoft.SharpMap.Data.Providers.SpatialDbProvider.TargetSridChanged"/> event.
         /// </summary>
         /// <param name="e">The arguments associated with the event</param>
         protected virtual void OnTargetSridChanged(EventArgs e)
@@ -207,7 +207,7 @@ namespace SharpMap.Data.Providers
 
         /// <summary>
         /// Method called when the <see cref="AreaOfInterest"/> has been changed. This invokes the
-        /// <see cref="E:SharpMap.Data.Providers.SpatialDbProvider.AreaOfInterestChanged"/> event.
+        /// <see cref="E:Gisoft.SharpMap.Data.Providers.SpatialDbProvider.AreaOfInterestChanged"/> event.
         /// </summary>
         /// <param name="e">The arguments associated with the event</param>
         protected void OnAreaOfInterestChanged(EventArgs e)
@@ -560,7 +560,7 @@ namespace SharpMap.Data.Providers
         }
 
         /// <summary>
-        /// Returns a <see cref="SharpMap.Data.FeatureDataRow"/> based on a RowID
+        /// Returns a <see cref="Gisoft.SharpMap.Data.FeatureDataRow"/> based on a RowID
         /// </summary>
         /// <param name="rowId">The id of the row</param>
         /// <returns>The feature data row</returns>

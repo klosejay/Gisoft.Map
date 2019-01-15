@@ -3,7 +3,7 @@
 
 using Gisoft.GeoAPI.Geometries;
 
-namespace SharpMap.Utilities.Wfs
+namespace Gisoft.SharpMap.Utilities.Wfs
 {
     // ReSharper disable InconsistentNaming
 

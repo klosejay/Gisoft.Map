@@ -1,19 +1,19 @@
 // Copyright 2005, 2006 - Morten Nielsen (www.iter.dk)
 // Copyright 2014       - Spartaco Giubbolini, Felix Obermaier
 //
-// This file is part of SharpMap.
-// SharpMap is free software; you can redistribute it and/or modify
+// This file is part of Gisoft.SharpMap.
+// Gisoft.SharpMap is free software; you can redistribute it and/or modify
 // it under the terms of the GNU Lesser General Public License as published by
 // the Free Software Foundation; either version 2 of the License, or
 // (at your option) any later version.
 // 
-// SharpMap is distributed in the hope that it will be useful,
+// Gisoft.SharpMap is distributed in the hope that it will be useful,
 // but WITHOUT ANY WARRANTY; without even the implied warranty of
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 // GNU Lesser General Public License for more details.
 
 // You should have received a copy of the GNU Lesser General Public License
-// along with SharpMap; if not, write to the Free Software
+// along with Gisoft.SharpMap; if not, write to the Free Software
 // Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA 
 
 using System;
@@ -30,7 +30,7 @@ using Gisoft.GeoAPI;
 using Gisoft.GeoAPI.Geometries;
 using Gisoft.NetTopologySuite.IO;
 
-namespace SharpMap.Data
+namespace Gisoft.SharpMap.Data
 {
     /// <summary>
     /// Represents an in-memory cache of spatial data. The FeatureDataSet is an extension of System.Data.DataSet
@@ -624,7 +624,7 @@ namespace SharpMap.Data
     /// Represents the collection of tables for the FeatureDataSet.
     /// It is a proxy to the <see cref="DataSet.Tables"/> object. 
     /// It filters out those <see cref="T:System.Data.DataTable"/> 
-    /// that are <see cref="T:SharpMap.Data.FeatureDataTable"/>s.
+    /// that are <see cref="T:Gisoft.SharpMap.Data.FeatureDataTable"/>s.
     /// </summary>
     public class FeatureTableCollection : ICollection<FeatureDataTable>
     {

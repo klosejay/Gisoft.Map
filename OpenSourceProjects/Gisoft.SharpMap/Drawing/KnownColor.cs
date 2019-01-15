@@ -1,7 +1,7 @@
 ﻿
 #if NETSTANDARD2_0||NETCOREAPP2_0
 
-namespace SharpMap.Drawing
+namespace Gisoft.SharpMap.Drawing
 {
 
     /// <summary>

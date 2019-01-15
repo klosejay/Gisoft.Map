@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using SharpMap.Rendering.Symbolizer;
+using Gisoft.SharpMap.Rendering.Symbolizer;
 
-namespace SharpMap.Rendering.Decoration
+namespace Gisoft.SharpMap.Rendering.Decoration
 {
     /// <summary>
     /// Disclaimer map decoration
@@ -19,7 +19,7 @@ namespace SharpMap.Rendering.Decoration
             Font = SystemFonts.DefaultFont;
             ForeColor = Color.Black;
             Format = StringFormat.GenericTypographic;
-            Text = "Powered by SharpMap";
+            Text = "Powered by Gisoft.SharpMap";
             Anchor = MapDecorationAnchor.CenterBottom;
             Font = new Font(FontFamily.GenericSansSerif, 8f, FontStyle.Italic);
             BorderMargin = new Size(3, 3);

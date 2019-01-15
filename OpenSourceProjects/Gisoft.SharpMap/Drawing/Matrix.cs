@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace SharpMap.Drawing
+namespace Gisoft.SharpMap.Drawing
 {
     public sealed class Matrix
     {

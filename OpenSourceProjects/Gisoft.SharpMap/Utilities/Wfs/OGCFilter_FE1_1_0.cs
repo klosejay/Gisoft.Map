@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Text;
 
 // ReSharper disable InconsistentNaming
-namespace SharpMap.Utilities.Wfs
+namespace Gisoft.SharpMap.Utilities.Wfs
 {
     /// <summary>
     /// Filter interface

@@ -11,7 +11,7 @@ using System.Xml.Schema;
 using Gisoft.GeoAPI.Geometries;
 using Common.Logging;
 
-namespace SharpMap.Web.Wms
+namespace Gisoft.SharpMap.Web.Wms
 {
     /// <summary>
     /// Class for requesting and parsing a WMS servers capabilities

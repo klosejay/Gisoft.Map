@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Drawing;
 
-namespace SharpMap.Utilities
+namespace Gisoft.SharpMap.Utilities
 {
     /// <summary>
     /// Methods for calculating line offsets

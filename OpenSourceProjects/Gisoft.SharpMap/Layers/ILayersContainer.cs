@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace SharpMap.Layers
+namespace Gisoft.SharpMap.Layers
 {
     /// <summary>
     /// Interface to mark entities that expose layers.

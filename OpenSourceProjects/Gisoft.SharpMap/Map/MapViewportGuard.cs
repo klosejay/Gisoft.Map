@@ -2,7 +2,7 @@
 using System.Drawing;
 using Gisoft.GeoAPI.Geometries;
 
-namespace SharpMap
+namespace Gisoft.SharpMap
 {
     /// <summary>
     /// Utility class that checks Viewport min/max Zoom and constraint

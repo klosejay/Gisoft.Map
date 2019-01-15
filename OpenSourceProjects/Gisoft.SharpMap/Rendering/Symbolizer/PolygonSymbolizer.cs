@@ -3,7 +3,7 @@ using System.Drawing.Drawing2D;
 using Gisoft.GeoAPI.Geometries;
 using Point = System.Drawing.Point;
 
-namespace SharpMap.Rendering.Symbolizer
+namespace Gisoft.SharpMap.Rendering.Symbolizer
 {
     /// <summary>
     /// Base class for all geometry symbolizers

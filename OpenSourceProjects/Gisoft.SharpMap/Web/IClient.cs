@@ -1,7 +1,7 @@
 using System.Net;
 using System.Xml;
 
-namespace SharpMap.Web
+namespace Gisoft.SharpMap.Web
 {
     /// <summary>
     /// Interface for client classes accessing OGC Web services

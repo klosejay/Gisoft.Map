@@ -8,10 +8,10 @@ using System.Diagnostics;
 using System.Globalization;
 using System.Linq;
 using System.Xml;
-using SharpMap.Data;
+using Gisoft.SharpMap.Data;
 using Gisoft.GeoAPI.Geometries;
 
-namespace SharpMap.Utilities.Wfs
+namespace Gisoft.SharpMap.Utilities.Wfs
 {
     /// <summary>
     /// This class is the base class for geometry production.

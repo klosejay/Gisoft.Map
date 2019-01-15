@@ -3,7 +3,7 @@ using System.Collections.ObjectModel;
 using System.Data.Common;
 using System.Text;
 
-namespace SharpMap.Data.Providers
+namespace Gisoft.SharpMap.Data.Providers
 {
     /// <summary>
     /// Collection of <see cref="SharpMapFeatureColumn"/>s used to create the SQL statement

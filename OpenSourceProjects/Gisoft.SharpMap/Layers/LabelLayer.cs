@@ -1,18 +1,18 @@
 // Copyright 2005, 2006 - Morten Nielsen (www.iter.dk)
 //
-// This file is part of SharpMap.
-// SharpMap is free software; you can redistribute it and/or modify
+// This file is part of Gisoft.SharpMap.
+// Gisoft.SharpMap is free software; you can redistribute it and/or modify
 // it under the terms of the GNU Lesser General Public License as published by
 // the Free Software Foundation; either version 2 of the License, or
 // (at your option) any later version.
 // 
-// SharpMap is distributed in the hope that it will be useful,
+// Gisoft.SharpMap is distributed in the hope that it will be useful,
 // but WITHOUT ANY WARRANTY; without even the implied warranty of
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 // GNU Lesser General Public License for more details.
 
 // You should have received a copy of the GNU Lesser General Public License
-// along with SharpMap; if not, write to the Free Software
+// along with Gisoft.SharpMap; if not, write to the Free Software
 // Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA 
 
 using System;
@@ -22,16 +22,16 @@ using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Drawing.Text;
 using System.Globalization;
-using SharpMap.Data;
-using SharpMap.Data.Providers;
+using Gisoft.SharpMap.Data;
+using Gisoft.SharpMap.Data.Providers;
 using Gisoft.GeoAPI.Geometries;
-using SharpMap.Rendering;
-using SharpMap.Rendering.Thematics;
-using SharpMap.Styles;
-using Transform = SharpMap.Utilities.Transform;
-using SharpMap.Rendering.Symbolizer;
+using Gisoft.SharpMap.Rendering;
+using Gisoft.SharpMap.Rendering.Thematics;
+using Gisoft.SharpMap.Styles;
+using Transform = Gisoft.SharpMap.Utilities.Transform;
+using Gisoft.SharpMap.Rendering.Symbolizer;
 
-namespace SharpMap.Layers
+namespace Gisoft.SharpMap.Layers
 {
     /// <summary>
     /// Label layer class
@@ -40,17 +40,17 @@ namespace SharpMap.Layers
     /// Creates a new label layer and sets the label text to the "Name" column in the FeatureDataTable of the datasource
     /// <code lang="C#">
     /// //Set up a label layer
-    /// SharpMap.Layers.LabelLayer layLabel = new SharpMap.Layers.LabelLayer("Country labels");
+    /// Gisoft.SharpMap.Layers.LabelLayer layLabel = new Gisoft.SharpMap.Layers.LabelLayer("Country labels");
     /// layLabel.DataSource = layCountries.DataSource;
     /// layLabel.Enabled = true;
     /// layLabel.LabelColumn = "Name";
-    /// layLabel.Style = new SharpMap.Styles.LabelStyle();
+    /// layLabel.Style = new Gisoft.SharpMap.Styles.LabelStyle();
     /// layLabel.Style.CollisionDetection = true;
     /// layLabel.Style.CollisionBuffer = new SizeF(20, 20);
     /// layLabel.Style.ForeColor = Color.White;
     /// layLabel.Style.Font = new Font(FontFamily.GenericSerif, 8);
     /// layLabel.MaxVisible = 90;
-    /// layLabel.Style.HorizontalAlignment = SharpMap.Styles.LabelStyle.HorizontalAlignmentEnum.Center;
+    /// layLabel.Style.HorizontalAlignment = Gisoft.SharpMap.Styles.LabelStyle.HorizontalAlignmentEnum.Center;
     /// </code>
     /// </example>
     [Serializable]
@@ -170,7 +170,7 @@ namespace SharpMap.Layers
         /// Filtermethod delegate for performing filtering
         /// </summary>
         /// <remarks>
-        /// Default method is <see cref="SharpMap.Rendering.LabelCollisionDetection.SimpleCollisionDetection"/>
+        /// Default method is <see cref="Gisoft.SharpMap.Rendering.LabelCollisionDetection.SimpleCollisionDetection"/>
         /// </remarks>
         public LabelCollisionDetection.LabelFilterMethod LabelFilter
         {
@@ -241,12 +241,12 @@ namespace SharpMap.Layers
         /// </summary>
         /// <remarks>
         /// <para>If this method is not null, it will override the <see cref="LabelColumn"/> value.</para>
-        /// <para>The label delegate must take a <see cref="SharpMap.Data.FeatureDataRow"/> and return a string.</para>
+        /// <para>The label delegate must take a <see cref="Gisoft.SharpMap.Data.FeatureDataRow"/> and return a string.</para>
         /// <example>
         /// Creating a label-text by combining attributes "ROADNAME" and "STATE" into one string, using
         /// an anonymous delegate:
         /// <code lang="C#">
-        /// myLabelLayer.LabelStringDelegate = delegate(SharpMap.Data.FeatureDataRow fdr)
+        /// myLabelLayer.LabelStringDelegate = delegate(Gisoft.SharpMap.Data.FeatureDataRow fdr)
         ///				{ return fdr["ROADNAME"].ToString() + ", " + fdr["STATE"].ToString(); };
         /// </code>
         /// </example>
@@ -261,13 +261,13 @@ namespace SharpMap.Layers
         /// </summary>
         /// <remarks>
         /// <para>If this method is not null, it will override the position based on the centroid of the boundingbox of the feature </para>
-        /// <para>The label delegate must take a <see cref="SharpMap.Data.FeatureDataRow"/> and return a Gisoft.GeoAPI.Geometries.Coordinate.</para>
+        /// <para>The label delegate must take a <see cref="Gisoft.SharpMap.Data.FeatureDataRow"/> and return a Gisoft.GeoAPI.Geometries.Coordinate.</para>
         /// <para>If the delegate returns a null, the centroid of the feature will be used</para>
         /// <example>
         /// Creating a custom position by using X and Y values from the FeatureDataRow attributes "LabelX" and "LabelY", using
         /// an anonymous delegate:
         /// <code lang="C#">
-        /// myLabelLayer.LabelPositionDelegate = delegate(SharpMap.Data.FeatureDataRow fdr)
+        /// myLabelLayer.LabelPositionDelegate = delegate(Gisoft.SharpMap.Data.FeatureDataRow fdr)
         ///				{ return new Gisoft.GeoAPI.Geometries.Coordinate(Convert.ToDouble(fdr["LabelX"]), Convert.ToDouble(fdr["LabelY"]));};
         /// </code>
         /// </example>
@@ -284,12 +284,12 @@ namespace SharpMap.Layers
         /// </summary>
         /// <remarks>
         /// <para>If this method is not null, it will override the <see cref="PriorityColumn"/> value.</para>
-        /// <para>The label delegate must take a <see cref="SharpMap.Data.FeatureDataRow"/> and return an Int32.</para>
+        /// <para>The label delegate must take a <see cref="Gisoft.SharpMap.Data.FeatureDataRow"/> and return an Int32.</para>
         /// <example>
         /// Creating a priority by combining attributes "capital" and "population" into one value, using
         /// an anonymous delegate:
         /// <code lang="C#">
-        /// myLabelLayer.PriorityDelegate = delegate(SharpMap.Data.FeatureDataRow fdr) 
+        /// myLabelLayer.PriorityDelegate = delegate(Gisoft.SharpMap.Data.FeatureDataRow fdr) 
         ///     { 
         ///         Int32 retVal = 100000000 * (Int32)( (String)fdr["capital"] == "Y" ? 1 : 0 );
         ///         return  retVal + Convert.ToInt32(fdr["population"]);
@@ -919,19 +919,19 @@ namespace SharpMap.Layers
                     switch (label.Style.HorizontalAlignment)
                     {
                         case LabelStyle.HorizontalAlignmentEnum.Left:
-                            //label.TextOnPathLabel.TextPathAlignTop = SharpMap.Rendering.TextPathAlign.Left;
+                            //label.TextOnPathLabel.TextPathAlignTop = Gisoft.SharpMap.Rendering.TextPathAlign.Left;
                             idxStartPath = 0;
                             break;
                         case LabelStyle.HorizontalAlignmentEnum.Right:
-                            //label.TextOnPathLabel.TextPathAlignTop = SharpMap.Rendering.TextPathAlign.Right;
+                            //label.TextOnPathLabel.TextPathAlignTop = Gisoft.SharpMap.Rendering.TextPathAlign.Right;
                             idxStartPath = colPoint.Count - step;
                             break;
                         case LabelStyle.HorizontalAlignmentEnum.Center:
-                            //label.TextOnPathLabel.TextPathAlignTop = SharpMap.Rendering.TextPathAlign.Center;
+                            //label.TextOnPathLabel.TextPathAlignTop = Gisoft.SharpMap.Rendering.TextPathAlign.Center;
                             idxStartPath = (int)colPoint.Count / 2 - step;
                             break;
                         default:
-                            //label.TextOnPathLabel.TextPathAlignTop = SharpMap.Rendering.TextPathAlign.Center;
+                            //label.TextOnPathLabel.TextPathAlignTop = Gisoft.SharpMap.Rendering.TextPathAlign.Center;
                             idxStartPath = (int)colPoint.Count / 2 - step;
                             break;
                     }

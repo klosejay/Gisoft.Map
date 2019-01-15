@@ -3,7 +3,7 @@ using System.Globalization;
 using System.Reflection;
 using System.Xml;
 
-namespace SharpMap.Web
+namespace Gisoft.SharpMap.Web
 {
     internal class HttpCacheUtility
     {

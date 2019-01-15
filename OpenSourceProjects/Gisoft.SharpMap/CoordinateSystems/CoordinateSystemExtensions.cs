@@ -4,10 +4,10 @@ using Common.Logging;
 using System.Collections.Generic;
 using Gisoft.GeoAPI.CoordinateSystems;
 using Gisoft.GeoAPI.Geometries;
-using SharpMap.Data.Providers;
-using SharpMap.Layers;
+using Gisoft.SharpMap.Data.Providers;
+using Gisoft.SharpMap.Layers;
 
-namespace SharpMap.CoordinateSystems
+namespace Gisoft.SharpMap.CoordinateSystems
 {
     /// <summary>
     /// Extension methods to get hold of coordinate systems

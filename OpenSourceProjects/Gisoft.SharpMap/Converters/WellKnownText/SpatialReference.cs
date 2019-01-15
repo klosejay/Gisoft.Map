@@ -1,18 +1,18 @@
 // Copyright 2005, 2006 - Morten Nielsen (www.iter.dk)
 //
-// This file is part of SharpMap.
-// SharpMap is free software; you can redistribute it and/or modify
+// This file is part of Gisoft.SharpMap.
+// Gisoft.SharpMap is free software; you can redistribute it and/or modify
 // it under the terms of the GNU Lesser General Public License as published by
 // the Free Software Foundation; either version 2 of the License, or
 // (at your option) any later version.
 // 
-// SharpMap is distributed in the hope that it will be useful,
+// Gisoft.SharpMap is distributed in the hope that it will be useful,
 // but WITHOUT ANY WARRANTY; without even the implied warranty of
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 // GNU Lesser General Public License for more details.
 
 // You should have received a copy of the GNU Lesser General Public License
-// along with SharpMap; if not, write to the Free Software
+// along with Gisoft.SharpMap; if not, write to the Free Software
 // Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA 
 
 using System;
@@ -22,7 +22,7 @@ using System.Net;
 using System.Reflection;
 using System.Xml;
 
-namespace SharpMap.Converters.WellKnownText
+namespace Gisoft.SharpMap.Converters.WellKnownText
 {
     /// <summary>
     /// Converts spatial reference IDs to a Well-Known Text representation.
@@ -135,7 +135,7 @@ namespace SharpMap.Converters.WellKnownText
         {
             using (var wc = new WebClient())
                 wc.DownloadFile(
-                    new Uri("https://raw.githubusercontent.com/SharpMap/SharpMap/Branches/1.0/SharpMap/SpatialRefSys.xml"), 
+                    new Uri("https://raw.githubusercontent.com/Gisoft.SharpMap/Gisoft.SharpMap/Branches/1.0/Gisoft.SharpMap/SpatialRefSys.xml"), 
                     path);
             
         }

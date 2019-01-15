@@ -1,18 +1,18 @@
 // Copyright 2005, 2006 - Morten Nielsen (www.iter.dk)
 //
-// This file is part of SharpMap.
-// SharpMap is free software; you can redistribute it and/or modify
+// This file is part of Gisoft.SharpMap.
+// Gisoft.SharpMap is free software; you can redistribute it and/or modify
 // it under the terms of the GNU Lesser General Public License as published by
 // the Free Software Foundation; either version 2 of the License, or
 // (at your option) any later version.
 // 
-// SharpMap is distributed in the hope that it will be useful,
+// Gisoft.SharpMap is distributed in the hope that it will be useful,
 // but WITHOUT ANY WARRANTY; without even the implied warranty of
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 // GNU Lesser General Public License for more details.
 
 // You should have received a copy of the GNU Lesser General Public License
-// along with SharpMap; if not, write to the Free Software
+// along with Gisoft.SharpMap; if not, write to the Free Software
 // Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA 
 
 using System;
@@ -30,20 +30,20 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using Gisoft.GeoAPI.Geometries;
 using Gisoft.NetTopologySuite;
-using SharpMap.Layers;
-using SharpMap.Rendering;
-using SharpMap.Rendering.Decoration;
-using SharpMap.Styles;
-using SharpMap.Utilities;
+using Gisoft.SharpMap.Layers;
+using Gisoft.SharpMap.Rendering;
+using Gisoft.SharpMap.Rendering.Decoration;
+using Gisoft.SharpMap.Styles;
+using Gisoft.SharpMap.Utilities;
 using Point = Gisoft.GeoAPI.Geometries.Coordinate;
 using System.Drawing.Imaging;
 using Common.Logging;
 using System.Reflection;
 
-namespace SharpMap
+namespace Gisoft.SharpMap
 {
     /// <summary>
-    /// Map class, the main holder for a MapObject in SharpMap
+    /// Map class, the main holder for a MapObject in Gisoft.SharpMap
     /// </summary>
     /// <example>
     /// Creating a new map instance, adding layers and rendering the map:
@@ -727,7 +727,7 @@ namespace SharpMap
 
         /// <summary>
         /// Method called when starting to render <paramref name="layer"/> of <paramref name="layerCollectionType"/>. This fires the
-        /// <see cref="E:SharpMap.Map.LayerRendering"/> event.
+        /// <see cref="E:Gisoft.SharpMap.Map.LayerRendering"/> event.
         /// </summary>
         /// <param name="layer">The layer to render</param>
         /// <param name="layerCollectionType">The collection type</param>
@@ -740,7 +740,7 @@ namespace SharpMap
 #pragma warning disable 612,618
         /// <summary>
         /// Method called when <paramref name="layer"/> of <paramref name="layerCollectionType"/> has been rendered. This fires the
-        /// <see cref="E:SharpMap.Map.LayerRendered"/> and <see cref="E:SharpMap.Map.LayerRenderedEx"/> event.
+        /// <see cref="E:Gisoft.SharpMap.Map.LayerRendered"/> and <see cref="E:Gisoft.SharpMap.Map.LayerRenderedEx"/> event.
         /// </summary>
         /// <param name="layer">The layer to render</param>
         /// <param name="layerCollectionType">The collection type</param>

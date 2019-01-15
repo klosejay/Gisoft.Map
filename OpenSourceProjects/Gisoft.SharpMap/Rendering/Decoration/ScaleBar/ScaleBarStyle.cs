@@ -1,4 +1,4 @@
-namespace SharpMap.Rendering.Decoration.ScaleBar
+namespace Gisoft.SharpMap.Rendering.Decoration.ScaleBar
 {
     /// <summary>
     /// Scale bar style

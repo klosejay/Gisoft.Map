@@ -1,19 +1,19 @@
 // Copyright 2005, 2006 - Morten Nielsen (www.iter.dk)
 // Copyright 2007 - Paul den Dulk (Geodan) - Created TiledWmsLayer from WmsLayer
 // 
-// This file is part of SharpMap.
-// SharpMap is free software; you can redistribute it and/or modify
+// This file is part of Gisoft.SharpMap.
+// Gisoft.SharpMap is free software; you can redistribute it and/or modify
 // it under the terms of the GNU Lesser General Public License as published by
 // the Free Software Foundation; either version 2 of the License, or
 // (at your option) any later version.
 // 
-// SharpMap is distributed in the hope that it will be useful,
+// Gisoft.SharpMap is distributed in the hope that it will be useful,
 // but WITHOUT ANY WARRANTY; without even the implied warranty of
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 // GNU Lesser General Public License for more details.
 
 // You should have received a copy of the GNU Lesser General Public License
-// along with SharpMap; if not, write to the Free Software
+// along with Gisoft.SharpMap; if not, write to the Free Software
 // Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA 
 
 using System;
@@ -27,13 +27,13 @@ using System.IO;
 using System.Net;
 using System.Text;
 using Gisoft.GeoAPI.Geometries;
-using SharpMap.Rendering.Exceptions;
-using SharpMap.Utilities;
-using SharpMap.Web.Wms;
-using SharpMap.Web.Wms.Tiling;
+using Gisoft.SharpMap.Rendering.Exceptions;
+using Gisoft.SharpMap.Utilities;
+using Gisoft.SharpMap.Web.Wms;
+using Gisoft.SharpMap.Web.Wms.Tiling;
 using Common.Logging;
 
-namespace SharpMap.Layers
+namespace Gisoft.SharpMap.Layers
 {
     /// <summary>
     /// Client layer for WMS-C service
@@ -46,7 +46,7 @@ namespace SharpMap.Layers
     /// <example>
     /// The following example creates a map with a TiledWmsLayer the metacarta tile server
     /// <code lang="C#">
-    /// map = new SharpMap.Map(mapImage1.Size);
+    /// map = new Gisoft.SharpMap.Map(mapImage1.Size);
     /// string url = "http://labs.metacarta.com/wms-c/tilecache.py?version=1.1.1&amp;request=GetCapabilities&amp;service=wms-c";
     /// TiledWmsLayer tiledWmsLayer = new TiledWmsLayer("Metacarta", url);
     /// tiledWmsLayer.TileSetsActive.Add(tiledWmsLayer.TileSets["satellite"].Name);

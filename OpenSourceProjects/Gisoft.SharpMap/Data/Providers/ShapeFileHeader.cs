@@ -3,7 +3,7 @@ using System.IO;
 using Gisoft.GeoAPI.DataStructures;
 using Gisoft.GeoAPI.Geometries;
 
-namespace SharpMap.Data.Providers
+namespace Gisoft.SharpMap.Data.Providers
 {
     /// <summary>
     /// ShapeFile header class

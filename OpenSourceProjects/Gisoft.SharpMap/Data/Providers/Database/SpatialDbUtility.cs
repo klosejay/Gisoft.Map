@@ -5,7 +5,7 @@ using System.Text;
 using Gisoft.GeoAPI.IO;
 using Gisoft.NetTopologySuite.IO;
 
-namespace SharpMap.Data.Providers
+namespace Gisoft.SharpMap.Data.Providers
 {
     /// <summary>
     /// Database entity decorator object

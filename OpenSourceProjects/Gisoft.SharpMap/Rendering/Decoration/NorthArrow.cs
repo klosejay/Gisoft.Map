@@ -2,9 +2,9 @@
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
-using SharpMap.Utilities;
+using Gisoft.SharpMap.Utilities;
 
-namespace SharpMap.Rendering.Decoration
+namespace Gisoft.SharpMap.Rendering.Decoration
 {
     /// <summary>
     /// North arrow map decoration

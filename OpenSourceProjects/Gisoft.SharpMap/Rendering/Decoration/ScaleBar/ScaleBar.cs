@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
-using SharpMap.Utilities;
+using Gisoft.SharpMap.Utilities;
 
-namespace SharpMap.Rendering.Decoration.ScaleBar
+namespace Gisoft.SharpMap.Rendering.Decoration.ScaleBar
 {
     /*
   Description  : Implement the Control interfaces.

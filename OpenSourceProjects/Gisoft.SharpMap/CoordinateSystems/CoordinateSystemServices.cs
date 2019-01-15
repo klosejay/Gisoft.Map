@@ -5,9 +5,9 @@ using System.Globalization;
 using Gisoft.GeoAPI;
 using Gisoft.GeoAPI.CoordinateSystems;
 using Gisoft.GeoAPI.CoordinateSystems.Transformations;
-using SharpMap.Converters.WellKnownText;
+using Gisoft.SharpMap.Converters.WellKnownText;
 
-namespace SharpMap.CoordinateSystems
+namespace Gisoft.SharpMap.CoordinateSystems
 {
     /// <summary>
     /// A coordinate system services class

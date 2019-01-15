@@ -3,9 +3,9 @@ using System.Collections.ObjectModel;
 using System.Data;
 using Gisoft.GeoAPI;
 using Gisoft.GeoAPI.Geometries;
-using SharpMap.Base;
+using Gisoft.SharpMap.Base;
 
-namespace SharpMap.Data.Providers
+namespace Gisoft.SharpMap.Data.Providers
 {
     /// <summary>
     /// Abstract base provider that handles geometry factory based on SRID
@@ -179,7 +179,7 @@ namespace SharpMap.Data.Providers
         public abstract int GetFeatureCount();
 
         /// <summary>
-        /// Function to return a <see cref="SharpMap.Data.FeatureDataRow"/> based on <paramref name="rowId">RowID</paramref>
+        /// Function to return a <see cref="Gisoft.SharpMap.Data.FeatureDataRow"/> based on <paramref name="rowId">RowID</paramref>
         /// </summary>
         /// <param name="rowId">The unique identifier of the row</param>
         /// <returns>datarow</returns>
@@ -412,7 +412,7 @@ namespace SharpMap.Data.Providers
         public abstract int GetFeatureCount();
 
         /// <summary>
-        /// Function to return a <see cref="SharpMap.Data.FeatureDataRow"/> based on <paramref name="rowId">RowID</paramref>
+        /// Function to return a <see cref="Gisoft.SharpMap.Data.FeatureDataRow"/> based on <paramref name="rowId">RowID</paramref>
         /// </summary>
         /// <param name="rowId">The unique identifier of the row</param>
         /// <returns>datarow</returns>

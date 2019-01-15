@@ -1,19 +1,19 @@
 // Copyright 2006 - Morten Nielsen (www.iter.dk)
 // Copyright 2007 - Christian Gräfe (www.sharptools.de)
 //
-// This file is part of SharpMap.
-// SharpMap is free software; you can redistribute it and/or modify
+// This file is part of Gisoft.SharpMap.
+// Gisoft.SharpMap is free software; you can redistribute it and/or modify
 // it under the terms of the GNU Lesser General Public License as published by
 // the Free Software Foundation; either version 2 of the License, or
 // (at your option) any later version.
 // 
-// SharpMap is distributed in the hope that it will be useful,
+// Gisoft.SharpMap is distributed in the hope that it will be useful,
 // but WITHOUT ANY WARRANTY; without even the implied warranty of
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 // GNU Lesser General Public License for more details.
 //
 // You should have received a copy of the GNU Lesser General Public License
-// along with SharpMap; if not, write to the Free Software
+// along with Gisoft.SharpMap; if not, write to the Free Software
 // Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA 
 
 using System;
@@ -23,7 +23,7 @@ using System.Data;
 using Gisoft.GeoAPI.Geometries;
 using System.ComponentModel;
 
-namespace SharpMap.Data.Providers
+namespace Gisoft.SharpMap.Data.Providers
 {
     /// <summary>
     /// Datasource for storing a limited set of geometries.
@@ -51,8 +51,8 @@ namespace SharpMap.Data.Providers
     /// //Add two points
     /// geometries.Add(gf.CreatePoint(23.345,64.325));
     /// geometries.Add(gf.CreatePoint(23.879,64.194));
-    /// SharpMap.Layers.VectorLayer layerVehicles = new SharpMap.Layers.VectorLayer("Vehicles");
-    /// layerVehicles.DataSource = new SharpMap.Data.Providers.GeometryFeatureProvider(geometries);
+    /// Gisoft.SharpMap.Layers.VectorLayer layerVehicles = new Gisoft.SharpMap.Layers.VectorLayer("Vehicles");
+    /// layerVehicles.DataSource = new Gisoft.SharpMap.Data.Providers.GeometryFeatureProvider(geometries);
     /// layerVehicles.Style.Symbol = Bitmap.FromFile(@"C:\data\car.gif");
     /// myMap.Layers.Add(layerVehicles);
     /// </code>

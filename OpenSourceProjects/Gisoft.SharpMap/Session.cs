@@ -2,10 +2,10 @@
 using Common.Logging;
 using Gisoft.GeoAPI;
 
-namespace SharpMap
+namespace Gisoft.SharpMap
 {
     /// <summary>
-    /// A SharpMap Session class
+    /// A Gisoft.SharpMap Session class
     /// </summary>
     public class Session : ISession
     {
@@ -95,7 +95,7 @@ namespace SharpMap
         public ISession ReadConfiguration()
         {
             var log = LogManager.GetLogger<ISession>();
-            log.Warn(f => f("Configuring SharpMap session via ReadConfiguration currently not supported"));
+            log.Warn(f => f("Configuring Gisoft.SharpMap session via ReadConfiguration currently not supported"));
             return this;
         }
         #endregion

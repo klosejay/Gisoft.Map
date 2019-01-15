@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using Gisoft.GeoAPI;
 using Gisoft.GeoAPI.Geometries;
 
-namespace SharpMap.Utilities.Wfs
+namespace Gisoft.SharpMap.Utilities.Wfs
 {
     /// <summary>
     /// Web Feature Service geometry types

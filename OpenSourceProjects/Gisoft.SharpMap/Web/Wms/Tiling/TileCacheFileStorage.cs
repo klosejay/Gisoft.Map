@@ -1,18 +1,18 @@
 // Copyright 2007 - Paul den Dulk (Geodan)
 // 
-// This file is part of SharpMap.
-// SharpMap is free software; you can redistribute it and/or modify
+// This file is part of Gisoft.SharpMap.
+// Gisoft.SharpMap is free software; you can redistribute it and/or modify
 // it under the terms of the GNU Lesser General Public License as published by
 // the Free Software Foundation; either version 2 of the License, or
 // (at your option) any later version.
 // 
-// SharpMap is distributed in the hope that it will be useful,
+// Gisoft.SharpMap is distributed in the hope that it will be useful,
 // but WITHOUT ANY WARRANTY; without even the implied warranty of
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 // GNU Lesser General Public License for more details.
 
 // You should have received a copy of the GNU Lesser General Public License
-// along with SharpMap; if not, write to the Free Software
+// along with Gisoft.SharpMap; if not, write to the Free Software
 // Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA 
 
 using System;
@@ -23,7 +23,7 @@ using System.IO;
 using System.Reflection;
 using Gisoft.GeoAPI.Geometries;
 
-namespace SharpMap.Web.Wms.Tiling
+namespace Gisoft.SharpMap.Web.Wms.Tiling
 {
     /// <summary>
     /// Very simple implementation of ITileCache to demonstrate its functionality. It dumps all tiles as png's in a single directory.
@@ -85,7 +85,7 @@ namespace SharpMap.Web.Wms.Tiling
         /// Helper for convenience. Generates a directory path the Application Data directory 
         /// which could be used to store tiles.
         /// </summary>
-        /// <param name="layerName">Name of the SharpMap layer</param>
+        /// <param name="layerName">Name of the Gisoft.SharpMap layer</param>
         /// <param name="tileSetName">Name of the TileSet</param>
         /// <returns></returns>
         public static string GenerateDirectoryPath(string layerName, string tileSetName)

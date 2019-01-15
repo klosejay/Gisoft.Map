@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace SharpMap.Utilities
+namespace Gisoft.SharpMap.Utilities
 {
     /// <summary>
     /// A

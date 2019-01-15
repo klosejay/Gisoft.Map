@@ -1,4 +1,4 @@
-﻿namespace SharpMap.Data.Providers
+﻿namespace Gisoft.SharpMap.Data.Providers
 {
     /// <summary>
     /// Abstract class for providers which support the FilterMethod Delegate
@@ -16,7 +16,7 @@
         /// <para>See the <see cref="FilterDelegate"/> property for more info</para>
         /// </remarks>
         /// <seealso cref="FilterDelegate"/>
-        /// <param name="dr"><see cref="SharpMap.Data.FeatureDataRow"/> to test on</param>
+        /// <param name="dr"><see cref="Gisoft.SharpMap.Data.FeatureDataRow"/> to test on</param>
         /// <returns>true if this feature should be included, false if it should be filtered</returns>
         public delegate bool FilterMethod(FeatureDataRow dr);
 
@@ -29,7 +29,7 @@
         /// <example>
         /// Using an anonymous method for filtering all features where the NAME column starts with S:
         /// <code lang="C#">
-        /// myShapeDataSource.FilterDelegate = new SharpMap.Data.Providers.ShapeFile.FilterMethod(delegate(SharpMap.Data.FeatureDataRow row) { return (!row["NAME"].ToString().StartsWith("S")); });
+        /// myShapeDataSource.FilterDelegate = new Gisoft.SharpMap.Data.Providers.ShapeFile.FilterMethod(delegate(Gisoft.SharpMap.Data.FeatureDataRow row) { return (!row["NAME"].ToString().StartsWith("S")); });
         /// </code>
         /// </example>
         /// <example>
@@ -37,7 +37,7 @@
         /// <code>
         /// myShapeDataSource.FilterDelegate = CountryFilter;
         /// [...]
-        /// public static bool CountryFilter(SharpMap.Data.FeatureDataRow row)
+        /// public static bool CountryFilter(Gisoft.SharpMap.Data.FeatureDataRow row)
         /// {
         ///		if(row.Geometry.GetType()==typeof(Gisoft.GeoAPI.Geometries.IPolygon))
         ///			return ((row.Geometry as Gisoft.GeoAPI.Geometries.IPolygon).Area>5);
