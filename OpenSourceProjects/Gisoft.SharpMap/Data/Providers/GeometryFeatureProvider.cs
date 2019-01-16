@@ -22,6 +22,8 @@ using System.Collections.ObjectModel;
 using System.Data;
 using Gisoft.GeoAPI.Geometries;
 using System.ComponentModel;
+using Gisoft.GeoAPI.CoordinateSystems;
+using Gisoft.SharpMap.CoordinateSystems;
 
 namespace Gisoft.SharpMap.Data.Providers
 {
@@ -58,7 +60,7 @@ namespace Gisoft.SharpMap.Data.Providers
     /// </code>
     /// </example>
     /// </remarks>
-    public class GeometryFeatureProvider : FilterProvider, IProvider
+    public class GeometryFeatureProvider : EditableProvider,IFilterProvider, IProvider
     {
         private readonly FeatureDataTable _features;
         private int _srid = -1;
@@ -460,8 +462,31 @@ namespace Gisoft.SharpMap.Data.Providers
         public int SRID
         {
             get { return _srid; }
-            set { _srid = value; }
+            set { _srid = value; _coordinateSystem = Session.Instance.CoordinateSystemServices.GetCoordinateSystem(_srid); }
         }
+        private ICoordinateSystem _coordinateSystem;
+        public ICoordinateSystem CoordinateSystem
+        {
+            get => _coordinateSystem;
+            set
+            {
+                var srid = ((CoordinateSystemServices)Session.Instance.CoordinateSystemServices).GetSRID(value);
+                if (srid != null)
+                {
+                    _srid = (int)srid;
+                }
+                else
+                {
+                    srid = 0;
+                }
+                _coordinateSystem = value;
+            }
+
+        }
+
+        public FilterMethod FilterDelegate { get; set; }
+
+        public IGeometryFactory Factory => throw new NotSupportedException();
 
         /// <summary>
         /// Disposes the object

@@ -1,26 +1,34 @@
 ﻿namespace Gisoft.SharpMap.Data.Providers
 {
+    #region Delegates
+
+    /// <summary>
+    /// Filter Delegate Method
+    /// </summary>
+    /// <remarks>
+    /// The FilterMethod delegate is used for applying a method that filters data from the dataset.
+    /// The method should return 'true' if the feature should be included and false if not.
+    /// <para>See the <see cref="FilterDelegate"/> property for more info</para>
+    /// </remarks>
+    /// <seealso cref="FilterDelegate"/>
+    /// <param name="dr"><see cref="Gisoft.SharpMap.Data.FeatureDataRow"/> to test on</param>
+    /// <returns>true if this feature should be included, false if it should be filtered</returns>
+    public delegate bool FilterMethod(FeatureDataRow dr);
+
+    #endregion
+    public interface IFilterProvider
+    {
+        /// <summary>
+        /// Filter Delegate Method for limiting the datasource
+        /// </summary>
+        FilterMethod FilterDelegate { get; set; }
+    }
     /// <summary>
     /// Abstract class for providers which support the FilterMethod Delegate
     /// </summary>
-    public abstract class FilterProvider
+    public abstract class FilterProvider:IFilterProvider
     {
-        #region Delegates
-
-        /// <summary>
-        /// Filter Delegate Method
-        /// </summary>
-        /// <remarks>
-        /// The FilterMethod delegate is used for applying a method that filters data from the dataset.
-        /// The method should return 'true' if the feature should be included and false if not.
-        /// <para>See the <see cref="FilterDelegate"/> property for more info</para>
-        /// </remarks>
-        /// <seealso cref="FilterDelegate"/>
-        /// <param name="dr"><see cref="Gisoft.SharpMap.Data.FeatureDataRow"/> to test on</param>
-        /// <returns>true if this feature should be included, false if it should be filtered</returns>
-        public delegate bool FilterMethod(FeatureDataRow dr);
-
-        #endregion
+        
 
         /// <summary>
         /// Filter Delegate Method for limiting the datasource

@@ -8,6 +8,7 @@ using System.Globalization;
 using System.Linq;
 using System.Net;
 using System.Xml.XPath;
+using Gisoft.GeoAPI.CoordinateSystems;
 using Gisoft.GeoAPI.Geometries;
 using Gisoft.SharpMap.CoordinateSystems;
 using Gisoft.SharpMap.Utilities.Indexing;
@@ -156,7 +157,7 @@ namespace Gisoft.SharpMap.Data.Providers
     ///this.mapImage1.Image = demoMap.GetMap();
     /// </code> 
     ///</example>
-    public partial class WFS : IProvider
+    public partial class WFS : EditableProvider, IProvider
     {
         #region Enumerations
 
@@ -173,7 +174,7 @@ namespace Gisoft.SharpMap.Data.Providers
             /// Version 1.1.0
             /// </summary>
             WFS1_1_0
-        } ;
+        };
 
         #endregion
 
@@ -249,7 +250,7 @@ namespace Gisoft.SharpMap.Data.Providers
                 {
                     if (value.Length != 2)
                         throw new ArgumentException("Axis order array must have 2 elements");
-                    if (!((value[0] == 0 && value[1] == 1)||
+                    if (!((value[0] == 0 && value[1] == 1) ||
                           (value[0] == 1 && value[1] == 0)))
                         throw new ArgumentException("Axis order array values must be 0 or 1");
                     if (value[0] + value[1] != 1)
@@ -361,7 +362,7 @@ namespace Gisoft.SharpMap.Data.Providers
 
             if (wfsVersion == WFSVersionEnum.WFS1_0_0)
                 _textResources = new WFS_1_0_0_TextResources();
-            else 
+            else
                 _textResources = new WFS_1_1_0_TextResources();
 
             _wfsVersion = wfsVersion;
@@ -491,7 +492,7 @@ namespace Gisoft.SharpMap.Data.Providers
 
             if (wfsVersion == WFSVersionEnum.WFS1_0_0)
                 _textResources = new WFS_1_0_0_TextResources();
-            else 
+            else
                 _textResources = new WFS_1_1_0_TextResources();
 
             _wfsVersion = wfsVersion;
@@ -539,7 +540,7 @@ namespace Gisoft.SharpMap.Data.Providers
         /// <returns>Features within the specified <see cref="Gisoft.GeoAPI.Geometries.Envelope"/></returns>
         public virtual Collection<IGeometry> GetGeometriesInView(Envelope bbox)
         {
-            if (_featureTypeInfo == null) 
+            if (_featureTypeInfo == null)
                 return null;
 
             // if cache is not enabled make a call to server with the provided bounding box
@@ -560,7 +561,7 @@ namespace Gisoft.SharpMap.Data.Providers
                 _tree = SpatialIndexFactory.Create(extent, _labelInfo.Count,
                     _labelInfo.Rows
                         .Cast<FeatureDataRow>()
-                        .Select((row, idx) => SpatialIndexFactory.Create((uint) idx, row.Geometry.EnvelopeInternal)));
+                        .Select((row, idx) => SpatialIndexFactory.Create((uint)idx, row.Geometry.EnvelopeInternal)));
             }
 
             // we then must filter the geometries locally
@@ -569,7 +570,7 @@ namespace Gisoft.SharpMap.Data.Providers
             var coll = new Collection<IGeometry>();
             for (var i = 0; i < ids.Count; i++)
             {
-                var featureRow = (FeatureDataRow) _labelInfo.Rows[(int)ids[i]];
+                var featureRow = (FeatureDataRow)_labelInfo.Rows[(int)ids[i]];
                 coll.Add(featureRow.Geometry);
             }
 
@@ -623,7 +624,7 @@ namespace Gisoft.SharpMap.Data.Providers
                     var featureGeometry = featureRow.Geometry;
                     if (featureGeometry.Intersects(geom))
                     {
-                        var newRow = (FeatureDataRow) table.Rows.Add(featureRow.ItemArray);
+                        var newRow = (FeatureDataRow)table.Rows.Add(featureRow.ItemArray);
                         newRow.Geometry = featureGeometry;
                     }
                 }
@@ -632,11 +633,11 @@ namespace Gisoft.SharpMap.Data.Providers
             {
                 for (var i = 0; i < _labelInfo.Rows.Count; i++)
                 {
-                    var featureRow = (FeatureDataRow) _labelInfo.Rows[i];
+                    var featureRow = (FeatureDataRow)_labelInfo.Rows[i];
                     var featureGeometry = featureRow.Geometry;
                     if (featureGeometry.Intersects(geom))
                     {
-                        var newRow = (FeatureDataRow) table.Rows.Add(featureRow.ItemArray);
+                        var newRow = (FeatureDataRow)table.Rows.Add(featureRow.ItemArray);
                         newRow.Geometry = featureGeometry;
                     }
                 }
@@ -662,7 +663,7 @@ namespace Gisoft.SharpMap.Data.Providers
             if (_tree != null)
             {
                 // use the index for fast query
-                
+
                 var ids = _tree.Search(box);
                 for (var i = 0; i < ids.Count; i++)
                 {
@@ -677,11 +678,11 @@ namespace Gisoft.SharpMap.Data.Providers
                 // we must filter the geometries locally
                 for (var i = 0; i < _labelInfo.Rows.Count; i++)
                 {
-                    var featureRow = (FeatureDataRow) _labelInfo.Rows[i];
+                    var featureRow = (FeatureDataRow)_labelInfo.Rows[i];
                     var featureGeometry = featureRow.Geometry;
                     if (box.Intersects(featureGeometry.EnvelopeInternal))
                     {
-                        var newRow = (FeatureDataRow) table.Rows.Add(featureRow.ItemArray);
+                        var newRow = (FeatureDataRow)table.Rows.Add(featureRow.ItemArray);
                         newRow.Geometry = featureGeometry;
                     }
                 }
@@ -782,7 +783,11 @@ namespace Gisoft.SharpMap.Data.Providers
         public virtual int SRID
         {
             get { return Convert.ToInt32(_featureTypeInfo.SRID); }
-            set { _featureTypeInfo.SRID = value.ToString(); }
+            set
+            {
+                _featureTypeInfo.SRID = value.ToString();
+                _coordinateSystem = Session.Instance.CoordinateSystemServices.GetCoordinateSystem(value);
+            }
         }
 
         /// <summary>
@@ -793,6 +798,28 @@ namespace Gisoft.SharpMap.Data.Providers
         /// and then cached on client to fullfill next requests.
         /// </remarks>
         public bool UseCache { get; set; }
+
+        private ICoordinateSystem _coordinateSystem;
+        public ICoordinateSystem CoordinateSystem
+        {
+            get => _coordinateSystem;
+            set
+            {
+                var srid = ((CoordinateSystemServices)Session.Instance.CoordinateSystemServices).GetSRID(value);
+                if (srid != null)
+                {
+                    _featureTypeInfo.SRID = ((int)srid).ToString();
+                }
+                else
+                {
+                    _featureTypeInfo.SRID = "0";
+                }
+                _coordinateSystem = value;
+            }
+
+        }
+
+        public IGeometryFactory Factory { get => throw new NotSupportedException(); }
 
         #endregion
 
@@ -1010,7 +1037,7 @@ namespace Gisoft.SharpMap.Data.Providers
                 /* Spatial reference ID */
                 var crs = _featureTypeInfoQueryManager.GetValueFromNode(
                     _featureTypeInfoQueryManager.Compile(_textResources.XPATH_SRS),
-                    new[] {new DictionaryEntry("_param1", featureQueryName)});
+                    new[] { new DictionaryEntry("_param1", featureQueryName) });
                 /* If no SRID could be found, try '4326' by default */
                 if (crs == null) _featureTypeInfo.SRID = "4326";
                 else
@@ -1020,7 +1047,7 @@ namespace Gisoft.SharpMap.Data.Providers
                 /* Bounding Box */
                 IXPathQueryManager bboxQuery = _featureTypeInfoQueryManager.GetXPathQueryManagerInContext(
                     _featureTypeInfoQueryManager.Compile(_textResources.XPATH_BBOX),
-                    new[] {new DictionaryEntry("_param1", featureQueryName)});
+                    new[] { new DictionaryEntry("_param1", featureQueryName) });
 
                 if (bboxQuery != null)
                 {
@@ -1270,7 +1297,7 @@ namespace Gisoft.SharpMap.Data.Providers
                                     case "gml:multiSurfaceProperty":
                                         geomType = "MultiSurfacePropertyType";
                                         break;
-                                        // e.g. 'gml:_geometryProperty' 
+                                    // e.g. 'gml:_geometryProperty' 
                                     default:
                                         break;
                                 }

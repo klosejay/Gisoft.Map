@@ -1,6 +1,7 @@
 ﻿using System;
 using Common.Logging;
 using Gisoft.GeoAPI;
+using Gisoft.SharpMap.CoordinateSystems;
 
 namespace Gisoft.SharpMap
 {
@@ -11,6 +12,11 @@ namespace Gisoft.SharpMap
     {
         private static ICoordinateSystemRepository _repository;
         private ICoordinateSystemServices _coordinateSystemServices;
+
+        private static void InitCoordinateSystemServices()
+        {
+            //Session.Instance.CoordinateSystemServices=new CoordinateSystemServices()
+        }
 
         /// <summary>
         /// Static constructor

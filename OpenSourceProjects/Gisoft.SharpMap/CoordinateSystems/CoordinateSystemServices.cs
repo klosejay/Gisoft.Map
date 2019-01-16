@@ -237,6 +237,48 @@ namespace Gisoft.SharpMap.CoordinateSystems
         }
 
         /// <summary>
+        /// 获取SRID
+        /// </summary>
+        /// <param name="coordinateSystem"></param>
+        /// <returns></returns>
+        public int? GetSRID(ICoordinateSystem coordinateSystem)
+        {
+            var result = GetSRID(coordinateSystem.Authority, coordinateSystem.AuthorityCode);
+            if (result != null)
+            {
+                return result;
+            }
+            if (coordinateSystem is IGeographicCoordinateSystem)
+            {
+                foreach (var item in _csBySrid.Values)
+                {
+                    if (!(item is IGeographicCoordinateSystem)) continue;
+                    if (item.EqualParams(coordinateSystem))
+                    {
+                        return _sridByCs[item];
+                    }
+                }
+            }
+            else if (coordinateSystem is IProjectedCoordinateSystem)
+            {
+                foreach (var item in _csBySrid.Values)
+                {
+                    if (!(item is IProjectedCoordinateSystem)) continue;
+                    if (item.EqualParams(coordinateSystem))
+                    {
+                        return _sridByCs[item];
+                    }
+                }
+            }
+            else
+            {
+                return null;
+            }
+
+            return null;
+        }
+
+        /// <summary>
         /// Method to create a coordinate tranformation between two spatial reference systems, defined by their identifiers
         /// </summary>
         /// <remarks>

@@ -35,9 +35,6 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NetTopologySuite", "NetTopologySuite", "{8F5FCBE5-CF74-448E-BEAD-8AFC100B555A}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SharpMap", "SharpMap", "{145AACA9-A2BC-4F90-A962-4EB7BB564619}"
-	ProjectSection(SolutionItems) = preProject
-		..\..\..\Samples\SharpMap\SharpMap.Extensions\GdalConfiguration.cs = ..\..\..\Samples\SharpMap\SharpMap.Extensions\GdalConfiguration.cs
-	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gisoft.SharpMap", "OpenSourceProjects\Gisoft.SharpMap\Gisoft.SharpMap.csproj", "{FC3B344F-BAD7-466F-B46B-3A583CBD61AF}"
 EndProject

@@ -22,6 +22,32 @@ using IGeometry = Gisoft.GeoAPI.Geometries.IGeometry;
 
 namespace Gisoft.SharpMap.Data.Providers
 {
+    public interface IEditableProvider<TOid> where TOid : IComparable<TOid>
+    {
+        /// <summary>
+        /// 添加要素
+        /// </summary>
+        /// <param name="feature"></param>
+        void AddFeature(FeatureDataRow feature);
+
+        /// <summary>
+        /// 修改要素
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="feature"></param>
+        void ModifyFeature(TOid id, FeatureDataRow feature);
+
+        /// <summary>
+        /// 删除要素
+        /// </summary>
+        /// <param name="id"></param>
+        void RemoveFeature(TOid id);
+
+        /// <summary>
+        /// 保存修改
+        /// </summary>
+        void Save();
+    }
     /// <summary>
     /// Interface for data providers that have an uint key
     /// </summary>
@@ -34,7 +60,7 @@ namespace Gisoft.SharpMap.Data.Providers
     /// <summary>
     /// Interface for data providers
     /// </summary>
-    public interface IProvider<TOid> : IBaseProvider where TOid: IComparable<TOid>
+    public interface IProvider<TOid> : IBaseProvider,IEditableProvider<TOid> where TOid: IComparable<TOid>
     {
         /// <summary>
         /// Returns all objects whose <see cref="Gisoft.GeoAPI.Geometries.Envelope"/> intersects 'bbox'.
@@ -61,28 +87,6 @@ namespace Gisoft.SharpMap.Data.Providers
         /// <returns>datarow</returns>
         FeatureDataRow GetFeature(TOid rowId);
 
-        /// <summary>
-        /// 添加要素
-        /// </summary>
-        /// <param name="feature"></param>
-        void AddFeature(FeatureDataRow feature);
-
-        /// <summary>
-        /// 修改要素
-        /// </summary>
-        /// <param name="id"></param>
-        /// <param name="feature"></param>
-        void ModifyFeature(TOid id, FeatureDataRow feature);
-
-        /// <summary>
-        /// 删除要素
-        /// </summary>
-        /// <param name="id"></param>
-        void RemoveFeature(TOid id);
-
-        /// <summary>
-        /// 保存修改
-        /// </summary>
-        void Save();
+        
     }
 }

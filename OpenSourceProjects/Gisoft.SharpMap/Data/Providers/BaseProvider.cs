@@ -2,8 +2,10 @@ using System;
 using System.Collections.ObjectModel;
 using System.Data;
 using Gisoft.GeoAPI;
+using Gisoft.GeoAPI.CoordinateSystems;
 using Gisoft.GeoAPI.Geometries;
 using Gisoft.SharpMap.Base;
+using Gisoft.SharpMap.CoordinateSystems;
 
 namespace Gisoft.SharpMap.Data.Providers
 {
@@ -11,13 +13,13 @@ namespace Gisoft.SharpMap.Data.Providers
     /// Abstract base provider that handles geometry factory based on SRID
     /// </summary>
     [Serializable]
-    public abstract class BaseProvider : DisposableObject, IProvider
+    public abstract class BaseProvider : EditableProvider, IProvider
     {
         static BaseProvider()
         {
             Map.Configure();
         }
-        
+
         private int _srid;
         private bool _isOpen;
 
@@ -26,7 +28,7 @@ namespace Gisoft.SharpMap.Data.Providers
         //{
         //    get
         //    {
-                
+
         //            if (_featureEditCache == null)
         //            {
         //            lock (this)
@@ -54,7 +56,7 @@ namespace Gisoft.SharpMap.Data.Providers
         /// the spatial reference id to <c>0</c> and an appropriate factory is chosen.
         /// </summary>
         protected BaseProvider()
-            :this(0)
+            : this(0)
         {
         }
 
@@ -107,8 +109,33 @@ namespace Gisoft.SharpMap.Data.Providers
                 if (value != _srid)
                 {
                     _srid = value;
+                    _coordinateSystem = Session.Instance.CoordinateSystemServices.GetCoordinateSystem(_srid);
                     OnSridChanged(EventArgs.Empty);
                 }
+            }
+        }
+
+        private ICoordinateSystem _coordinateSystem;
+        /// <summary>
+        /// 坐标系统
+        /// CoordinateSystem of the DataProvider
+        /// </summary>
+        public virtual ICoordinateSystem CoordinateSystem
+        {
+            get => _coordinateSystem;
+            set
+            {
+                _coordinateSystem = value;
+                var srid = ((CoordinateSystemServices)Session.Instance.CoordinateSystemServices).GetSRID(value);
+                if (srid != null)
+                {
+                    _srid = (int)srid;
+                }
+                else
+                {
+                    _srid = 0;
+                }
+                OnSridChanged(EventArgs.Empty);
             }
         }
 
@@ -119,7 +146,6 @@ namespace Gisoft.SharpMap.Data.Providers
         protected virtual void OnSridChanged(EventArgs eventArgs)
         {
             Factory = GeometryServiceProvider.Instance.CreateGeometryFactory(SRID);
-            
             if (SridChanged != null)
                 SridChanged(this, eventArgs);
         }
@@ -239,9 +265,9 @@ namespace Gisoft.SharpMap.Data.Providers
             foreach (DataColumn column in baseTable.Columns)
             {
                 cols.Add(new DataColumn(column.ColumnName, column.DataType, column.Expression, column.ColumnMapping)
-                    
-                /*{AllowDBNull = column.AllowDBNull, AutoIncrement = column.AutoIncrement, AutoIncrementSeed = column.AutoIncrementSeed,
-                    AutoIncrementStep = column.AutoIncrementStep, Caption = column.Caption}*/);
+
+                        /*{AllowDBNull = column.AllowDBNull, AutoIncrement = column.AutoIncrement, AutoIncrementSeed = column.AutoIncrementSeed,
+                            AutoIncrementStep = column.AutoIncrementStep, Caption = column.Caption}*/);
             }
             /*
             var constraints = res.Constraints;
@@ -256,33 +282,14 @@ namespace Gisoft.SharpMap.Data.Providers
             return res;
         }
 
-        public virtual void AddFeature(FeatureDataRow feature)
-        {
-            throw new NotImplementedException();
-        }
-
-        public virtual void ModifyFeature(uint id, FeatureDataRow feature)
-        {
-            throw new NotImplementedException();
-        }
-
-        public virtual void RemoveFeature(uint id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public virtual void Save()
-        {
-            throw new NotImplementedException();
-        }
     }
 
     /// <summary>
     /// Abstract base provider that handles geometry factory based on SRID
     /// </summary>
     [Serializable]
-    public abstract class BaseProvider<TOid> : DisposableObject, IProvider<TOid>
-        where TOid: IComparable<TOid>
+    public abstract class BaseProvider<TOid> : EditableProvider<TOid>, IProvider<TOid>
+        where TOid : IComparable<TOid>
     {
         static BaseProvider()
         {
@@ -364,6 +371,12 @@ namespace Gisoft.SharpMap.Data.Providers
                 }
             }
         }
+
+        /// <summary>
+        /// 坐标系统
+        /// CoordinateSystem of the DataProvider
+        /// </summary>
+        public virtual ICoordinateSystem CoordinateSystem { get; set; }
 
         /// <summary>
         /// Handler method to handle changes of <see cref="SRID"/>.
@@ -493,8 +506,8 @@ namespace Gisoft.SharpMap.Data.Providers
             {
                 cols.Add(new DataColumn(column.ColumnName, column.DataType, column.Expression, column.ColumnMapping)
 
-                    /*{AllowDBNull = column.AllowDBNull, AutoIncrement = column.AutoIncrement, AutoIncrementSeed = column.AutoIncrementSeed,
-                        AutoIncrementStep = column.AutoIncrementStep, Caption = column.Caption}*/);
+                            /*{AllowDBNull = column.AllowDBNull, AutoIncrement = column.AutoIncrement, AutoIncrementSeed = column.AutoIncrementSeed,
+                                AutoIncrementStep = column.AutoIncrementStep, Caption = column.Caption}*/);
             }
             /*
             var constraints = res.Constraints;
@@ -509,6 +522,10 @@ namespace Gisoft.SharpMap.Data.Providers
             return res;
         }
 
+    }
+
+    public abstract class EditableProvider<TOid> : DisposableObject, IEditableProvider<TOid> where TOid : IComparable<TOid>
+    {
         public virtual void AddFeature(FeatureDataRow feature)
         {
             throw new NotImplementedException();
@@ -528,5 +545,9 @@ namespace Gisoft.SharpMap.Data.Providers
         {
             throw new NotImplementedException();
         }
+    }
+    public abstract class EditableProvider : EditableProvider<uint>
+    {
+
     }
 }

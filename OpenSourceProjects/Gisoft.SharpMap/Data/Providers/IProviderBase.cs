@@ -1,11 +1,14 @@
 using System;
 using System.Collections.ObjectModel;
+using Gisoft.GeoAPI.CoordinateSystems;
 using Gisoft.GeoAPI.Geometries;
 
 namespace Gisoft.SharpMap.Data.Providers
 {
     public interface IBaseProvider : IDisposable
     {
+        IGeometryFactory Factory { get; }
+
         /// <summary>
         /// Gets the connection ID of the datasource
         /// </summary>
@@ -25,6 +28,12 @@ namespace Gisoft.SharpMap.Data.Providers
         /// The spatial reference ID (CRS)
         /// </summary>
         int SRID { get; set; }
+
+        /// <summary>
+        /// ×ø±êÏµÍ³
+        /// CoordinateSystem of the DataProvider
+        /// </summary>
+        ICoordinateSystem CoordinateSystem { get; set; }
 
         /// <summary>
         /// Gets the features within the specified <see cref="Gisoft.GeoAPI.Geometries.Envelope"/>
