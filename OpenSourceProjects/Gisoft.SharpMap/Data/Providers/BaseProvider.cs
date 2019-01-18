@@ -23,7 +23,6 @@ namespace Gisoft.SharpMap.Data.Providers
         private int _srid;
         private bool _isOpen;
 
-        private FeatureDataTable _featureEditCache;
         //protected FeatureDataTable FeatureEditCache
         //{
         //    get

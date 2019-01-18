@@ -799,6 +799,7 @@ namespace Gisoft.SharpMap.Forms
             Controls.Add(_progressBar);
 
             _miRenderer = new LegacyMapBoxImageGenerator(this, _progressBar);
+            //_miRenderer = new LayerListImageGenerator(this, _progressBar);
 
             _activeTool = Tools.None;
             LostFocus += HandleMapBoxLostFocus;

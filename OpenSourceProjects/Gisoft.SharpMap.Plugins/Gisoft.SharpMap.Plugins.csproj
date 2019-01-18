@@ -23,6 +23,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -34,7 +35,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -45,13 +48,14 @@
   <ItemGroup>
     <Compile Include="Data\FwToolsHelper.cs" />
     <Compile Include="Data\Providers\OgrProvider.cs" />
+    <Compile Include="Data\Providers\SpatiaLite.cs" />
+    <Compile Include="Layers\GdalRasterLayer.cs" />
+    <Compile Include="Layers\GdalRasterLayerCachingProxy.cs" />
+    <Compile Include="Layers\GdalTileIndexRasterLayer.cs" />
+    <Compile Include="Layers\GeoTransform.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Example\WPFExample\WPFExample.csproj">
-      <Project>{e796755c-58f6-43be-8b97-e9c0a1e094c9}</Project>
-      <Name>WPFExample</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Gisoft.GeoAPI.CoordinateSystems\Gisoft.GeoAPI.CoordinateSystems.csproj">
       <Project>{76902585-d8c3-48d2-a6bc-2573b1cac534}</Project>
       <Name>Gisoft.GeoAPI.CoordinateSystems</Name>
@@ -68,14 +72,6 @@
       <Project>{afb5dbab-516a-4fa6-889c-ea681f43e769}</Project>
       <Name>Gisoft.ProjNET</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Gisoft.SharpMap.UI\Gisoft.SharpMap.UI.WinForm\Gisoft.SharpMap.UI.WinForm.csproj">
-      <Project>{c0b4b214-4ac4-4a7d-842e-f2f2670b269e}</Project>
-      <Name>Gisoft.SharpMap.UI.WinForm</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Gisoft.SharpMap.UI\Gisoft.SharpMap.UI.WPFHost\Gisoft.SharpMap.UI.WPFHost.csproj">
-      <Project>{cff5fff0-d654-4d25-b295-74493a3ef916}</Project>
-      <Name>Gisoft.SharpMap.UI.WPFHost</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Gisoft.SharpMap\Gisoft.SharpMap.csproj">
       <Project>{fc3b344f-bad7-466f-b46b-3a583cbd61af}</Project>
       <Name>Gisoft.SharpMap</Name>
@@ -88,12 +84,113 @@
     <PackageReference Include="GDAL">
       <Version>2.3.3</Version>
     </PackageReference>
-    <PackageReference Include="GDAL.Native">
-      <Version>2.3.3</Version>
-    </PackageReference>
     <PackageReference Include="GDAL.Plugins">
       <Version>2.3.3</Version>
     </PackageReference>
+    <PackageReference Include="System.Data.SQLite.Core">
+      <Version>1.0.109.2</Version>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="dlls\spatialite\x64\libfreexl-1.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="dlls\spatialite\x64\libgcc_s_seh-1.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="dlls\spatialite\x64\libgeos-3-6-2.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="dlls\spatialite\x64\libgeos_c-1.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="dlls\spatialite\x64\libiconv-2.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="dlls\spatialite\x64\liblzma-5.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="dlls\spatialite\x64\libproj-13.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="dlls\spatialite\x64\librttopo-1.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="dlls\spatialite\x64\libsqlite3-0.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="dlls\spatialite\x64\libstdc++-6.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="dlls\spatialite\x64\libwinpthread-1.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="dlls\spatialite\x64\libxml2-2.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="dlls\spatialite\x64\mod_spatialite.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="dlls\spatialite\x64\SQLite.Interop.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="dlls\spatialite\x64\sqlite3.exe">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="dlls\spatialite\x64\zlib1.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="dlls\spatialite\x86\libfreexl-1.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="dlls\spatialite\x86\libgcc_s_dw2-1.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="dlls\spatialite\x86\libgeos-3-6-2.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="dlls\spatialite\x86\libgeos_c-1.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="dlls\spatialite\x86\libiconv-2.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="dlls\spatialite\x86\liblzma-5.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="dlls\spatialite\x86\libproj-13.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="dlls\spatialite\x86\librttopo-1.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="dlls\spatialite\x86\libsqlite3-0.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="dlls\spatialite\x86\libstdc++-6.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="dlls\spatialite\x86\libwinpthread-1.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="dlls\spatialite\x86\libxml2-2.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="dlls\spatialite\x86\mod_spatialite.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="dlls\spatialite\x86\SQLite.Interop.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="dlls\spatialite\x86\sqlite3.exe">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="dlls\spatialite\x86\zlib1.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="dlls\gdal\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

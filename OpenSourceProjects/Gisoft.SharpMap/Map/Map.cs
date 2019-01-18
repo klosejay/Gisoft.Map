@@ -171,7 +171,6 @@ namespace Gisoft.SharpMap
         /// </summary>
         public Map() : this(new Size(640, 480))
         {
-
         }
 
         /// <summary>

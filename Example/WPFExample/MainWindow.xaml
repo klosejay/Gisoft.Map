@@ -19,6 +19,7 @@
             </MenuItem>
             <MenuItem Header="_Add Layer">
                 <MenuItem Header="_ShapeFile" Name="AddShapeLayer" Click="AddShapeLayer_Click"/>
+                <MenuItem Header="_ImageFile" Name="AddImageLayer" Click="AddImageLayer_Click"/>
             </MenuItem>
             <MenuItem Header="_BackgroundMap">
                 <MenuItem Header="_OpenStreetMap" Name="BgOsm" Click="BgOsm_Click" IsCheckable="False"/>

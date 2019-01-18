@@ -454,7 +454,7 @@ namespace Gisoft.SharpMap.Data.Providers
         /// should be included in attribute data or not. 
         /// <para>The default value is <c>false</c></para>
         /// </summary>
-        public bool IncludeOid { get; set; }
+        public bool IncludeOid { get; set; } = true;
 
         /// <summary>
         /// Opens the datasource

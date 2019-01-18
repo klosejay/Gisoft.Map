@@ -37,6 +37,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
@@ -112,6 +113,10 @@
     <ProjectReference Include="..\..\OpenSourceProjects\Gisoft.ProjNet\Gisoft.ProjNET.csproj">
       <Project>{afb5dbab-516a-4fa6-889c-ea681f43e769}</Project>
       <Name>Gisoft.ProjNET</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\OpenSourceProjects\Gisoft.SharpMap.Plugins\Gisoft.SharpMap.Plugins.csproj">
+      <Project>{e043e3ec-240a-4e05-86d9-acf58d297795}</Project>
+      <Name>Gisoft.SharpMap.Plugins</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\OpenSourceProjects\Gisoft.SharpMap.UI\Gisoft.SharpMap.UI.WinForm\Gisoft.SharpMap.UI.WinForm.csproj">
       <Project>{c0b4b214-4ac4-4a7d-842e-f2f2670b269e}</Project>

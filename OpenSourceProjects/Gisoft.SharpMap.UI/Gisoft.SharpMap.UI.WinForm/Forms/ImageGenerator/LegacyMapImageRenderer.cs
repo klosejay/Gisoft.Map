@@ -527,6 +527,7 @@ namespace Gisoft.SharpMap.Forms.ImageGenerator
         public void Generate()
         {
             UpdateImage(true, new Rectangle(Point.Empty, MapBox.Size));
+            //UpdateImage(false, new Rectangle(Point.Empty, MapBox.Size));
         }
 
         private void UpdateImage(bool forceRefresh, Rectangle updateArea)

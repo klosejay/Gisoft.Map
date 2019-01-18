@@ -48,6 +48,8 @@ namespace WPFExample
             if (ofd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 var ds = new Gisoft.SharpMap.Data.Providers.ShapeFile(ofd.FileName);
+                ds.IncludeOid = true;
+                //var ds = new Gisoft.SharpMap.Data.Providers.Ogr(ofd.FileName);
                 var lay = new Gisoft.SharpMap.Layers.VectorLayer(System.IO.Path.GetFileNameWithoutExtension(ofd.FileName), ds);
                 if (ds.CoordinateSystem != null)
                 {
@@ -59,12 +61,32 @@ namespace WPFExample
                     lay.ReverseCoordinateTransformation = fact.CreateFromCoordinateSystems(Gisoft.ProjNet.CoordinateSystems.ProjectedCoordinateSystem.WebMercator,
                         ds.CoordinateSystem);
                 }
+                var features = ds.GetFeature(0);
                 WpfMap.MapLayers.Add(lay);
+                
                 if (WpfMap.MapLayers.Count == 1)
                 {
                     Envelope env = lay.Envelope;
                     WpfMap.ZoomToEnvelope(env);
                 }
+            }
+            e.Handled = true;
+        }
+        private void AddImageLayer_Click(object sender, RoutedEventArgs e)
+        {
+            var ofd = new OpenFileDialog();
+            ofd.Filter = @"ImageFiles (*.tif)|*.tif";
+            if (ofd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                var lay = new Gisoft.SharpMap.Layers.GdalRasterLayer(ofd.SafeFileName, ofd.FileName);
+                //WpfMap.MapLayers.Add(Gisoft.SharpMap.Layers.AsyncLayerProxyLayer.Create(lay));
+                WpfMap.BackgroundLayer = lay;
+                if (WpfMap.MapLayers.Count <= 1)
+                {
+                    Envelope env = lay.Envelope;
+                    WpfMap.ZoomToEnvelope(env);
+                }
+                
             }
             e.Handled = true;
         }
@@ -92,5 +114,7 @@ namespace WPFExample
         {
 
         }
+
+        
     }
 }
