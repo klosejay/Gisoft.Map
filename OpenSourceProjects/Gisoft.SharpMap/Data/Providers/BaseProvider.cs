@@ -138,6 +138,25 @@ namespace Gisoft.SharpMap.Data.Providers
             }
         }
 
+        private string _primaryKeyName = "FID";
+        public string PrimaryKeyName
+        {
+            get => _primaryKeyName;
+            set
+            {
+                if (!string.IsNullOrWhiteSpace(value))
+                {
+                    throw new Exception("can not set empty");
+                }
+                if (_primaryKeyName != value)
+                {
+                    _primaryKeyName = value;
+                }
+            }
+        }
+        
+
+
         /// <summary>
         /// Handler method to handle changes of <see cref="SRID"/>.
         /// </summary>
@@ -265,8 +284,8 @@ namespace Gisoft.SharpMap.Data.Providers
             {
                 cols.Add(new DataColumn(column.ColumnName, column.DataType, column.Expression, column.ColumnMapping)
 
-                        /*{AllowDBNull = column.AllowDBNull, AutoIncrement = column.AutoIncrement, AutoIncrementSeed = column.AutoIncrementSeed,
-                            AutoIncrementStep = column.AutoIncrementStep, Caption = column.Caption}*/);
+                            /*{AllowDBNull = column.AllowDBNull, AutoIncrement = column.AutoIncrement, AutoIncrementSeed = column.AutoIncrementSeed,
+                                AutoIncrementStep = column.AutoIncrementStep, Caption = column.Caption}*/);
             }
             /*
             var constraints = res.Constraints;
@@ -371,11 +390,46 @@ namespace Gisoft.SharpMap.Data.Providers
             }
         }
 
+        private ICoordinateSystem _coordinateSystem;
         /// <summary>
         /// ×ø±êÏµÍ³
         /// CoordinateSystem of the DataProvider
         /// </summary>
-        public virtual ICoordinateSystem CoordinateSystem { get; set; }
+        public virtual ICoordinateSystem CoordinateSystem
+        {
+            get => _coordinateSystem;
+            set
+            {
+                _coordinateSystem = value;
+                var srid = ((CoordinateSystemServices)Session.Instance.CoordinateSystemServices).GetSRID(value);
+                if (srid != null)
+                {
+                    _srid = (int)srid;
+                }
+                else
+                {
+                    _srid = 0;
+                }
+                OnSridChanged(EventArgs.Empty);
+            }
+        }
+
+        private string _primaryKeyName = "FID";
+        public string PrimaryKeyName
+        {
+            get => _primaryKeyName;
+            set
+            {
+                if (!string.IsNullOrWhiteSpace(value))
+                {
+                    throw new Exception("can not set empty");
+                }
+                if (_primaryKeyName != value)
+                {
+                    _primaryKeyName = value;
+                }
+            }
+        }
 
         /// <summary>
         /// Handler method to handle changes of <see cref="SRID"/>.
@@ -505,8 +559,8 @@ namespace Gisoft.SharpMap.Data.Providers
             {
                 cols.Add(new DataColumn(column.ColumnName, column.DataType, column.Expression, column.ColumnMapping)
 
-                            /*{AllowDBNull = column.AllowDBNull, AutoIncrement = column.AutoIncrement, AutoIncrementSeed = column.AutoIncrementSeed,
-                                AutoIncrementStep = column.AutoIncrementStep, Caption = column.Caption}*/);
+                                /*{AllowDBNull = column.AllowDBNull, AutoIncrement = column.AutoIncrement, AutoIncrementSeed = column.AutoIncrementSeed,
+                                    AutoIncrementStep = column.AutoIncrementStep, Caption = column.Caption}*/);
             }
             /*
             var constraints = res.Constraints;
@@ -525,6 +579,7 @@ namespace Gisoft.SharpMap.Data.Providers
 
     public abstract class EditableProvider<TOid> : DisposableObject, IEditableProvider<TOid> where TOid : IComparable<TOid>
     {
+        public bool IsReadOnly { get; set; }
         public virtual void AddFeature(FeatureDataRow feature)
         {
             throw new NotImplementedException();

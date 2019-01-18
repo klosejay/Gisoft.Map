@@ -30,6 +30,12 @@ namespace Gisoft.SharpMap.Data.Providers
         int SRID { get; set; }
 
         /// <summary>
+        /// primary key field name
+        /// 主键名
+        /// </summary>
+        string PrimaryKeyName { get; set; }
+
+        /// <summary>
         /// 坐标系统
         /// CoordinateSystem of the DataProvider
         /// </summary>

@@ -687,7 +687,7 @@ namespace Gisoft.SharpMap.Data.Providers
             if (IncludeOid)
             {
                 var r = tab.NewRow();
-                r["ColumnName"] = "Oid";
+                r["ColumnName"] = "FID";
                 r["ColumnSize"] = 4;
                 r["ColumnOrdinal"] = 0;
                 r["NumericPrecision"] = DBNull.Value;
@@ -766,7 +766,7 @@ namespace Gisoft.SharpMap.Data.Providers
             _baseTable = new FeatureDataTable();
             if (IncludeOid)
             {
-                _baseTable.Columns.Add("Oid", typeof(UInt32));
+                _baseTable.Columns.Add("FID", typeof(UInt32));
                 _baseTable.PrimaryKey = new DataColumn[] { _baseTable.Columns[0] };
             }
               
@@ -887,7 +887,7 @@ namespace Gisoft.SharpMap.Data.Providers
 
             var dr = table.NewRow();
 
-            if (IncludeOid) dr["Oid"] = oid;
+            if (IncludeOid) dr["FID"] = oid;
 
             for (var i = 0; i < _dbaseColumns.Length; i++)
             {

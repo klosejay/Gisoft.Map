@@ -44,11 +44,11 @@ namespace WPFExample
         private void AddShapeLayer_Click(object sender, RoutedEventArgs e)
         {
             var ofd = new OpenFileDialog();
-            ofd.Filter = @"Shapefiles (*.shp)|*.shp";
+            ofd.Filter = @"Shapefiles (*.shp)|*.shp|All files(*.*)|*.*";
             if (ofd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                var ds = new Gisoft.SharpMap.Data.Providers.ShapeFile(ofd.FileName);
-                ds.IncludeOid = true;
+                var ds = new Gisoft.SharpMap.Data.Providers.Ogr(ofd.FileName);
+                //ds.IncludeOid = false;
                 //var ds = new Gisoft.SharpMap.Data.Providers.Ogr(ofd.FileName);
                 var lay = new Gisoft.SharpMap.Layers.VectorLayer(System.IO.Path.GetFileNameWithoutExtension(ofd.FileName), ds);
                 if (ds.CoordinateSystem != null)
@@ -63,7 +63,7 @@ namespace WPFExample
                 }
                 var features = ds.GetFeature(0);
                 WpfMap.MapLayers.Add(lay);
-                
+
                 if (WpfMap.MapLayers.Count == 1)
                 {
                     Envelope env = lay.Envelope;
@@ -86,7 +86,7 @@ namespace WPFExample
                     Envelope env = lay.Envelope;
                     WpfMap.ZoomToEnvelope(env);
                 }
-                
+
             }
             e.Handled = true;
         }
@@ -115,6 +115,6 @@ namespace WPFExample
 
         }
 
-        
+
     }
 }

@@ -23,7 +23,7 @@ using Gisoft.NetTopologySuite.IO;
 using Gisoft.SharpMap.Converters.WellKnownBinary;
 //using SharpMap.Geometries;
 using BoundingBox = Gisoft.GeoAPI.Geometries.Envelope;
-using Geometry= Gisoft.GeoAPI.Geometries.IGeometry;
+using Geometry = Gisoft.GeoAPI.Geometries.IGeometry;
 using OgrOgr = OSGeo.OGR.Ogr;
 using OgrDataSource = OSGeo.OGR.DataSource;
 using OgrLayer = OSGeo.OGR.Layer;
@@ -68,6 +68,7 @@ namespace Gisoft.SharpMap.Data.Providers
         private String _filename;
         private String _definitionQuery = "";
         private int _layerIndex;
+        private bool _hasPrimaryKey = false;
 
         #endregion
 
@@ -192,8 +193,8 @@ namespace Gisoft.SharpMap.Data.Providers
         {
             get
             {
-                using(var ogrLayer = GetLayer(LayerIndex))
-                using(var ogrLayerDefn = ogrLayer.GetLayerDefn())
+                using (var ogrLayer = GetLayer(LayerIndex))
+                using (var ogrLayerDefn = ogrLayer.GetLayerDefn())
                     return ogrLayerDefn.GetName();
             }
             set
@@ -288,6 +289,12 @@ namespace Gisoft.SharpMap.Data.Providers
                 OsrSpatialReference spatialReference = ogrLayer.GetSpatialRef();
                 if (spatialReference != null)
                     SRID = spatialReference.AutoIdentifyEPSG();
+                var fidColumn = ogrLayer.GetFIDColumn();
+                if (!string.IsNullOrWhiteSpace(fidColumn))
+                {
+                    PrimaryKeyName = fidColumn;
+                    _hasPrimaryKey = true;
+                }
             }
             _layerIndex = layerNum;
         }
@@ -369,7 +376,7 @@ namespace Gisoft.SharpMap.Data.Providers
         /// <returns>number of features</returns>
         public override int GetFeatureCount()
         {
-            using(var ogrLayer = GetLayer(_layerIndex))
+            using (var ogrLayer = GetLayer(_layerIndex))
                 return (int)ogrLayer.GetFeatureCount(1);
         }
 
@@ -386,10 +393,10 @@ namespace Gisoft.SharpMap.Data.Providers
             {
                 var fdt = ReadColumnDefinition(ogrLayer);
                 fdt.BeginLoadData();
-                using (var feature = ogrLayer.GetFeature((int) rowId))
+                using (var feature = ogrLayer.GetFeature((int)rowId))
                 {
                     //res = LoadOgrFeatureToFeatureDataRow(fdt, feature, Factory);
-                    res = LoadOgrFeatureToFeatureDataRow(fdt, feature, reader);
+                    res = LoadOgrFeatureToFeatureDataRow(fdt, feature, reader, rowId);
                 }
                 fdt.EndLoadData();
             }
@@ -412,7 +419,7 @@ namespace Gisoft.SharpMap.Data.Providers
                 OgrFeature ogrFeature;
                 while ((ogrFeature = ogrLayer.GetNextFeature()) != null)
                 {
-                    objectIDs.Add((uint) ogrFeature.GetFID());
+                    objectIDs.Add((uint)ogrFeature.GetFID());
                     ogrFeature.Dispose();
                 }
                 ogrDataSource.Dispose();
@@ -434,7 +441,7 @@ namespace Gisoft.SharpMap.Data.Providers
                 {
                     var reader = new WKBReader(Factory);
                     //var g = ParseOgrGeometry(gr, Factory);
-                    var g = new OgrGeometryReader(Factory).Read(gr) ;
+                    var g = new OgrGeometryReader(Factory).Read(gr);
                     return g;
                 }
             }
@@ -525,11 +532,14 @@ namespace Gisoft.SharpMap.Data.Providers
             var reader = new OgrGeometryReader(Factory);
             myDt.BeginLoadData();
             OgrFeature ogrFeature;
+            uint index = 0;
             while ((ogrFeature = ogrLayer.GetNextFeature()) != null)
             {
                 //LoadOgrFeatureToFeatureDataRow(myDt, ogrFeature, Factory);
-                LoadOgrFeatureToFeatureDataRow(myDt, ogrFeature, reader);
+                
+                LoadOgrFeatureToFeatureDataRow(myDt, ogrFeature, reader, index);
                 ogrFeature.Dispose();
+                index++;
             }
             myDt.EndLoadData();
 
@@ -545,7 +555,7 @@ namespace Gisoft.SharpMap.Data.Providers
         {
             if (_ogrDataSource != null)
                 _ogrDataSource.Dispose();
-            
+
             base.ReleaseManagedResources();
         }
 
@@ -573,7 +583,7 @@ namespace Gisoft.SharpMap.Data.Providers
                 {
                     using (var ogrFldDef = ogrFeatureDefn.GetFieldDefn(iField))
                     {
-                        var type= ogrFldDef.GetFieldType();
+                        var type = ogrFldDef.GetFieldType();
                         switch (type)
                         {
                             case OgrFieldType.OFTInteger:
@@ -620,7 +630,7 @@ namespace Gisoft.SharpMap.Data.Providers
         //{
         //    if (ogrGeometry != null)
         //    {
-                
+
         //        //Just in case it isn't 2D
         //        ogrGeometry.FlattenTo2D();
         //        var wkbBuffer = new byte[ogrGeometry.WkbSize()];
@@ -637,10 +647,10 @@ namespace Gisoft.SharpMap.Data.Providers
         //}
 
         //private static FeatureDataRow LoadOgrFeatureToFeatureDataRow(FeatureDataTable table, OSGeo.OGR.Feature ogrFeature, GeoAPI.Geometries.IGeometryFactory factory)
-        private static FeatureDataRow LoadOgrFeatureToFeatureDataRow(FeatureDataTable table, OSGeo.OGR.Feature ogrFeature, OgrGeometryReader reader)
+        private static FeatureDataRow LoadOgrFeatureToFeatureDataRow(FeatureDataTable table, OSGeo.OGR.Feature ogrFeature, OgrGeometryReader reader, uint? fid=null)
         {
             var values = new object[ogrFeature.GetFieldCount()];
-            
+
             for (var iField = 0; iField < ogrFeature.GetFieldCount(); iField++)
             {
                 // No need to get field value if there's no value available...
@@ -685,7 +695,7 @@ namespace Gisoft.SharpMap.Data.Providers
                             else
                                 values[iField] = new DateTime(y, m, d, h, mi, (int)s);
                         }
-// ReSharper disable once EmptyGeneralCatchClause
+                        // ReSharper disable once EmptyGeneralCatchClause
                         catch { }
                         break;
                     default:
@@ -729,6 +739,7 @@ namespace Gisoft.SharpMap.Data.Providers
                 while ((ogrFeature = results.GetNextFeature()) != null)
                 {
                     //LoadOgrFeatureToFeatureDataRow(myDt, ogrFeature, Factory);
+                    //var index=_ogrDataSource.ExecuteSQL()
                     LoadOgrFeatureToFeatureDataRow(myDt, ogrFeature, reader);
                     ogrFeature.Dispose();
                 }
@@ -791,7 +802,7 @@ namespace Gisoft.SharpMap.Data.Providers
         /// <param name="connection">The connection string</param>
         /// <param name="driverOptions">The options for the driver</param>
         /// <param name="layerOptions">The options for the layer</param>
-        public static void CreateFromFeatureDataTable(FeatureDataTable table, 
+        public static void CreateFromFeatureDataTable(FeatureDataTable table,
             OgcGeometryType geometryType, int srid, string driver, string connection, string[] driverOptions = null, string[] layerOptions = null)
         {
             if (table == null)

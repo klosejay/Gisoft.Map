@@ -25,6 +25,10 @@ namespace Gisoft.SharpMap.Data.Providers
     public interface IEditableProvider<TOid> where TOid : IComparable<TOid>
     {
         /// <summary>
+        /// 是否只读
+        /// </summary>
+        bool IsReadOnly { get;}
+        /// <summary>
         /// 添加要素
         /// </summary>
         /// <param name="feature"></param>

@@ -819,6 +819,23 @@ namespace Gisoft.SharpMap.Data.Providers
 
         }
 
+        private string _primaryKeyName = "FID";
+        public string PrimaryKeyName
+        {
+            get => _primaryKeyName;
+            set
+            {
+                if (!string.IsNullOrWhiteSpace(value))
+                {
+                    throw new Exception("can not set empty");
+                }
+                if (_primaryKeyName != value)
+                {
+                    _primaryKeyName = value;
+                }
+            }
+        }
+
         public IGeometryFactory Factory { get => throw new NotSupportedException(); }
 
         #endregion

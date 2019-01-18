@@ -488,6 +488,23 @@ namespace Gisoft.SharpMap.Data.Providers
 
         public IGeometryFactory Factory => throw new NotSupportedException();
 
+        private string _primaryKeyName = "FID";
+        public string PrimaryKeyName
+        {
+            get => _primaryKeyName;
+            set
+            {
+                if (!string.IsNullOrWhiteSpace(value))
+                {
+                    throw new Exception("can not set empty");
+                }
+                if (_primaryKeyName != value)
+                {
+                    _primaryKeyName = value;
+                }
+            }
+        }
+
         /// <summary>
         /// Disposes the object
         /// </summary>

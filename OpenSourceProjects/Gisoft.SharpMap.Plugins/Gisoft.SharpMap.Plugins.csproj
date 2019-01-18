@@ -49,6 +49,7 @@
     <Compile Include="Data\FwToolsHelper.cs" />
     <Compile Include="Data\Providers\OgrProvider.cs" />
     <Compile Include="Data\Providers\SpatiaLite.cs" />
+    <Compile Include="GdalConfiguration.cs" />
     <Compile Include="Layers\GdalRasterLayer.cs" />
     <Compile Include="Layers\GdalRasterLayerCachingProxy.cs" />
     <Compile Include="Layers\GdalTileIndexRasterLayer.cs" />
