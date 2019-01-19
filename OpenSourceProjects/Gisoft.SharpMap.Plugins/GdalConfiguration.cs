@@ -114,6 +114,9 @@ namespace Gisoft.SharpMap
                 //// 为了支持shp属性表字段支持中文，请添加下面这句
                 OSGeo.GDAL.Gdal.SetConfigOption("SHAPE_ENCODING", "");
 
+                //Gdal.SetConfigOption("PGEO_DRIVER_TEMPLATE", "DRIVER=Microsoft Access Driver (*.mdb, *.accdb);DBQ=%s");
+                //Gdal.SetConfigOption("MDB_DRIVER_TEMPLATE", "DRIVER=Microsoft Access Driver (*.mdb, *.accdb);DBQ=%s");
+
                 _usable = true;
             }
             catch (Exception e)
