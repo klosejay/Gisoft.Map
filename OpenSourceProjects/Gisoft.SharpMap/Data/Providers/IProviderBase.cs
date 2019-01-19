@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using Gisoft.GeoAPI.CoordinateSystems;
 using Gisoft.GeoAPI.Geometries;
@@ -40,6 +41,8 @@ namespace Gisoft.SharpMap.Data.Providers
         /// CoordinateSystem of the DataProvider
         /// </summary>
         ICoordinateSystem CoordinateSystem { get; set; }
+
+        DataSetDescript DataSetDescript { get; set; }
 
         /// <summary>
         /// Gets the features within the specified <see cref="Gisoft.GeoAPI.Geometries.Envelope"/>
@@ -83,5 +86,17 @@ namespace Gisoft.SharpMap.Data.Providers
         /// Closes the datasource
         /// </summary>
         void Close();
+
+        /// <summary>
+        /// 获取所有数据描述
+        /// </summary>
+        /// <returns></returns>
+        IList<DataSetDescript> GetDataSetDescripts();
+
+        /// <summary>
+        /// 获取所有数据
+        /// </summary>
+        /// <returns></returns>
+        IList<IBaseProvider> GetProviders();
     }
 }

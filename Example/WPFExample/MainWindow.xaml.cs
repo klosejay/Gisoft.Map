@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -47,7 +48,8 @@ namespace WPFExample
             ofd.Filter = @"Shapefiles (*.shp)|*.shp|All files(*.*)|*.*";
             if (ofd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                var ds = new Gisoft.SharpMap.Data.Providers.Ogr(ofd.FileName);
+                //var fileName = ofd.FileName.Convert2UTF8();
+                var ds = new Gisoft.SharpMap.Data.Providers.Ogr(ofd.FileName.Convert2UTF8());
                 //ds.IncludeOid = false;
                 //var ds = new Gisoft.SharpMap.Data.Providers.Ogr(ofd.FileName);
                 var lay = new Gisoft.SharpMap.Layers.VectorLayer(System.IO.Path.GetFileNameWithoutExtension(ofd.FileName), ds);
@@ -78,7 +80,7 @@ namespace WPFExample
             ofd.Filter = @"ImageFiles (*.tif)|*.tif";
             if (ofd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                var lay = new Gisoft.SharpMap.Layers.GdalRasterLayer(ofd.SafeFileName, ofd.FileName);
+                var lay = new Gisoft.SharpMap.Layers.GdalRasterLayer(ofd.SafeFileName, ofd.FileName.Convert2UTF8());
                 //WpfMap.MapLayers.Add(Gisoft.SharpMap.Layers.AsyncLayerProxyLayer.Create(lay));
                 WpfMap.BackgroundLayer = lay;
                 if (WpfMap.MapLayers.Count <= 1)

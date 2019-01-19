@@ -54,7 +54,7 @@ namespace Gisoft.SharpMap.Data.Providers
 	/// myLayer.DataSource = new Gisoft.SharpMap.Data.Providers.ShapeFile(@"C:\data\MyShapeData.shp");
 	/// </code>
 	/// </example>
-	public class ShapeFile : EditableProvider, IFilterProvider, IProvider
+	public class ShapeFile : BaseProvider, IFilterProvider, IProvider
     {
         readonly ILog _logger = LogManager.GetLogger(typeof(ShapeFile));
 
@@ -170,6 +170,7 @@ namespace Gisoft.SharpMap.Data.Providers
 
             //By default, don't enable _MemoryCache if there are a lot of features
             _useMemoryCache = GetFeatureCount() <= MemoryCacheLimit;
+
         }
 
         /// <summary>
@@ -369,6 +370,7 @@ namespace Gisoft.SharpMap.Data.Providers
                 _dbfSpecifiedEncoding = value;
             }
         }
+
 
         #region Disposers and finalizers
 
@@ -576,7 +578,7 @@ namespace Gisoft.SharpMap.Data.Providers
         /// </remarks>
         /// <param name="bbox"></param>
         /// <returns></returns>
-        public Collection<IGeometry> GetGeometriesInView(Envelope bbox)
+        public override Collection<IGeometry> GetGeometriesInView(Envelope bbox)
         {
             //Use the spatial index to get a list of features whose boundingbox intersects bbox
             var objectlist = GetObjectIDsInView(bbox);
@@ -656,7 +658,7 @@ namespace Gisoft.SharpMap.Data.Providers
         /// <param name="bbox"></param>
         /// <param name="ds"></param>
         /// <returns></returns>
-        public void ExecuteIntersectionQuery(Envelope bbox, FeatureDataSet ds)
+        public override void ExecuteIntersectionQuery(Envelope bbox, FeatureDataSet ds)
         {
             // Do true intersection query
             if (DoTrueIntersectionQuery)
@@ -702,7 +704,7 @@ namespace Gisoft.SharpMap.Data.Providers
         /// </summary>
         /// <param name="bbox"></param>
         /// <returns></returns>
-        public Collection<uint> GetObjectIDsInView(Envelope bbox)
+        public override Collection<uint> GetObjectIDsInView(Envelope bbox)
         {
             if (!_tree.Box.Intersects(bbox))
                 return new Collection<uint>();
@@ -740,7 +742,7 @@ namespace Gisoft.SharpMap.Data.Providers
         /// <remarks>FilterDelegate is no longer applied to this ge</remarks>
         /// <param name="oid">Object ID</param>
         /// <returns>The geometry at the Id</returns>
-        public IGeometry GetGeometryByID(uint oid)
+        public override IGeometry GetGeometryByID(uint oid)
         {
             IGeometry geom;
             using (Stream s = OpenShapefileStream())
@@ -801,7 +803,7 @@ namespace Gisoft.SharpMap.Data.Providers
         /// </summary>
         /// <param name="geom">The geometry to test intersection for</param>
         /// <param name="ds">FeatureDataSet to fill data into</param>
-        public virtual void ExecuteIntersectionQuery(IGeometry geom, FeatureDataSet ds)
+        private void ShpExecuteIntersectionQuery(IGeometry geom, FeatureDataSet ds)
         {
             var bbox = new Envelope(geom.EnvelopeInternal);
 
@@ -866,7 +868,7 @@ namespace Gisoft.SharpMap.Data.Providers
         /// Returns the total number of features in the datasource (without any filter applied)
         /// </summary>
         /// <returns></returns>
-        public int GetFeatureCount()
+        public override int GetFeatureCount()
         {
             return _index.FeatureCount;
         }
@@ -877,7 +879,7 @@ namespace Gisoft.SharpMap.Data.Providers
         /// Returns the extents of the datasource
         /// </summary>
         /// <returns></returns>
-        public Envelope GetExtents()
+        public override Envelope GetExtents()
         {
             if (_tree == null)
                 return _header.BoundingBox;
@@ -926,6 +928,8 @@ namespace Gisoft.SharpMap.Data.Providers
                 ShapeFileIndex.Create(_filename);
             _index = ShapeFileIndex.Read(shxPath);
 
+            
+
         }
 
         /// <summary>
@@ -962,65 +966,43 @@ namespace Gisoft.SharpMap.Data.Providers
             }
         }
 
-        ///// <summary>
-        ///// If an index file is present (.shx) it reads the record offsets from the .shx index file and returns the information in an array.
-        ///// IfF an indexd array is not present it works out the indexes from the data file, by going through the record headers, finding the
-        ///// data lengths and workingout the offsets. Which ever method is used a array of index is populated to be use by the other methods.
-        ///// This array is created when the open method is called, and removed when the close method called.
-        ///// </summary>
-        //private void PopulateIndexes(string shxFile)
-        //{
-        //    if (File.Exists(shxFile))
-        //    {
-        //        using (var brShapeIndex = new BinaryReader(File.OpenRead(shxFile)))
-        //        {
-        //            brShapeIndex.BaseStream.Seek(100, 0);  //skip the header
+        protected override void InitMetaData()
+        {
+            dataSetDescript = new DataSetDescript();
+            dataSetDescript.Name = Path.GetFileNameWithoutExtension(_filename);
+            dataSetDescript.CoordinateSystem = CoordinateSystem;
+            dataSetDescript.FilePath = _filename;
+            switch (_header.ShapeType)
+            {
+                case ShapeType.Point:
+                case ShapeType.PointM:
+                case ShapeType.PointZ:
+                case ShapeType.Multipoint:
+                case ShapeType.MultiPointM:
+                case ShapeType.MultiPointZ:
+                    dataSetDescript.DataSetType = DataSetType.Point;
+                    break;
+                case ShapeType.PolyLine:
+                case ShapeType.PolyLineM:
+                case ShapeType.PolyLineZ:
+                    dataSetDescript.DataSetType = DataSetType.Line;
+                    break;
+                case ShapeType.Polygon:
+                case ShapeType.PolygonM:
+                case ShapeType.PolygonZ:
+                    dataSetDescript.DataSetType = DataSetType.Polygon;
+                    break;
+                default:
+                    dataSetDescript.DataSetType = DataSetType.Unknown;
+                    break;
+            }
 
-        //            for (int x = 0; x < _featureCount; ++x)
-        //            {
-        //                _offsetOfRecord[x] = new ShapeFileIndexEntry(brShapeIndex);
-        //                //_offsetOfRecord[x] = 2 * SwapByteOrder(brShapeIndex.ReadInt32()); //Read shape data position // ibuffer);
-        //                //brShapeIndex.BaseStream.Seek(brShapeIndex.BaseStream.Position + 4, 0); //Skip content length
-        //            }
-        //        }
-        //    }
-        //    //if (_brShapeIndex != null)
-        //    //{
-        //    //    _brShapeIndex.BaseStream.Seek(100, 0);  //skip the header
+            using (DbaseReader DbaseFile = OpenDbfStream())
+            {
+                dataSetDescript.Fields = DbaseFile.GetAttributesHead();
+            }
+        }
 
-        //    //    for (int x = 0; x < _featureCount; ++x)
-        //    //    {
-        //    //        _offsetOfRecord[x] = 2 * SwapByteOrder(_brShapeIndex.ReadInt32()); //Read shape data position // ibuffer);
-        //    //        _brShapeIndex.BaseStream.Seek(_brShapeIndex.BaseStream.Position + 4, 0); //Skip content length
-        //    //    }
-        //    //}
-        //    else  
-        //    {
-        //        // we need to create an index from the shape file
-
-        //        // Record the current position pointer for later
-        //        var oldPosition = _brShapeFile.BaseStream.Position;
-
-        //        // Move to the start of the data
-        //        _brShapeFile.BaseStream.Seek(100, 0); //Skip content length
-        //        long offset = 100; // Start of the data records
-
-        //        for (int x = 0; x < _featureCount; ++x)
-        //        {
-        //            var recordOffset = offset;
-        //            //_offsetOfRecord[x] = (int)offset;
-
-        //            _brShapeFile.BaseStream.Seek(offset + 4, 0); //Skip content length
-        //            int dataLength = 2 * SwapByteOrder(_brShapeFile.ReadInt32());
-        //            _offsetOfRecord[x] = new ShapeFileIndexEntry((int)recordOffset, dataLength);
-        //            offset += dataLength; // Add Record data length
-        //            offset += 8; //  Plus add the record header size
-        //        }
-
-        //        // Return the position pointer
-        //        _brShapeFile.BaseStream.Seek(oldPosition, 0);
-        //    }
-        //}
 
         ///<summary>
         ///Swaps the byte order of an int32
@@ -1397,7 +1379,7 @@ namespace Gisoft.SharpMap.Data.Providers
         /// </summary>
         /// <param name="rowId">The object identifier for the record</param>
         /// <returns>The feature data row</returns>
-        public FeatureDataRow GetFeature(uint rowId)
+        public override FeatureDataRow GetFeature(uint rowId)
         {
             return GetFeature(rowId, null);
         }
@@ -1489,5 +1471,19 @@ namespace Gisoft.SharpMap.Data.Providers
                 "An attempt was made to read DBase data from a shapefile without a valid .DBF file"));
         }
 
+        public override IList<DataSetDescript> GetDataSetDescripts()
+        {
+            return new List<DataSetDescript>() { DataSetDescript, };
+        }
+
+        public override IList<IBaseProvider> GetProviders()
+        {
+            return new List<IBaseProvider>() { this, };
+        }
+
+        protected override void OnExecuteIntersectionQuery(IGeometry geom, FeatureDataSet ds)
+        {
+            ShpExecuteIntersectionQuery(geom, ds);
+        }
     }
 }

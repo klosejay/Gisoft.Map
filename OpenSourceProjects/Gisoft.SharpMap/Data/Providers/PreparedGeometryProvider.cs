@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Gisoft.GeoAPI.Geometries;
 using Gisoft.GeoAPI.Geometries.Prepared;
 
@@ -90,6 +91,28 @@ namespace Gisoft.SharpMap.Data.Providers
         {
             PreparedGeometry = null;
             base.OnEndExecuteIntersectionQuery();
+        }
+
+        public DataSetDescript DataSetDescript { get; set; } = new DataSetDescript();
+
+        public override IList<DataSetDescript> GetDataSetDescripts()
+        {
+            //var descript=new DataSetDescript()
+            //{
+            //    CoordinateSystem=CoordinateSystem,
+            //    //DataSetType=
+            //}
+            throw new NotSupportedException();
+        }
+
+        public override IList<IBaseProvider> GetProviders()
+        {
+            throw new NotImplementedException();
+        }
+
+        protected override void InitMetaData()
+        {
+            dataSetDescript = new DataSetDescript();
         }
     }
 }

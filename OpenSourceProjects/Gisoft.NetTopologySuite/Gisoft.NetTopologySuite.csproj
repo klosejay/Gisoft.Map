@@ -6,7 +6,7 @@
     <NoWarn>659,168,1587</NoWarn>
     <RootNamespace>Gisoft.NetTopologySuite</RootNamespace>
     <AssemblyName>Gisoft.NetTopologySuite</AssemblyName>
-    <Platforms>AnyCPU;x86</Platforms>
+    <Platforms>AnyCPU;x86;x64</Platforms>
   </PropertyGroup>
 
   <Import Project="$(SolutionDir)PropsAndKey\NetTopologySuite.Common.props" />

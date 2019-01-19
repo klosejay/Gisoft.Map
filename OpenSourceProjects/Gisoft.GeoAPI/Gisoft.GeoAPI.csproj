@@ -6,7 +6,7 @@
     <NoWarn>1591</NoWarn>
     <RootNamespace>Gisoft.GeoAPI</RootNamespace>
     <AssemblyName>Gisoft.GeoAPI</AssemblyName>
-    <Platforms>AnyCPU;x86</Platforms>
+    <Platforms>AnyCPU;x86;x64</Platforms>
   </PropertyGroup>
 
   <Import Project="$(SolutionDir)PropsAndKey\GeoAPI.Common.props" />

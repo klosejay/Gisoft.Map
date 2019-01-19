@@ -1,0 +1,30 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>net45;net46;net47;net461;netstandard2.0</TargetFrameworks>
+    <Platforms>AnyCPU;x64</Platforms>
+  </PropertyGroup>
+  <Import Project="$(SolutionDir)PropsAndKey\Gisoft.Map.Common.props" />
+  <ItemGroup>
+    <ProjectReference Include="..\OpenSourceProjects\Gisoft.GeoAPI.CoordinateSystems\Gisoft.GeoAPI.CoordinateSystems.csproj" />
+    <ProjectReference Include="..\OpenSourceProjects\Gisoft.GeoAPI\Gisoft.GeoAPI.csproj" />
+    <ProjectReference Include="..\OpenSourceProjects\Gisoft.NetTopologySuite\Gisoft.NetTopologySuite.csproj" />
+    <ProjectReference Include="..\OpenSourceProjects\Gisoft.ProjNet\Gisoft.ProjNET.csproj" />
+    <ProjectReference Include="..\OpenSourceProjects\Gisoft.SharpMap\Gisoft.SharpMap.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Resources\ExceptionLanguageResources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ExceptionLanguageResources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Resources\ExceptionLanguageResources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ExceptionLanguageResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+</Project>

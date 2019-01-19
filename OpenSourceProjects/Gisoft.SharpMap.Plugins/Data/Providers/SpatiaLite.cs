@@ -821,6 +821,20 @@ namespace Gisoft.SharpMap.Data.Providers
             }
         }
 
+        public override IList<DataSetDescript> GetDataSetDescripts()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override IList<IBaseProvider> GetProviders()
+        {
+            throw new NotImplementedException();
+        }
+
+        protected override void InitMetaData()
+        {
+            throw new NotImplementedException();
+        }
     }
 
     /// <summary>

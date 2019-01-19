@@ -23,6 +23,7 @@ using System.Data;
 using System.Globalization;
 using System.IO;
 using System.Text;
+using Gisoft.SharpMap.Data.Attributes;
 using Gisoft.SharpMap.Utilities.Indexing;
 
 namespace Gisoft.SharpMap.Data.Providers
@@ -1082,6 +1083,71 @@ namespace Gisoft.SharpMap.Data.Providers
             {
                 for (var i = 0; i < _dbaseColumns.Length; i++)
                     result[i + offset] = GetValue(oid, i);
+            }
+
+            return result;
+        }
+
+        public AttributesHead GetAttributesHead()
+        {
+            if (!_headerIsParsed)
+            {
+                ParseDbfHeader(_filename);
+            }
+            AttributesHead result = new AttributesHead();
+            foreach(var item in _dbaseColumns)
+            {
+                FieldType fieldType;
+                switch (item.DataTypeCode)
+                {
+                    case TypeCode.Boolean:
+                        fieldType = FieldType.Bool;
+                        break;
+                    case TypeCode.Byte:
+                    case TypeCode.SByte:
+                        fieldType = FieldType.Varbin;
+                        break;
+                    case TypeCode.Char:
+                    case TypeCode.String:
+                        fieldType = FieldType.Char;
+                        break;
+                    case TypeCode.DateTime:
+                        fieldType = FieldType.DateTime;
+                        break;
+                    case TypeCode.Decimal:
+                        fieldType = FieldType.Decimal;
+                        break;
+                    case TypeCode.Double:
+                        fieldType = FieldType.Double;
+                        break;
+                    case TypeCode.Int16:
+                    case TypeCode.UInt16:
+                    case TypeCode.Int32:
+                    case TypeCode.UInt32:
+                        fieldType = FieldType.Int;
+                        break;
+                    case TypeCode.UInt64:
+                    case TypeCode.Int64:
+                        fieldType = FieldType.Long;
+                        break;
+                    case TypeCode.Single:
+                        fieldType = FieldType.Float;
+                        break;
+                    case TypeCode.DBNull:
+                    case TypeCode.Empty:
+                    default:
+                        fieldType = FieldType.Bool;
+                        break;
+
+                }
+                result.Add(new AttributesField()
+                {
+                    FieldType=fieldType,
+                    Name=item.ColumnName,
+                    Length=item.Length,
+                    DecimalLength=item.Decimals,
+                });
+
             }
 
             return result;

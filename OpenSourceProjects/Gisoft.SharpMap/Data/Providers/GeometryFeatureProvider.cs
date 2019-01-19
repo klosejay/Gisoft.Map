@@ -505,6 +505,8 @@ namespace Gisoft.SharpMap.Data.Providers
             }
         }
 
+        public DataSetDescript DataSetDescript { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+
         /// <summary>
         /// Disposes the object
         /// </summary>
@@ -514,6 +516,16 @@ namespace Gisoft.SharpMap.Data.Providers
             _features.Constraints.CollectionChanged -= HandleConstraintsCollectionChanged;
 
             _features.Dispose();
+        }
+
+        public IList<DataSetDescript> GetDataSetDescripts()
+        {
+            throw new NotImplementedException();
+        }
+
+        public IList<IBaseProvider> GetProviders()
+        {
+            throw new NotImplementedException();
         }
 
         #endregion

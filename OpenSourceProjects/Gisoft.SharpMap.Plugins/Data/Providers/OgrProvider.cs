@@ -36,6 +36,7 @@ using OgrFieldType = OSGeo.OGR.FieldType;
 using OsrSpatialReference = OSGeo.OSR.SpatialReference;
 using OgrGeometryType = OSGeo.OGR.wkbGeometryType;
 using Gisoft.SharpMap.Plugins.Data;
+using System.Collections.Generic;
 
 namespace Gisoft.SharpMap.Data.Providers
 {
@@ -54,7 +55,8 @@ namespace Gisoft.SharpMap.Data.Providers
 
         static Ogr()
         {
-            GdalConfiguration.ConfigureOgr();
+            
+           GdalConfiguration.ConfigureOgr();
         }
 
         #region Fields
@@ -283,7 +285,8 @@ namespace Gisoft.SharpMap.Data.Providers
             Filename = filename;
             ConnectionID = filename;
 
-            _ogrDataSource = OgrOgr.OpenShared(filename, 0);
+            //_ogrDataSource = OgrOgr.OpenShared(filename, 0);
+            _ogrDataSource = OgrOgr.Open(filename, 1);
             using (var ogrLayer = GetLayer(layerNum))
             {
                 OsrSpatialReference spatialReference = ogrLayer.GetSpatialRef();
@@ -1006,6 +1009,21 @@ namespace Gisoft.SharpMap.Data.Providers
                     return OgrFieldType.OFTWideStringList;
             }
             throw new NotSupportedException();
+        }
+
+        public override IList<DataSetDescript> GetDataSetDescripts()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override IList<IBaseProvider> GetProviders()
+        {
+            throw new NotImplementedException();
+        }
+
+        protected override void InitMetaData()
+        {
+            throw new NotImplementedException();
         }
         #endregion
 

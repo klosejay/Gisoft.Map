@@ -106,8 +106,13 @@ namespace Gisoft.SharpMap
                 Environment.SetEnvironmentVariable("PROJ_LIB", projSharePath);
                 Gdal.SetConfigOption("PROJ_LIB", projSharePath);
 
-                Gdal.SetConfigOption("GDAL_FILENAME_IS_UTF8", "NO");
-                Gdal.SetConfigOption("SHAPE_ENCODING", "");
+                //Gdal.SetConfigOption("GDAL_FILENAME_IS_UTF8", "NO");
+                //Gdal.SetConfigOption("SHAPE_ENCODING", "");
+
+                //// 为了支持中文路径，请添加下面这句代码
+                OSGeo.GDAL.Gdal.SetConfigOption("GDAL_FILENAME_IS_UTF8", "NO");
+                //// 为了支持shp属性表字段支持中文，请添加下面这句
+                OSGeo.GDAL.Gdal.SetConfigOption("SHAPE_ENCODING", "");
 
                 _usable = true;
             }
@@ -142,6 +147,7 @@ namespace Gisoft.SharpMap
 
             // Register drivers
             Ogr.RegisterAll();
+
             _configuredOgr = true;
 
             PrintDriversOgr();
